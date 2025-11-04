@@ -1,0 +1,228 @@
+﻿<Window x:Class="Viziofilm.RechercheAvancee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+        Title="VizioFilm" 
+        Style="{StaticResource ProprieteFenetre}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Label 
+            x:Name="Titre" 
+            Content="Recherche Avancée" 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelTitre}"
+        />
+
+            <Button 
+            x:Name="BtnSoumettre" 
+            Content="Soumettre" 
+            Grid.Row="10" 
+            Grid.Column="1" 
+            Style="{StaticResource BoutonJaune}"
+            
+        />
+
+            <Button 
+            x:Name="BtnRetour" 
+            Content="Retour" 
+            Grid.Row="11" 
+            Grid.Column="2" 
+            Style="{StaticResource BoutonBleu}"
+        />
+
+            <Label 
+            x:Name="TitreFilm" 
+            Content="Titre :" 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <TextBox 
+            x:Name="InputTitre" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+
+        />
+
+            <Label 
+            x:Name="Annee" 
+            Content="Année de parution :" 
+            Grid.Row="2" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <ComboBox
+            x:Name="InputAnnee" 
+            Grid.Row="2" 
+            Grid.Column="1" 
+            Style="{StaticResource ComboBox}">
+                <ComboBoxItem Content="2024"/>
+                <ComboBoxItem Content="2023"/>
+                <ComboBoxItem Content="2022"/>
+                <ComboBoxItem Content="2021"/>
+                <ComboBoxItem Content="2020"/>
+                <ComboBoxItem Content="2019"/>
+                <ComboBoxItem Content="2018"/>
+                <ComboBoxItem Content="2017"/>
+            </ComboBox>
+            <Label 
+            x:Name="Durée" 
+            Content="Durée (min):" 
+            Grid.Row="3" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <TextBox 
+            x:Name="InputDuree" 
+            Grid.Row="3" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+
+        />
+            <Label 
+            x:Name="Catégorie" 
+            Content="Catégorie :" 
+            Grid.Row="4" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <ComboBox 
+            x:Name="InputCategorie" 
+            Grid.Row="4" 
+            Grid.Column="1" 
+            Style="{StaticResource ComboBox}">
+                <ComboBoxItem Content="Action"/>
+                <ComboBoxItem Content="Comédie"/>
+                <ComboBoxItem Content="Drame"/>
+                <ComboBoxItem Content="Horreur"/>
+                <ComboBoxItem Content="Science-Fiction"/>
+                <ComboBoxItem Content="Documentaire"/>
+            </ComboBox>
+
+            <Label 
+            x:Name="Langue" 
+            Content="Langue :" 
+            Grid.Row="5" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <ComboBox 
+            x:Name="InputLangue" 
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Style="{StaticResource ComboBox}">
+
+                <ComboBoxItem Content="Anglais"/>
+                <ComboBoxItem Content="Français"/>
+                <ComboBoxItem Content="Espagnol"/>
+                <ComboBoxItem Content="Allemand"/>
+                <ComboBoxItem Content="Italien"/>
+            </ComboBox>
+
+            <Label 
+            x:Name="PrixMaximum" 
+            Content="Prix Maximum :" 
+            Grid.Row="6" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <TextBox 
+            x:Name="InputPrixMax" 
+            Grid.Row="6" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+        />
+
+            <Label 
+            x:Name="Disponibilite" 
+            Content="Disponiilité :" 
+            Grid.Row="7" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <CheckBox
+            x:Name="CheckBoxDisponibilite" 
+            Grid.Row="7" 
+            Grid.Column="1" 
+
+            Content="Disponible Seulement"
+            Style="{StaticResource LabelNormauxGauche}"
+            />
+
+            <Label 
+            x:Name="Distribution" 
+            Content="Distribution :" 
+            Grid.Row="8" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <TextBox 
+            x:Name="InputDistribution" 
+            Grid.Row="8" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+        />
+
+            <Label 
+            x:Name="MotClés" 
+            Content="Mot-Clés :" 
+            Grid.Row="9" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+            <TextBox 
+            x:Name="InputEmail" 
+            Grid.Row="9" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+        />
+
+            <Label 
+            x:Name="Erreur" 
+            Content="{Binding MessageErreur}" 
+            Grid.Row="2" 
+            Grid.Column="2" 
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Center"
+            FontSize="14"
+            Foreground="DarkRed"
+        />
+
+        </Grid>
+    </ScrollViewer>
+</Window>
+

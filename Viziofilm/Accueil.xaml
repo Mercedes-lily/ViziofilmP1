@@ -1,0 +1,98 @@
+﻿<Window x:Class="Viziofilm.Accueil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+        Title="VizioFilm"
+        Style="{StaticResource ProprieteFenetre}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Label 
+            x:Name="Titre" 
+            Content="VizioFilm" 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelTitre}"
+        />
+
+        <Button 
+            x:Name="BtnSAuthentifier" 
+            Content="S'authentifier" 
+            Grid.Row="3" 
+            Grid.Column="1" 
+            Style="{StaticResource BoutonJaune}" Click="BtnSAuthentifier_Click"
+        />
+
+        <Button 
+            x:Name="BtnInscription" 
+            Content="S'incrire" 
+            Grid.Row="4" 
+            Grid.Column="1" 
+            Style="{StaticResource BoutonJaune}" Click="BtnInscription_Click"
+            
+        />
+
+        <Button 
+            x:Name="BtnInvite" 
+            Content="Continuer en tant qu'invité" 
+            Grid.Row="4" 
+            Grid.Column="2" 
+            Style="{StaticResource BoutonBleu}"
+            FontSize="16" Click="BtnInvite_Click"
+        />
+
+        <Label 
+            x:Name="Identifiant" 
+            Content="Identifiant :" 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+        <TextBox 
+            x:Name="InputIdentifiant" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+        />
+
+        <Label 
+            x:Name="MotdePasse" 
+            Content="Mot de passe :" 
+            Grid.Row="2" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+
+        <PasswordBox
+            x:Name="InputMotDePasse" 
+            Grid.Row="2" 
+            Grid.Column="1" 
+            Style="{StaticResource TextBox}"
+    />
+
+        <Label
+            x:Name="Erreur" 
+            Content="**Mauvaise Combinaison**"
+            Grid.Row="1" 
+            Grid.Column="2" 
+            Style="{StaticResource LabelAlerte}"
+        />
+
+    </Grid>
+</Window>

@@ -1,0 +1,218 @@
+﻿<Window x:Class="Viziofilm.AbonnementMembre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+        Title="VizioFilm"
+        Style="{StaticResource ProprieteFenetre}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button
+                x:Name="BtnCatalogue" 
+                Content="Catalogue" 
+                Style="{StaticResource HeaderNeutre}"
+             />
+
+        <Button
+                x:Name="BtnProfil" 
+                Content="Profil" 
+                Grid.Column="1"
+                Style="{StaticResource HeaderNeutre}"
+/>
+        <Button
+                x:Name="BtnPorteFeuille" 
+                Content="ProteFeuille" 
+                Grid.Column="2"
+                Style="{StaticResource HeaderNeutre}"
+/>
+        <Button
+                x:Name="BtnAbonnement" 
+                Content="Abonnement" 
+                Grid.Column="3"
+                Style="{StaticResource HeaderSelectionnee}"
+             />
+        <Grid  Grid.ColumnSpan="4" Grid.Row="1">
+            <TabControl>
+                <TabItem Header="Mon Plan Actuel" Style="{StaticResource Onglet}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+                        <Grid Background="#C6E9F7">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label 
+                        x:Name="TitreAbonnement" 
+                        Content="Détails de votre abonnement" 
+                        Grid.Column="0" 
+                        Style="{StaticResource LabelTitre}"
+                    />
+                            <Label 
+                        x:Name="AbonnementActuelle" 
+                        Content="Abonnement Actuelle :" 
+                        Grid.Row="1" 
+                        Grid.Column="0" 
+                        Style="{StaticResource LabelNormauxDroite}"
+                    />
+                            <StackPanel 
+                        Orientation="Horizontal"
+                        Grid.Column="1" Grid.Row="1">
+                                <Label 
+                            x:Name="AbonnementActuelleOutput" 
+                            Content="Premium"
+                            Style="{StaticResource LabelNormauxGauche}"
+                        />
+                                <Label 
+                            x:Name="AbonnementActuelleSuspendu" 
+                            Content="(Suspendu)"
+                            Style="{StaticResource LabelAlerte}"
+                        />
+                            </StackPanel>
+                            <Label 
+                        x:Name="Expiration" 
+                        Content="Date de renouvellement :" 
+                        Grid.Row="2" 
+                        Grid.Column="0" 
+                        Style="{StaticResource LabelNormauxDroite}"
+                    />
+                            <Label 
+                        x:Name="DateRenouvellementOutput" 
+                        Content="2026-09-31"  
+                        Grid.Row="2" 
+                        Grid.Column="1" 
+                        Style="{StaticResource LabelNormauxGauche}"
+                    />
+                            <Label 
+                        x:Name="PrixMensuel" 
+                        Content="Prix Mensuel :" 
+                        Grid.Row="3" 
+                        Grid.Column="0" 
+                        Style="{StaticResource LabelNormauxDroite}"
+                    />
+                            <Label 
+                        x:Name="MontantMensuelOutput" 
+                        Content="9.99 $"  
+                        Grid.Row="3" 
+                        Grid.Column="1" 
+                        Style="{StaticResource LabelNormauxGauche}"
+                    />
+                            <Label 
+                        x:Name="NbAppareils" 
+                        Content="Nombre d'appareil permis :" 
+                        Grid.Row="4" 
+                        Grid.Column="0" 
+                        Style="{StaticResource LabelNormauxDroite}"
+                    />
+                            <Label 
+                        x:Name="AppareilsPermisOutput" 
+                        Content="3"  
+                        Grid.Row="4" 
+                        Grid.Column="1" 
+                        Style="{StaticResource LabelNormauxGauche}"
+                    />
+                            <Button 
+                        x:Name="BtnSupendreAbonnement" 
+                        Content="Suspendre" 
+                        Grid.Row="2" 
+                        Grid.Column="2"
+                        Style="{StaticResource BoutonJaune}"
+                    />
+                            <Button 
+                        x:Name="BtnReprendreAbonnement" 
+                        Content="Reprendre" 
+                        Grid.Row="3" 
+                        Grid.Column="2" 
+                        Style="{StaticResource BoutonJaune}"
+                    />
+                            <Button 
+                        x:Name="BtnAnnulerPlan" 
+                        Content="Annuler l'abonnement" 
+                        Grid.Row="5" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="4"
+                        Style="{StaticResource BoutonJaune}"
+                    />
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Changer mon Abonnement" Style="{StaticResource Onglet}" Height="26" VerticalAlignment="Bottom">
+                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Nom" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                            Text="{Binding Nom}" 
+                                            Margin="5"
+                                            FontSize="20"
+                                            HorizontalAlignment="Stretch"
+                                            />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Prix" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                            Text="{Binding Prix}" 
+                                            Margin="5"
+                                            FontSize="20"
+                                            HorizontalAlignment="Stretch"
+                                            />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Description" Width="300">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                            Text="{Binding Description}" 
+                                            Margin="5"
+                                            FontSize="20"
+                                            HorizontalAlignment="Stretch"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="200" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button 
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.ChoisirAbonnement }" 
+                                            CommandParameter="{Binding}" 
+                                            Content="Souscrire" 
+                                            Style="{StaticResource BoutonJaune}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>

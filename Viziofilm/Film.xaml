@@ -1,0 +1,264 @@
+﻿<Window x:Class="Viziofilm.Film"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+        Title="VizioFilm"
+        Style="{StaticResource ProprieteFenetre}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button
+                x:Name="BtnCatalogue" 
+                Content="Catalogue" 
+                Style="{StaticResource HeaderSelectionnee}"
+             />
+
+        <Button
+                x:Name="BtnProfil" 
+                Content="Profil" 
+                Grid.Column="1"
+                Style="{StaticResource HeaderNeutre}"
+/>
+        <Button
+                x:Name="BtnPorteFeuille" 
+                Content="ProteFeuille" 
+                Grid.Column="2"
+                Style="{StaticResource HeaderNeutre}"
+/>
+        <Button
+                x:Name="BtnAbonnement" 
+                Content="Abonnement" 
+                Grid.Column="3"
+                Style="{StaticResource HeaderNeutre}"
+             />
+
+        <ScrollViewer Grid.ColumnSpan="4" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Label 
+                x:Name="TitreFilm" 
+                Content="Le silence des agneaux" 
+                Grid.Row="0" 
+                Grid.Column="0"
+                Style="{StaticResource LabelTitre}"
+            />
+                <StackPanel  
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+            >
+                    <Image 
+                    x:Name="AfficheFilm" 
+                    Source="/affiche.png.png" 
+                    Width="200" 
+                    Height="300" 
+                    Margin="10"/>
+                    <Border
+                    BorderThickness="2"
+                    BorderBrush="Black"
+                    Background="LightGray"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                >
+                        <MediaElement
+                        Width="500" 
+                        Height="300" 
+                        Margin="10"
+                    />
+                    </Border>
+                </StackPanel>
+                <StackPanel  
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+            >
+                    <Label 
+                    x:Name="DureeFilm"
+                    Content="Durée : "
+                    Style="{StaticResource LabelNormauxDroite}"
+
+                />
+                    <Label 
+                    x:Name="DureeFilmOutput"
+                    Content="118 min"
+                    Style="{StaticResource LabelNormauxGauche}"
+
+                />
+                    <Label 
+                    x:Name="AnneeFilm"
+                    Content="Année : "
+                    Style="{StaticResource LabelNormauxDroite}"
+
+                />
+                    <Label 
+                    x:Name="AnneeFilmOutput"
+                    Content="1991"
+                    Style="{StaticResource LabelNormauxGauche}"
+
+                />
+                    <Label 
+                    x:Name="CoteFilm"
+                    Content="Cote : "
+                    Style="{StaticResource LabelNormauxDroite}"
+
+                />
+                    <Label 
+                    x:Name="CoteFilmOutput"
+                    Content="9.2"
+                    Style="{StaticResource LabelNormauxGauche}"
+
+                />
+                </StackPanel>
+                <StackPanel  
+                Grid.Row="3"
+                Grid.ColumnSpan="3"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+            >
+                    <Label 
+                x:Name="PrixFilm"
+                Content="Prix : "
+                Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                    <Label 
+                x:Name="PrixFilmOutput"
+                Content="3.99"
+                Style="{StaticResource LabelNormauxGauche}"
+
+            />
+                    <Label 
+                x:Name="DisponibiliteFilm"
+                Content="Disponibilité : "
+                Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                    <Label 
+                x:Name="DisponibiliteFilmOutput"
+                Content="Disponible"
+                Style="{StaticResource LabelNormauxGauche}"
+
+            />
+                </StackPanel>
+                <Label 
+                x:Name="SynopsisFilm"
+                Content="Synopsis : "
+                Grid.Row="4"
+                Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                <TextBlock 
+                x:Name="SynopsisFilmOutput"
+                Text="Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
+                Grid.Row="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                TextWrapping="Wrap"
+                Margin="5"
+                FontFamily="Footlight MT Light"
+                FontSize="20"
+                Foreground="#219EBC"/>
+                <Label 
+                x:Name="CategorieFilm"
+                Content="Catégories : "
+                Grid.Row="5"
+                                   Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                <Label 
+                x:Name="CategorieFilmOutput"
+                Content="Suspense, Horreur, Policier"
+                Grid.Row="5"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontFamily="Footlight MT Light"
+                FontSize="20"
+                Foreground="#219EBC"/>
+                <Label
+                x:Name="LangueFilm"
+                Content="Langue : "
+                Grid.Row="6"
+                                    Style="{StaticResource LabelNormauxDroite}"
+
+                />
+                <TextBlock
+                x:Name="LangueFilmOutput"
+                Text="Anglais, Français"
+                Grid.Row="6"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                TextWrapping="Wrap"
+                Margin="5"
+                FontFamily="Footlight MT Light"
+                FontSize="20"
+                Foreground="#219EBC"/>
+                <Label
+                x:Name="PersonnaliteFilm"
+                Content="Personnalité : "
+                Grid.Row="7"
+                                    Style="{StaticResource LabelNormauxDroite}"
+
+                />
+                <TextBlock
+                x:Name="PersonnaliteFilmOutput"
+                Text="Anthony Hopkins, Jodie Foster, Jack Crawford, Ted Levine, Anthony Heald"
+                Grid.Row="7"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                TextWrapping="Wrap"
+                Margin="5"
+                FontFamily="Footlight MT Light"
+                FontSize="20"
+                Foreground="#219EBC"
+            />
+                <Button 
+                x:Name="AbonnementVisionner"
+                Content="Visionner"
+                Grid.Row="9"
+                Grid.ColumnSpan="3"
+                Style="{StaticResource BoutonBleu}"
+            />
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

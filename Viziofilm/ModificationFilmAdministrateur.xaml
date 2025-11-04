@@ -1,0 +1,310 @@
+﻿<Window x:Class="Viziofilm.ModificationFilmAdministrateur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+                Title="VizioFilmAdministrateur"
+        Height="1000"
+        Style="{StaticResource ProprieteFenetre}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Background="#C6E9F7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label 
+                           x:Name="TitreModificationFilm" 
+                           Content="Détails du film" 
+                           Grid.Row="0" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelTitre}"/>
+            <Label 
+                           x:Name="Actuel"
+                           Content="Actuel" 
+                           Grid.Row="2" 
+                           Grid.Column="2"
+                           Style="{StaticResource LabelNormauxDroite}"
+                           HorizontalAlignment="Center"
+            />
+            <Label 
+                           x:Name="ModificationFilm"
+                           Content="Modification" 
+                           Grid.Row="2" 
+                           Grid.Column="3"
+                           Style="{StaticResource LabelNormauxDroite}"
+                           HorizontalAlignment="Center"
+            />
+            <Label 
+                x:Name="TitreFilm"
+                Content="Titre :" 
+                Grid.Row="3" 
+                Grid.Column="1"
+               Style="{StaticResource LabelNormauxDroite}"
+            />
+            <Label 
+                            x:Name="TitreOutput"
+                            Content="Le silence des Agneaux" 
+                            Grid.Row="3" 
+                            Grid.Column="2"
+                           Style="{StaticResource LabelNormauxGauche}"
+                           HorizontalAlignment="Center"
+            />
+            <TextBox 
+                    x:Name="InputTitre"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Style="{StaticResource TextBox}"
+                    />
+            <Label 
+                x:Name="Duree"
+                Content="Duree : " 
+                Grid.Row="4" 
+                Grid.Column="1"
+                 Style="{StaticResource LabelNormauxDroite}"
+            />
+            <Label 
+                x:Name="DureeFilmOutput"
+                Content="xxxxx" 
+                Grid.Row="4" 
+                Grid.Column="2"
+                 Style="{StaticResource LabelNormauxGauche}"
+HorizontalAlignment="Center"
+            />
+            <TextBox 
+                    x:Name="InputDureeFilm"
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Style="{StaticResource TextBox}"
+                    />
+
+            <Label 
+                x:Name="AnneeFilmAbonnement"
+                Content="Année : " 
+                Grid.Row="5" 
+                Grid.Column="1"
+                Style="{StaticResource LabelNormauxDroite}"
+            />
+            <Label 
+                x:Name="AnneeFilmOutput"
+                Content="XXX" 
+                Grid.Row="5" 
+                Grid.Column="2"
+                Style="{StaticResource LabelNormauxGauche}"
+                HorizontalAlignment="Center"
+                
+                />
+            <ComboBox
+                    x:Name="AnneeFilmInput" 
+                    Grid.Row="5" 
+                    Grid.Column="3" 
+                    Style="{StaticResource Liste}"
+                       >
+                <ComboBoxItem Content="1991"/>
+                <ComboBoxItem Content="1992"/>
+                <ComboBoxItem Content="1993"/>
+                <ComboBoxItem Content="1994"/>
+                <ComboBoxItem Content="1995"/>
+            </ComboBox>
+            <Label 
+    x:Name="PrixFilmAbonnement"
+    Content="Prix : " 
+    Grid.Row="6" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="PrixFilmOutput"
+    Content="XXX" 
+    Grid.Row="6" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <ComboBox
+        x:Name="PrixFilmInput" 
+        Grid.Row="6" 
+        Grid.Column="3" 
+        Style="{StaticResource Liste}"
+           >
+                <ComboBoxItem Content="1991"/>
+                <ComboBoxItem Content="1992"/>
+                <ComboBoxItem Content="1993"/>
+                <ComboBoxItem Content="1994"/>
+                <ComboBoxItem Content="1995"/>
+            </ComboBox>
+            <Label 
+    x:Name="SynopsisFilmAbonnement"
+    Content="Synopsis : " 
+    Grid.Row="7" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <TextBlock
+    x:Name="SynopsisFilmOutput"
+    Text="XXX" 
+    Grid.Row="7" 
+    Grid.Column="2"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="StatusFilmAbonnement"
+    Content="Status : " 
+    Grid.Row="14" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="StatusFilmOutput"
+    Content="Disponible" 
+    Grid.Row="14" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="MotCleFilmAbonnement"
+    Content="Mot-Cle : " 
+    Grid.Row="8" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="MotCleFilmOutput"
+    Content="XXX" 
+    Grid.Row="8" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="DistributionFilmAbonnement"
+    Content="Distribution : " 
+    Grid.Row="9" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="DistributionFilmOutput"
+    Content="XXX" 
+    Grid.Row="9" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="BandeAnnonceFilm"
+    Content="Bande-Annonce : " 
+    Grid.Row="12" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="BandeAnnonceFilmOutput"
+    Content="XXX" 
+    Grid.Row="12" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="CategorieFilm"
+    Content="categorie : " 
+    Grid.Row="10" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="CategorieFilmOutput"
+    Content="XXX" 
+    Grid.Row="10" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="LangueFilm"
+    Content="Langue : " 
+    Grid.Row="11" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="LangueFilmOutput"
+    Content="XXX" 
+    Grid.Row="11" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label 
+    x:Name="AfficheFilm"
+    Content="Affiche : " 
+    Grid.Row="13" 
+    Grid.Column="1"
+    Style="{StaticResource LabelNormauxDroite}"
+/>
+            <Label 
+    x:Name="AfficheFilmOutput"
+    Content="XXX" 
+    Grid.Row="13" 
+    Grid.Column="2"
+    Style="{StaticResource LabelNormauxGauche}"
+    HorizontalAlignment="Center"
+    
+    />
+            <Label
+         x:Name="Alerte"
+         Content="**Message d'alerte**"
+         Grid.Row="3"
+         Grid.Column="4"
+         Style="{StaticResource LabelAlerte}"/>
+
+            <Button 
+     x:Name="BtnAnnulerAbonnement" 
+     Content="Annuler" 
+     Grid.Row="15" 
+     Grid.Column="4" 
+     Style="{StaticResource BoutonBleu}"/>
+
+
+            <Button 
+                x:Name="BtnEnregristrerAbonnement" 
+                Content="Enregistrer" 
+                Grid.Row="15" 
+                Grid.Column="3" 
+                Style="{StaticResource BoutonJaune}"/>
+        </Grid>
+    </ScrollViewer>
+</Window>

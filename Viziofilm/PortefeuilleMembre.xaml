@@ -1,0 +1,372 @@
+﻿<Window x:Class="Viziofilm.PortefeuilleMembre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+        Title="VizioFilm"
+        Style="{StaticResource ProprieteFenetre}"
+    >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button
+                x:Name="BtnCatalogue" 
+                Content="Catalogue" 
+                Style="{StaticResource HeaderSelectionnee}"
+             />
+
+        <Button
+                x:Name="BtnProfil" 
+                Content="Profil" 
+                Grid.Column="1"
+                Style="{StaticResource HeaderNeutre}"
+/>
+        <Button
+                x:Name="BtnPorteFeuille" 
+                Content="Portefeuille" 
+                Grid.Column="2"
+                Style="{StaticResource HeaderNeutre}"
+/>
+        <Button
+                x:Name="BtnAbonnement" 
+                Content="Abonnement" 
+                Grid.Column="3"
+                Style="{StaticResource HeaderNeutre}"
+             />
+        <TabControl Grid.ColumnSpan="4" Grid.Row="1">
+                
+            <TabItem Header="Mon Solde Actuel" Style="{StaticResource Onglet}" Width="200" FontSize="16">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="4">
+                    <Grid Background="#C6E9F7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+
+                        </Grid.RowDefinitions>
+                        <Label 
+        x:Name="Solde" 
+        Content="Détails de votre solde actuel" 
+        Grid.Column="0"
+                Style="{StaticResource LabelTitre}"
+
+
+                        />
+                        <Button 
+        x:Name="BtnSoumettre" 
+        Content="Soumettre" 
+        Grid.Row="6" 
+        Grid.Column="1"
+                Style="{StaticResource BoutonJaune}"
+
+    />
+                        <Label 
+        x:Name="SoldeActuel" 
+        Content="Solde Actuel :" 
+        Grid.Row="1" 
+        Grid.Column="0" 
+                Style="{StaticResource LabelNormauxDroite}"
+
+    />
+
+
+                        <Label
+        x:Name="SoldeActuelOutput" 
+        Content="23$"
+        Grid.Row="1" 
+        Grid.Column="1" 
+                Style="{StaticResource LabelNormauxGauche}"
+
+    />
+
+                        <Label 
+        x:Name="ModifierFond" 
+        Content="Ajouter ou retirer des fonds" 
+        Grid.Row="2" 
+        Grid.Column="0"
+                Style="{StaticResource LabelTitre}"
+/>
+
+                        <Label 
+        x:Name="Montant" 
+        Content="Montant :" 
+        Grid.Row="3" 
+        Grid.Column="0" 
+                Style="{StaticResource LabelNormauxDroite}"
+
+    />
+
+                        <TextBox
+        x:Name="InputMontant" 
+        Grid.Row="3" 
+        Grid.Column="1" 
+                Style="{StaticResource TextBox}"
+
+    />
+
+                        <RadioButton 
+        x:Name="AjouterFond" 
+        Content="Ajouter des fonds" 
+        Grid.Row="4" 
+        Grid.Column="0" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Center"
+        FontSize="20"
+                        FontFamily="Footlight MT Light"
+        Foreground="#219EBC"
+        Grid.ColumnSpan="3"
+        Margin="230,0,0,0"/>
+
+                        <RadioButton
+        x:Name="RetirerFond"
+        Content="Retirer des fonds"
+        Grid.Row="4"
+        Grid.Column="0"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        FontSize="20"
+                        FontFamily="Footlight MT Light"
+                        
+        Foreground="#219EBC"
+        Grid.ColumnSpan="3"
+        Margin="405,0,0,0"/>
+
+                        <Label 
+        x:Name="Erreur"
+        Content="**Message d'erreur**"
+        Grid.Row="3" 
+        Grid.Column="3" 
+                Style="{StaticResource LabelAlerte}"
+    />
+
+                        <Label 
+        x:Name="Alerte" 
+        Content="**Attention des frais de services de 2.99$ seront retirés en cas de retrait**"
+        Grid.Row="5" 
+        Grid.Column="0" 
+        Grid.ColumnSpan="3"
+        HorizontalAlignment="Center"
+                Style="{StaticResource LabelAlerte}"
+
+    />
+
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+                <TabItem Header="Historique de Paiement" Width="200" FontSize="16" Style="{StaticResource Onglet}">
+                    <ListView ItemsSource="{Binding Transactions}" Background="#C6E9F7">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Date" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                    Text="{Binding Date}" 
+                                    Margin="5"
+                                    FontSize="16"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Type" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                    Text="{Binding Type}" 
+                                    Margin="5"
+                                    FontSize="16"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Montant" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                    Text="{Binding Montant}" 
+                                    Margin="5"
+                                    FontSize="16"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Description" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                    Text="{Binding Description}" 
+                                    Margin="5"
+                                    FontSize="16"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </TabItem>
+                <TabItem Header="Informations de Paiement" Width="200" FontSize="16" Style="{StaticResource Onglet}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="4">
+                    <Grid Background="#C6E9F7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label 
+                x:Name="TitreCarte" 
+                Content="Détails de votre carte" 
+                Grid.Row="0" 
+                Grid.Column="0" 
+        Style="{StaticResource LabelTitre}"
+/>
+                        <Label 
+                x:Name="CarteActuelle" 
+                Content="Carte Acutelle :" 
+                Grid.Row="1" 
+                Grid.Column="0" 
+        Style="{StaticResource LabelNormauxDroite}"
+/>
+                        <Label 
+                x:Name="NoCarteActuelleOutput" 
+                Content="XXXX XXXX XXXX X398" 
+                Grid.Row="1"
+                Grid.Column="1" 
+        Style="{StaticResource LabelNormauxGauche}"
+
+            />
+                        <Label 
+                x:Name="ExpirationCarte" 
+                Content="Exp:"
+                Grid.Row="1"
+                Grid.Column="3" 
+                Style="{StaticResource LabelNormauxGauche}"
+                Foreground="#023047"
+            />
+                        <Label 
+                x:Name="ExpirationOutput" 
+                Content="07/28"
+                Grid.Row="1"
+                Grid.Column="3" 
+                 
+        Style="{StaticResource LabelNormauxGauche}"
+                Margin="45,0,0,0"
+                />
+                        <Label 
+                x:Name="MiseAJour" 
+                Content="Pour mettre à jour votre carte :" 
+                Grid.Row="2"
+        Style="{StaticResource LabelTitre}"
+
+            />
+                        <Label 
+                x:Name="NomCarte" 
+                Content="Nom :"  
+                Grid.Row="3" 
+                Grid.Column="0" 
+        Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                        <TextBox
+                x:Name="InputNomCarte"
+                Grid.Row="3" 
+                Grid.Column="1" 
+        Style="{StaticResource TextBox}"
+
+            />
+                        <Label 
+                x:Name="MessageErreurCarteOutput"
+                Content="**Message d'erreur**"
+                Grid.Row="3" 
+                Grid.Column="2" 
+        Style="{StaticResource LabelAlerte}"
+
+            />
+
+                        <Label 
+                x:Name="NumeroCarte" 
+                Content="Numero :" 
+                Grid.Row="4" 
+                Grid.Column="0" 
+        Style="{StaticResource LabelNormauxDroite}"
+/>
+                        <TextBox
+                x:Name="InputNumeroCarte"
+                Grid.Row="4" 
+                Grid.Column="1" 
+        Style="{StaticResource TextBox}"
+
+            />
+                        <Label 
+                x:Name="DateExpirationCarte" 
+                Content="Expiration :"  
+                Grid.Row="5" 
+                Grid.Column="0" 
+        Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                        <TextBox
+                x:Name="InputExpirationCarte"
+                Grid.Row="5" 
+                Grid.Column="1" 
+        Style="{StaticResource TextBox}"
+
+            />
+                        <Label 
+                x:Name="CvcCarte" 
+                Content="CVC :" 
+                Grid.Row="6" 
+                Grid.Column="0" 
+        Style="{StaticResource LabelNormauxDroite}"
+
+            />
+                        <TextBox
+                x:Name="InputCvcCarte"
+                Grid.Row="6" 
+                Grid.Column="1" 
+        Style="{StaticResource TextBox}"
+
+            />
+                        <Button 
+                x:Name="BtnSoumettreCarte" 
+                Content="Soumettre" 
+                Grid.Row="7" 
+                Grid.Column="1" 
+        Style="{StaticResource BoutonJaune}"
+
+            />
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            </TabControl>
+        </Grid>
+</Window>

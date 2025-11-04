@@ -1,0 +1,98 @@
+﻿<Window x:Class="Viziofilm.PaiementUnitaire"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Viziofilm"
+        mc:Ignorable="d"
+        Title="VizioFilm"
+        Style="{StaticResource ProprieteFenetre}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label 
+            x:Name="Titre" 
+            Content="Paiement Unitaire" 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelTitre}"
+            />
+        <Label 
+            x:Name="SoldeActuel" 
+            Content="Solde Actuel:" 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Style="{StaticResource LabelNormauxDroite}"
+        />
+        <Label 
+            x:Name="SoldeActuelOutput" 
+            Content="5.20 $" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Style="{StaticResource LabelNormauxGauche}"
+
+        />
+        <Label 
+            x:Name="Carte"
+            Content="Montant pris sur la carte:"
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource LabelNormauxDroite}"
+
+        />
+        <TextBox
+            x:Name="CartePaiementInput"
+            Grid.Row="2"
+            Grid.Column="1"
+            Style="{StaticResource TextBox}"
+
+        />
+        <Label 
+             x:Name="Solde"
+             Content="Montant pris sur le solde:"
+             Grid.Row="3"
+             Grid.Column="0"
+            Style="{StaticResource LabelNormauxDroite}"
+
+        />
+        <TextBox
+             x:Name="SoldePaiementInput"
+             Grid.Row="3"
+             Grid.Column="1"
+             Style="{StaticResource TextBox}"
+        />
+        <Button 
+                x:Name="RetourFilmButton"
+                Content="Retour"
+                Grid.Row="10"
+                Grid.Column="2"
+                Style="{StaticResource BoutonBleu}"
+            />
+        <Button 
+                x:Name="SoumettreButton"
+                Content="Soumettre"
+                Grid.Row="4"
+                Grid.Column="1"
+                Style="{StaticResource BoutonJaune}"
+            />
+        <Label
+            x:Name="Alerte"
+            Content="**Message d'alerte**"
+            Grid.Row="2"
+            Grid.Column="2"
+            Style="{StaticResource LabelAlerte}"
+            />
+    </Grid>
+</Window>
