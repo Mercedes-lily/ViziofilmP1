@@ -23,5 +23,15 @@ namespace Viziofilm
 		{
 			InitializeComponent();
 		}
+
+		private void BtnRetour_Click(object sender, RoutedEventArgs e)
+		{
+			return;
+		}
+
+		private void BtnSoumettre_Click(object sender, RoutedEventArgs e)
+		{
+			return;
+		}
 	}
 }

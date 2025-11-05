@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="VizioFilm" 
         Style="{StaticResource ProprieteFenetre}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
@@ -42,7 +43,7 @@
             Content="Soumettre" 
             Grid.Row="10" 
             Grid.Column="1" 
-            Style="{StaticResource BoutonJaune}"
+            Style="{StaticResource BoutonJaune}" Click="BtnSoumettre_Click"
             
         />
 
@@ -51,7 +52,7 @@
             Content="Retour" 
             Grid.Row="11" 
             Grid.Column="2" 
-            Style="{StaticResource BoutonBleu}"
+            Style="{StaticResource BoutonBleu}" Click="BtnRetour_Click"
         />
 
             <Label 
@@ -82,7 +83,7 @@
             x:Name="InputAnnee" 
             Grid.Row="2" 
             Grid.Column="1" 
-            Style="{StaticResource ComboBox}">
+            Style="{StaticResource Liste}">
                 <ComboBoxItem Content="2024"/>
                 <ComboBoxItem Content="2023"/>
                 <ComboBoxItem Content="2022"/>
@@ -119,7 +120,7 @@
             x:Name="InputCategorie" 
             Grid.Row="4" 
             Grid.Column="1" 
-            Style="{StaticResource ComboBox}">
+            Style="{StaticResource Liste}">
                 <ComboBoxItem Content="Action"/>
                 <ComboBoxItem Content="Comédie"/>
                 <ComboBoxItem Content="Drame"/>
@@ -140,7 +141,7 @@
             x:Name="InputLangue" 
             Grid.Row="5" 
             Grid.Column="1" 
-            Style="{StaticResource ComboBox}">
+            Style="{StaticResource Liste}">
 
                 <ComboBoxItem Content="Anglais"/>
                 <ComboBoxItem Content="Français"/>
@@ -166,7 +167,7 @@
 
             <Label 
             x:Name="Disponibilite" 
-            Content="Disponiilité :" 
+            Content="Disponibilité :" 
             Grid.Row="7" 
             Grid.Column="0" 
             Style="{StaticResource LabelNormauxDroite}"
@@ -178,8 +179,11 @@
             Grid.Column="1" 
 
             Content="Disponible Seulement"
-            Style="{StaticResource LabelNormauxGauche}"
-            />
+            Style="{StaticResource CheckBox}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
 
             <Label 
             x:Name="Distribution" 

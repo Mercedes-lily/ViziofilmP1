@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
-        Title="VizioFilmAdmin"
+        Title="VizioFilmAdministrateur"
         Style="{StaticResource ProprieteFenetre}"
 
         >
@@ -26,7 +26,7 @@
         <Button
                 x:Name="BtnGererCatalogue" 
                 Content="Gestion du catalogue" 
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnGererCatalogue_Click"
              />
 
         <Button
@@ -39,7 +39,7 @@
                 x:Name="BtnGererAbonnement" 
                 Content="Gestion des abonnements" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnGererAbonnement_Click"
              />
         <Button
                 x:Name="BtnDeconexion" 
@@ -47,9 +47,9 @@
                 Grid.Column="3"
                 Style="{StaticResource HeaderSelectionnee}"
                 Foreground="#D16F00"
-                Background="#FFD100"
+                Background="#FFD100" Click="BtnDeconexion_Click"
             />
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="4" Grid.Row="1">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="4" Grid.Row="1">
 
             <Grid Grid.Row="1" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>

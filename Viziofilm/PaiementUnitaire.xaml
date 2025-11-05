@@ -78,14 +78,14 @@
                 Content="Retour"
                 Grid.Row="10"
                 Grid.Column="2"
-                Style="{StaticResource BoutonBleu}"
+                Style="{StaticResource BoutonBleu}" Click="RetourFilmButton_Click"
             />
         <Button 
                 x:Name="SoumettreButton"
                 Content="Soumettre"
                 Grid.Row="4"
                 Grid.Column="1"
-                Style="{StaticResource BoutonJaune}"
+                Style="{StaticResource BoutonJaune}" Click="SoumettreButton_Click"
             />
         <Label
             x:Name="Alerte"

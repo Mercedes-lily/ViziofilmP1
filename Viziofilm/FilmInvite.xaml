@@ -44,7 +44,7 @@
             >
                 <Image 
                     x:Name="AfficheFilm" 
-                    Source="/affiche.png.png" 
+                    Source="./affiche.png" 
                     Width="200" 
                     Height="300" 
                     Margin="10"/>
@@ -229,15 +229,15 @@
                 Content="Retour"
                 Grid.Row="10"
                 Grid.Column="2"
-                                    Style="{StaticResource BoutonBleu}"
+                                    Style="{StaticResource BoutonBleu}" Click="RetourFilmButton_Click"
 
             />
             <Button 
-                x:Name="AbonnementFilmButton"
-                Content="S'abonner"
+                x:Name="InscriptionFilmButton"
+                Content="S'inscrire"
                 Grid.Row="9"
                 Grid.ColumnSpan="3"
-                                    Style="{StaticResource BoutonBleu}"
+                                    Style="{StaticResource BoutonBleu}" Click="InscriptionFilmButton_Click"
 
             />
         </Grid>

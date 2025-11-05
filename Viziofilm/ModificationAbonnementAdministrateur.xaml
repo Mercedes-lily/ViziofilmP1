@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="VizioFilmAdministrateur"
         Style="{StaticResource ProprieteFenetre}">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="#C6E9F7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*"/>
@@ -132,7 +132,7 @@ HorizontalAlignment="Center"
      Content="Annuler" 
      Grid.Row="7" 
      Grid.Column="4" 
-     Style="{StaticResource BoutonBleu}"/>
+     Style="{StaticResource BoutonBleu}" Click="BtnAnnulerAbonnement_Click"/>
 
 
             <Button 
@@ -140,7 +140,7 @@ HorizontalAlignment="Center"
                 Content="Enregistrer" 
                 Grid.Row="7" 
                 Grid.Column="3" 
-                Style="{StaticResource BoutonJaune}"/>
+                Style="{StaticResource BoutonJaune}" Click="BtnEnregristrerAbonnement_Click"/>
         </Grid>
     </ScrollViewer>
 </Window>

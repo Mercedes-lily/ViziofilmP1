@@ -26,7 +26,17 @@ namespace Viziofilm
 
 		private void BtnInscription_Click(object sender, RoutedEventArgs e)
 		{
-
+			return; //Créer un utilisateur
 		}
+
+		private void BtnRetour_Click(object sender, RoutedEventArgs e)
+		{
+			Accueil nouvelleFenetre = new Accueil();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
+
 	}
 }

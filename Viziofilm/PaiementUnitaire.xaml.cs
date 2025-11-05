@@ -23,5 +23,19 @@ namespace Viziofilm
         {
             InitializeComponent();
         }
-    }
+
+		private void SoumettreButton_Click(object sender, RoutedEventArgs e)
+		{
+            return;
+		}
+
+		private void RetourFilmButton_Click(object sender, RoutedEventArgs e)
+		{
+			Film nouvelleFenetre = new Film();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
+	}
 }

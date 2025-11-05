@@ -30,19 +30,19 @@
                 x:Name="BtnProfil" 
                 Content="Profil" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnProfil_Click"
 />
         <Button
                 x:Name="BtnPorteFeuille" 
-                Content="ProteFeuille" 
+                Content="PorteFeuille" 
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnPorteFeuille_Click"
 />
         <Button
                 x:Name="BtnAbonnement" 
                 Content="Abonnement" 
                 Grid.Column="3"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnAbonnement_Click"
              />
 
         <ScrollViewer Grid.ColumnSpan="4" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
@@ -82,7 +82,7 @@
             >
                     <Image 
                     x:Name="AfficheFilm" 
-                    Source="/affiche.png.png" 
+                    Source="./affiche.png" 
                     Width="200" 
                     Height="300" 
                     Margin="10"/>
@@ -94,6 +94,7 @@
                     VerticalAlignment="Top"
                 >
                         <MediaElement
+                        x:Name="BandeAnnonce"
                         Width="500" 
                         Height="300" 
                         Margin="10"
@@ -256,7 +257,7 @@
                 Content="Visionner"
                 Grid.Row="9"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource BoutonBleu}"
+                Style="{StaticResource BoutonBleu}" Click="AbonnementVisionner_Click"
             />
             </Grid>
         </ScrollViewer>

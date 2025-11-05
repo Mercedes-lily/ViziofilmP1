@@ -23,5 +23,23 @@ namespace Viziofilm
 		{
 			InitializeComponent();
 		}
+
+		private void BtnEnregristrerFilm_Click(object sender, RoutedEventArgs e)
+		{
+			CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
+
+		private void BtnAnnulerFilm_Click(object sender, RoutedEventArgs e)
+		{
+			CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
 	}
 }

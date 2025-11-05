@@ -45,10 +45,16 @@ namespace Viziofilm
 
 		private void BtnSAuthentifier_Click(object sender, RoutedEventArgs e)
 		{
-			CatalogueMembre nouvelleFenetre = new CatalogueMembre();
-
-			nouvelleFenetre.Show();
-
+			if (InputIdentifiant.Text == "admin" && InputMotDePasse.Password == "admin")
+			{
+				CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
+				nouvelleFenetre.Show();
+			}
+			else
+			{
+				CatalogueMembre nouvelleFenetre = new CatalogueMembre();
+				nouvelleFenetre.Show();
+			}
 			this.Close();
 		}
 	}

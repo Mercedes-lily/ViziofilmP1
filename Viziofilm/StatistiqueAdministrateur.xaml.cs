@@ -23,5 +23,32 @@ namespace Viziofilm
         {
             InitializeComponent();
         }
-    }
+
+		private void BtnGererCatalogue_Click(object sender, RoutedEventArgs e)
+		{
+			CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
+
+		private void BtnGererAbonnement_Click(object sender, RoutedEventArgs e)
+		{
+			AbonnementAdministrateur nouvelleFenetre = new AbonnementAdministrateur();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
+
+		private void BtnDeconexion_Click(object sender, RoutedEventArgs e)
+		{
+			Accueil nouvelleFenetre = new Accueil();
+
+			nouvelleFenetre.Show();
+
+			this.Close();
+		}
+	}
 }

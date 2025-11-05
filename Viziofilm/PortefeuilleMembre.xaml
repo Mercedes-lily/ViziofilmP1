@@ -25,31 +25,31 @@
         <Button
                 x:Name="BtnCatalogue" 
                 Content="Catalogue" 
-                Style="{StaticResource HeaderSelectionnee}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnCatalogue_Click"
              />
 
         <Button
                 x:Name="BtnProfil" 
                 Content="Profil" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnProfil_Click"
 />
         <Button
                 x:Name="BtnPorteFeuille" 
                 Content="Portefeuille" 
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderSelectionnee}"
 />
         <Button
                 x:Name="BtnAbonnement" 
                 Content="Abonnement" 
                 Grid.Column="3"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnAbonnement_Click"
              />
         <TabControl Grid.ColumnSpan="4" Grid.Row="1">
                 
-            <TabItem Header="Mon Solde Actuel" Style="{StaticResource Onglet}" Width="200" FontSize="16">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="4">
+            <TabItem Header="Mon Solde Actuel" Style="{StaticResource Onglet}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Grid.ColumnSpan="4">
                     <Grid Background="#C6E9F7">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -79,7 +79,7 @@
         Content="Soumettre" 
         Grid.Row="6" 
         Grid.Column="1"
-                Style="{StaticResource BoutonJaune}"
+                Style="{StaticResource BoutonJaune}" Click="BtnSoumettre_Click"
 
     />
                         <Label 
@@ -175,7 +175,7 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
-                <TabItem Header="Historique de Paiement" Width="200" FontSize="16" Style="{StaticResource Onglet}">
+                <TabItem Header="Historique de Paiement" Style="{StaticResource Onglet}">
                     <ListView ItemsSource="{Binding Transactions}" Background="#C6E9F7">
                         <ListView.View>
                             <GridView>
@@ -223,8 +223,8 @@
                         </ListView.View>
                     </ListView>
                 </TabItem>
-                <TabItem Header="Informations de Paiement" Width="200" FontSize="16" Style="{StaticResource Onglet}">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="4">
+                <TabItem Header="Informations de Paiement" Style="{StaticResource Onglet}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Grid.ColumnSpan="4">
                     <Grid Background="#C6E9F7">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -361,7 +361,7 @@
                 Content="Soumettre" 
                 Grid.Row="7" 
                 Grid.Column="1" 
-        Style="{StaticResource BoutonJaune}"
+        Style="{StaticResource BoutonJaune}" Click="BtnSoumettreCarte_Click"
 
             />
                     </Grid>

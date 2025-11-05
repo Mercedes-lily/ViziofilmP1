@@ -23,20 +23,20 @@
         <Button
                 x:Name="BtnCatalogue" 
                 Content="Catalogue" 
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnCatalogue_Click"
              />
 
         <Button
                 x:Name="BtnProfil" 
                 Content="Profil" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnProfil_Click"
 />
         <Button
                 x:Name="BtnPorteFeuille" 
-                Content="ProteFeuille" 
+                Content="PorteFeuille" 
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnPorteFeuille_Click"
 />
         <Button
                 x:Name="BtnAbonnement" 
@@ -47,7 +47,7 @@
         <Grid  Grid.ColumnSpan="4" Grid.Row="1">
             <TabControl>
                 <TabItem Header="Mon Plan Actuel" Style="{StaticResource Onglet}">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
                         <Grid Background="#C6E9F7">
                             <Grid.ColumnDefinitions>
@@ -138,14 +138,14 @@
                         Content="Suspendre" 
                         Grid.Row="2" 
                         Grid.Column="2"
-                        Style="{StaticResource BoutonJaune}"
+                        Style="{StaticResource BoutonJaune}" Click="BtnSupendreAbonnement_Click"
                     />
                             <Button 
                         x:Name="BtnReprendreAbonnement" 
                         Content="Reprendre" 
                         Grid.Row="3" 
                         Grid.Column="2" 
-                        Style="{StaticResource BoutonJaune}"
+                        Style="{StaticResource BoutonJaune}" Click="BtnReprendreAbonnement_Click"
                     />
                             <Button 
                         x:Name="BtnAnnulerPlan" 
@@ -153,12 +153,12 @@
                         Grid.Row="5" 
                         Grid.Column="0" 
                         Grid.ColumnSpan="4"
-                        Style="{StaticResource BoutonJaune}"
+                        Style="{StaticResource BoutonJaune}" Click="BtnAnnulerPlan_Click"
                     />
                         </Grid>
                     </ScrollViewer>
                 </TabItem>
-                <TabItem Header="Changer mon Abonnement" Style="{StaticResource Onglet}" Height="26" VerticalAlignment="Bottom">
+                <TabItem Header="Changer mon Abonnement" Style="{StaticResource Onglet}" >
                     <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
                         <ListView.View>
                             <GridView>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
-        Title="VizioFilm"
+        Title="VizioFilmAdministrateur"
         Style="{StaticResource ProprieteFenetre}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,6 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
 
         </Grid.RowDefinitions>
 
@@ -26,6 +27,7 @@
                 x:Name="BtnGererCatalogue" 
                 Content="Gestion du catalogue" 
                 Style="{StaticResource HeaderNeutre}"
+                Click="BtnGererCatalogue_Click"
              />
 
         <Button
@@ -33,6 +35,7 @@
                 Content="Voir les statistiques" 
                 Grid.Column="2"
                 Style="{StaticResource HeaderNeutre}"
+                Click="BtnStatistiques_Click"
 />
         <Button
                 x:Name="BtnGererAbonnement" 
@@ -47,137 +50,71 @@
                 Style="{StaticResource HeaderSelectionnee}"
                 Foreground="#D16F00"
                 Background="#FFD100"
+            Click="BtnDeconexion_Click"
             />
-        <TabControl Grid.ColumnSpan="4" Grid.Row="1">
-            <TabItem Header="Gestion des films" Style="{StaticResource Onglet}">
-                <Grid Background="#C6E9F7">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="40"/>
-                    </Grid.RowDefinitions>
-                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Titre" Width="380">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock 
-                                            Text="{Binding Titre}" 
-                                            Margin="5"
-                                            FontSize="20"
-                                            HorizontalAlignment="Stretch"
-                                            />
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Header="Année" Width="120">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock 
-                                            Text="{Binding Annee}" 
-                                            Margin="5"
-                                            FontSize="20"
-                                            HorizontalAlignment="Stretch"
-                                            />
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Header="Disponible" Width="120">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock 
-                                            Text="{Binding Disponibilite}" 
-                                            Margin="5"
-                                            FontSize="20"
-                                            HorizontalAlignment="Stretch"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Width="80" Header="Modifier">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button 
-                                                Content="✏️" 
-                                                Margin="5"
-                                                FontSize="20"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Width="80" Header="Supprimer">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button 
-                                                 Content="🗑️" 
-                                                 Margin="5"
-                                                 FontSize="20"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <Button 
-                        Grid.Row="1"
-                        Content="Ajouter"
-                        Style="{StaticResource BoutonJaune}"
+        <ListView Grid.ColumnSpan="4" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" Width="390">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                            Text="{Binding Nom}" 
+                            Margin="5"
+                            FontSize="20"
                         />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Gestion des categories" Style="{StaticResource Onglet}" Height="26" VerticalAlignment="Bottom">
-                <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Nom" Width="200">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock 
-                                    Text="{Binding Nom}" 
-                                    Margin="5"
-                                    FontSize="20"
-                                    HorizontalAlignment="Stretch"
-                                    />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Prix" Width="100">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock 
-                                    Text="{Binding Prix}" 
-                                    Margin="5"
-                                    FontSize="20"
-                                    HorizontalAlignment="Stretch"
-                                    />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Description" Width="300">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock 
-                                    Text="{Binding Description}" 
-                                    Margin="5"
-                                    FontSize="20"
-                                    HorizontalAlignment="Stretch"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Width="200" >
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button 
-                                    Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.ChoisirAbonnement }" 
-                                    CommandParameter="{Binding}" 
-                                    Content="Souscrire" 
-                                    Style="{StaticResource BoutonJaune}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </TabItem>
-        </TabControl>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Prix" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock 
+                            Text="{Binding Prix}" 
+                            Margin="5"
+                            FontSize="20"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Nombre d'appareil" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox 
+                            Text="{Binding NBAppareil}" 
+                            Margin="5"
+                            FontSize="20"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="80" Header="Modifier">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button 
+                                Content="✏️" 
+                                Margin="5"
+                                FontSize="20"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="80" Header="Supprimer">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button 
+                                     Content="🗑️" 
+                                     Margin="5"
+                                     FontSize="20"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button
+                x:Name="BtnAjouter" 
+                Content="Ajouter" 
+                Grid.Row="2"
+                Grid.ColumnSpan="4"
+                Style="{StaticResource BoutonJaune}" Click="BtnAjouter_Click"
+             />
     </Grid>
 </Window>
-

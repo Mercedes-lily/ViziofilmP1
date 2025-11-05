@@ -42,7 +42,7 @@
             Content="Soumettre" 
             Grid.Row="10" 
             Grid.Column="1" 
-            Style="{StaticResource BoutonJaune}"
+            Style="{StaticResource BoutonJaune}" Click="BtnInscription_Click"
             
         />
 
@@ -51,7 +51,7 @@
             Content="Retour" 
             Grid.Row="11" 
             Grid.Column="2" 
-            Style="{StaticResource BoutonBleu}"
+            Style="{StaticResource BoutonBleu}" Click="BtnRetour_Click"
         />
 
             <Label 

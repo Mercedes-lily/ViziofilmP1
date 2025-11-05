@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
         Title="VizioFilm"
+        WindowStartupLocation="CenterScreen"
         Style="{StaticResource ProprieteFenetre}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,23 +31,23 @@
                 x:Name="BtnProfil" 
                 Content="Profil" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnProfil_Click"
 />
         <Button
                 x:Name="BtnPorteFeuille" 
-                Content="ProteFeuille" 
+                Content="PorteFeuille" 
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnPorteFeuille_Click"
 />
             <Button
                 x:Name="BtnAbonnement" 
                 Content="Abonnement" 
                 Grid.Column="3"
-                Style="{StaticResource HeaderNeutre}"
+                Style="{StaticResource HeaderNeutre}" Click="BtnAbonnement_Click"
              />
 
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="4">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Grid.ColumnSpan="4">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -81,7 +82,7 @@
                 Content="Déconnexion" 
                 Grid.Column="2"
                 Grid.Row="0"
-                Style="{StaticResource PetitBoutonJaune}"
+                Style="{StaticResource PetitBoutonJaune}" Click="BtnDeconnexion_Click"
     />
             <Label
                 x:Name="RechercheCatalogue" 
@@ -100,14 +101,14 @@
                 Content="Rechercher" 
                 Grid.Column="2"
                 Grid.Row="1"
-                Style="{StaticResource BoutonJaune}"
+                Style="{StaticResource BoutonJaune}" Click="BtnRechercheCatalogue_Click"
             />
             <Button
                 x:Name="BtnRechercheAvanceeCatalogue" 
                 Content="Recherche Avancée" 
                 Grid.Column="1"
                 Grid.Row="2"
-                Style="{StaticResource BoutonJaune}"
+                Style="{StaticResource BoutonJaune}" Click="BtnRechercheAvanceeCatalogue_Click"
              />
             <ItemsControl 
                 ItemsSource="{Binding ListeFilms}"
