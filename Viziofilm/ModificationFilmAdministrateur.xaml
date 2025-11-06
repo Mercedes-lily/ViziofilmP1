@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Viziofilm"
+        Height="1000"
         mc:Ignorable="d"
                 Title="VizioFilmAdministrateur"
-        Height="1000"
         Style="{StaticResource ProprieteFenetre}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="#C6E9F7">
@@ -88,7 +88,7 @@
             />
             <Label 
                 x:Name="DureeFilmOutput"
-                Content="xxxxx" 
+                Content="118 min" 
                 Grid.Row="4" 
                 Grid.Column="2"
                  Style="{StaticResource LabelNormauxGauche}"
@@ -110,7 +110,7 @@ HorizontalAlignment="Center"
             />
             <Label 
                 x:Name="AnneeFilmOutput"
-                Content="XXX" 
+                Content="1991" 
                 Grid.Row="5" 
                 Grid.Column="2"
                 Style="{StaticResource LabelNormauxGauche}"
@@ -128,6 +128,12 @@ HorizontalAlignment="Center"
                 <ComboBoxItem Content="1993"/>
                 <ComboBoxItem Content="1994"/>
                 <ComboBoxItem Content="1995"/>
+                <ComboBoxItem Content="1996"/>
+                <ComboBoxItem Content="1997"/>
+                <ComboBoxItem Content="1998"/>
+                <ComboBoxItem Content="1999"/>
+                <ComboBoxItem Content="2000"/>
+                <ComboBoxItem Content="2001"/>
             </ComboBox>
             <Label 
     x:Name="PrixFilmAbonnement"
@@ -138,7 +144,7 @@ HorizontalAlignment="Center"
 />
             <Label 
     x:Name="PrixFilmOutput"
-    Content="XXX" 
+    Content="3.99" 
     Grid.Row="6" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
@@ -151,34 +157,40 @@ HorizontalAlignment="Center"
         Grid.Column="3" 
         Style="{StaticResource Liste}"
            >
-                <ComboBoxItem Content="1991"/>
-                <ComboBoxItem Content="1992"/>
-                <ComboBoxItem Content="1993"/>
-                <ComboBoxItem Content="1994"/>
-                <ComboBoxItem Content="1995"/>
+                <ComboBoxItem Content="2.99"/>
+                <ComboBoxItem Content="3.99"/>
+                <ComboBoxItem Content="4.99"/>
             </ComboBox>
             <Label 
-    x:Name="SynopsisFilmAbonnement"
-    Content="Synopsis : " 
-    Grid.Row="7" 
-    Grid.Column="1"
-    Style="{StaticResource LabelNormauxDroite}"
-/>
-            <TextBlock
-    x:Name="SynopsisFilmOutput"
-    Text="XXX" 
-    Grid.Row="7" 
-    Grid.Column="2"
-    HorizontalAlignment="Center"
-    
-    />
-            <Label 
-    x:Name="StatusFilmAbonnement"
-    Content="Status : " 
-    Grid.Row="14" 
-    Grid.Column="1"
-    Style="{StaticResource LabelNormauxDroite}"
-/>
+                x:Name="SynopsisFilmAbonnement"
+                Content="Synopsis : " 
+                Grid.Row="7" 
+                Grid.Column="1"
+                Style="{StaticResource LabelNormauxDroite}"
+            />
+            <ScrollViewer
+                Grid.Row="7"
+                Grid.Column="2"
+                Height="150"
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Disabled">
+                <TextBlock 
+                    x:Name="SynopsisFilmOutput"
+                    Text="Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
+                    
+                    TextWrapping="Wrap"
+                    Margin="5"
+                    FontFamily="Footlight MT Light"
+                    FontSize="20"
+                    Foreground="#219EBC"/>
+                </ScrollViewer>
+                <Label 
+                x:Name="StatusFilmAbonnement"
+                Content="Status : " 
+                Grid.Row="14" 
+                Grid.Column="1"
+                Style="{StaticResource LabelNormauxDroite}"
+            />
             <Label 
     x:Name="StatusFilmOutput"
     Content="Disponible" 
@@ -188,22 +200,38 @@ HorizontalAlignment="Center"
     HorizontalAlignment="Center"
     
     />
+            <ComboBox
+x:Name="StatusFilmInput" 
+Grid.Row="14" 
+Grid.Column="3" 
+Style="{StaticResource Liste}"
+   >
+                <ComboBoxItem Content="Disponible"/>
+                <ComboBoxItem Content="Indisponible"/>
+
+            </ComboBox>
             <Label 
     x:Name="MotCleFilmAbonnement"
-    Content="Mot-Cle : " 
+    Content="Mot-Clé : " 
     Grid.Row="8" 
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
 />
             <Label 
     x:Name="MotCleFilmOutput"
-    Content="XXX" 
+    Content="Tueur en série, Enquête" 
     Grid.Row="8" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
     HorizontalAlignment="Center"
     
     />
+            <TextBox 
+        x:Name="InputMotCle"
+        Grid.Row="8"
+        Grid.Column="3"
+        Style="{StaticResource TextBox}"
+        />
             <Label 
     x:Name="DistributionFilmAbonnement"
     Content="Distribution : " 
@@ -238,7 +266,7 @@ HorizontalAlignment="Center"
     />
             <Label 
     x:Name="CategorieFilm"
-    Content="categorie : " 
+    Content="Catégorie : " 
     Grid.Row="10" 
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
@@ -261,7 +289,7 @@ HorizontalAlignment="Center"
 />
             <Label 
     x:Name="LangueFilmOutput"
-    Content="XXX" 
+    Content="Français" 
     Grid.Row="11" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"

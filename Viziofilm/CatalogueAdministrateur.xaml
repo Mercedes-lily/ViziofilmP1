@@ -51,15 +51,11 @@
         <TabControl Grid.ColumnSpan="4" Grid.Row="1">
             <TabItem Header="Gestion des films" Style="{StaticResource Onglet}">
                 <Grid Background="#C6E9F7">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="26*"/>
-                        <ColumnDefinition Width="371*"/>
-                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7" Grid.ColumnSpan="2">
+                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Titre" Width="380">
@@ -123,63 +119,63 @@
                     <Button 
                         Grid.Row="1"
                         Content="Ajouter"
-                        Style="{StaticResource BoutonJaune}" Click="Button_Click" Grid.ColumnSpan="2" Margin="5,5,5,5"
+                        Style="{StaticResource BoutonJaune}" Click="Button_Click" Grid.ColumnSpan="3" Margin="5,5,5,5"
                         />
                 </Grid>
             </TabItem>
-            <TabItem Header="Gestion des categories" Style="{StaticResource Onglet}" >
-                <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Nom" Width="200">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock 
-                                    Text="{Binding Nom}" 
-                                    Margin="5"
-                                    FontSize="20"
-                                    HorizontalAlignment="Stretch"
-                                    />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Prix" Width="100">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock 
-                                    Text="{Binding Prix}" 
-                                    Margin="5"
-                                    FontSize="20"
-                                    HorizontalAlignment="Stretch"
-                                    />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Description" Width="300">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock 
-                                    Text="{Binding Description}" 
-                                    Margin="5"
-                                    FontSize="20"
-                                    HorizontalAlignment="Stretch"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Width="200" >
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button 
-                                    Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.ChoisirAbonnement }" 
-                                    CommandParameter="{Binding}" 
-                                    Content="Souscrire" 
-                                    Style="{StaticResource BoutonJaune}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+            <TabItem Header="Gestion des categories" Style="{StaticResource Onglet}" Grid.ColumnSpan="4" Grid.Row="1" >
+                <Grid Background="#C6E9F7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Nom" Width="200">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                        Text="{Binding Nom}" 
+                                        Margin="5"
+                                        FontSize="20"
+                                        HorizontalAlignment="Stretch"
+                                        />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Nombre de film" Width="300">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                        Text="{Binding NombreDeFilm}" 
+                                        Margin="5"
+                                        FontSize="20"
+                                        HorizontalAlignment="Stretch"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Supprimer" Width="300">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock 
+                                                Text="{Binding Supprimer}" 
+                                                Margin="5"
+                                                FontSize="20"
+                                                HorizontalAlignment="Stretch"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button 
+                        x:Name="BtnAjouterCategorie"
+                        Grid.Row="1"
+                        Content="Ajouter"
+                        Style="{StaticResource BoutonJaune}" Click="Button_Click" Grid.ColumnSpan="3" Margin="5,5,5,5"
+                        />
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
