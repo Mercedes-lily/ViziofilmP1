@@ -11,12 +11,11 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="#C6E9F7">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -65,14 +64,20 @@
                 Grid.Column="1"
                Style="{StaticResource LabelNormauxDroite}"
             />
-            <Label 
-                            x:Name="TitreOutput"
-                            Content="Le silence des Agneaux" 
-                            Grid.Row="3" 
-                            Grid.Column="2"
-                           Style="{StaticResource LabelNormauxGauche}"
-                           HorizontalAlignment="Center"
-            />
+            <ScrollViewer
+                Grid.Row="3"
+                Grid.Column="2"
+                VerticalScrollBarVisibility="Disabled"
+                HorizontalScrollBarVisibility="Visible">
+                <TextBlock 
+                    x:Name="TitreOutput"
+                    Text="Le silence des Agneaux"
+                    TextWrapping="Wrap"
+                    Margin="5"
+                    FontFamily="Footlight MT Light"
+                    FontSize="20"
+                    Foreground="#219EBC"/>
+            </ScrollViewer>
             <TextBox 
                     x:Name="InputTitre"
                     Grid.Row="3"
@@ -115,7 +120,6 @@ HorizontalAlignment="Center"
                 Grid.Column="2"
                 Style="{StaticResource LabelNormauxGauche}"
                 HorizontalAlignment="Center"
-                
                 />
             <ComboBox
                     x:Name="AnneeFilmInput" 
@@ -149,7 +153,6 @@ HorizontalAlignment="Center"
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
     HorizontalAlignment="Center"
-    
     />
             <ComboBox
         x:Name="PrixFilmInput" 
@@ -166,18 +169,28 @@ HorizontalAlignment="Center"
                 Content="Synopsis : " 
                 Grid.Row="7" 
                 Grid.Column="1"
+                VerticalAlignment="Top"
                 Style="{StaticResource LabelNormauxDroite}"
             />
+            <TextBox
+                x:Name="SynopsisInput"
+                Height="100"
+                MaxHeight="150"
+                TextWrapping="Wrap"
+                Grid.Row="7"
+                Grid.Column="3"
+                VerticalScrollBarVisibility="Auto"
+                Style="{StaticResource TextBox}"
+                />
             <ScrollViewer
                 Grid.Row="7"
                 Grid.Column="2"
-                Height="150"
+                Height="100"
                 VerticalScrollBarVisibility="Auto"
                 HorizontalScrollBarVisibility="Disabled">
                 <TextBlock 
                     x:Name="SynopsisFilmOutput"
                     Text="Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
-                    
                     TextWrapping="Wrap"
                     Margin="5"
                     FontFamily="Footlight MT Light"
@@ -217,15 +230,20 @@ Style="{StaticResource Liste}"
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
 />
-            <Label 
-    x:Name="MotCleFilmOutput"
-    Content="Tueur en série, Enquête" 
-    Grid.Row="8" 
+            <ScrollViewer
+    Grid.Row="8"
     Grid.Column="2"
-    Style="{StaticResource LabelNormauxGauche}"
-    HorizontalAlignment="Center"
-    
-    />
+    VerticalScrollBarVisibility="Disabled"
+    HorizontalScrollBarVisibility="Visible">
+                <TextBlock 
+        x:Name="MotCleFilmOutput"
+        Text="Tueur en série, Enquête"
+        TextWrapping="Wrap"
+        Margin="5"
+        FontFamily="Footlight MT Light"
+        FontSize="20"
+        Foreground="#219EBC"/>
+            </ScrollViewer>
             <TextBox 
         x:Name="InputMotCle"
         Grid.Row="8"
@@ -239,15 +257,31 @@ Style="{StaticResource Liste}"
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
 />
-            <Label 
-    x:Name="DistributionFilmOutput"
-    Content="XXX" 
-    Grid.Row="9" 
-    Grid.Column="2"
-    Style="{StaticResource LabelNormauxGauche}"
-    HorizontalAlignment="Center"
-    
-    />
+            <ScrollViewer
+                Grid.Row="9"
+                Grid.Column="2"
+                Height="100"
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Disabled">
+                <TextBlock 
+                    x:Name="DistributionFilmOutput"
+                    Text="Anthony Hopkins, Jodie Foster, Jack Crawford, Ted Levine, Anthony Heald"
+                    TextWrapping="Wrap"
+                    Margin="5"
+                    FontFamily="Footlight MT Light"
+                    FontSize="20"
+                    Foreground="#219EBC"/>
+            </ScrollViewer>
+            <TextBox
+                x:Name="DistributionInput"
+                Height="100"
+                MaxHeight="150"
+                TextWrapping="Wrap"
+                Grid.Row="9"
+                Grid.Column="3"
+                VerticalScrollBarVisibility="Auto"
+                Style="{StaticResource TextBox}"
+                />
             <Label 
     x:Name="BandeAnnonceFilm"
     Content="Bande-Annonce : " 
@@ -255,15 +289,27 @@ Style="{StaticResource Liste}"
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
 />
-            <Label 
-    x:Name="BandeAnnonceFilmOutput"
-    Content="XXX" 
-    Grid.Row="12" 
-    Grid.Column="2"
-    Style="{StaticResource LabelNormauxGauche}"
-    HorizontalAlignment="Center"
-    
-    />
+            <ScrollViewer
+                Grid.Row="12"
+                Grid.Column="2"
+                VerticalScrollBarVisibility="Disabled"
+                HorizontalScrollBarVisibility="Auto">
+                <TextBlock 
+                    x:Name="BandeAnnonceFilmOutput"
+                    Text="LeSilenceDesAgneauxBandeAnnonce.mp4"
+                    TextWrapping="Wrap"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    FontFamily="Footlight MT Light"
+                    FontSize="20"
+                    Foreground="#219EBC"/>
+            </ScrollViewer>
+            <TextBox 
+                x:Name="InputBandeAnnonceFilm"
+                Grid.Row="12"
+                Grid.Column="3"
+                Style="{StaticResource TextBox}"
+                />
             <Label 
     x:Name="CategorieFilm"
     Content="Catégorie : " 
@@ -271,15 +317,27 @@ Style="{StaticResource Liste}"
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
 />
-            <Label 
-    x:Name="CategorieFilmOutput"
-    Content="XXX" 
-    Grid.Row="10" 
+            <ScrollViewer
+    Grid.Row="10"
     Grid.Column="2"
-    Style="{StaticResource LabelNormauxGauche}"
-    HorizontalAlignment="Center"
-    
-    />
+    VerticalScrollBarVisibility="Auto"
+    HorizontalScrollBarVisibility="Disabled">
+                <TextBlock 
+        x:Name="CategorieFilmOutput"
+        Text="Suspense, Horreur, Policier"
+        TextWrapping="Wrap"
+        Margin="5"
+        HorizontalAlignment="Center"
+        FontFamily="Footlight MT Light"
+        FontSize="20"
+        Foreground="#219EBC"/>
+            </ScrollViewer>
+            <TextBox 
+            x:Name="InputCategorie"
+            Grid.Row="10"
+            Grid.Column="3"
+            Style="{StaticResource TextBox}"
+            />
             <Label 
     x:Name="LangueFilm"
     Content="Langue : " 
@@ -296,6 +354,12 @@ Style="{StaticResource Liste}"
     HorizontalAlignment="Center"
     
     />
+            <TextBox 
+        x:Name="InputLangue"
+        Grid.Row="11"
+        Grid.Column="3"
+        Style="{StaticResource TextBox}"
+        />
             <Label 
     x:Name="AfficheFilm"
     Content="Affiche : " 
@@ -303,14 +367,26 @@ Style="{StaticResource Liste}"
     Grid.Column="1"
     Style="{StaticResource LabelNormauxDroite}"
 />
-            <Label 
-    x:Name="AfficheFilmOutput"
-    Content="XXX" 
-    Grid.Row="13" 
-    Grid.Column="2"
-    Style="{StaticResource LabelNormauxGauche}"
-    HorizontalAlignment="Center"
-    
+            <ScrollViewer
+                Grid.Row="13"
+                Grid.Column="2"
+                VerticalScrollBarVisibility="Disabled"
+                HorizontalScrollBarVisibility="Auto">
+                <TextBlock 
+                    x:Name="AfficheFilmOutput"
+                    Text="LeSilenceDesAgneauxAffiche.png"
+                    TextWrapping="Wrap"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    FontFamily="Footlight MT Light"
+                    FontSize="20"
+                    Foreground="#219EBC"/>
+            </ScrollViewer>
+            <TextBox 
+    x:Name="AfficheFilmInput"
+    Grid.Row="13"
+    Grid.Column="3"
+    Style="{StaticResource TextBox}"
     />
             <Label
          x:Name="Alerte"
