@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
         Title="VizioFilm"
+        Height="1000"
         Style="{StaticResource ProprieteFenetre}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid>
@@ -236,8 +237,8 @@
                 x:Name="InscriptionFilmButton"
                 Content="S'inscrire"
                 Grid.Row="9"
-                Grid.ColumnSpan="3"
-                                    Style="{StaticResource BoutonBleu}" Click="InscriptionFilmButton_Click"
+                Grid.Column="1"
+                                    Style="{StaticResource BoutonJaune}" Click="InscriptionFilmButton_Click"
 
             />
         </Grid>

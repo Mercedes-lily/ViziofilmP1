@@ -52,7 +52,7 @@
                 Background="#FFD100"
             Click="BtnDeconexion_Click"
             />
-        <ListView Grid.ColumnSpan="4" Grid.Row="1">
+        <ListView Grid.ColumnSpan="4" Grid.Row="1" FontWeight="Bold">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom" Width="390">

@@ -257,8 +257,8 @@
                 x:Name="AbonnementVisionner"
                 Content="Visionner"
                 Grid.Row="9"
-                Grid.ColumnSpan="3"
-                Style="{StaticResource BoutonBleu}" Click="AbonnementVisionner_Click"
+                Grid.Column="1"
+                Style="{StaticResource BoutonJaune}" Click="AbonnementVisionner_Click"
             />
             </Grid>
         </ScrollViewer>
