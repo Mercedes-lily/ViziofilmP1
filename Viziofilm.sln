@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viziofilm", "Viziofilm\Viziofilm.csproj", "{0929891E-922E-419B-81DD-D0261D7EB318}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viziofilm.WPF", "Viziofilm\Viziofilm.WPF.csproj", "{0929891E-922E-419B-81DD-D0261D7EB318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viziofilm.SharedKernel", "Viziofilm.SharedKernel\Viziofilm.SharedKernel.csproj", "{8932390A-1571-427C-5D7C-FDAD99BE6962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viziofilm.Core", "Viziofilm.Core\Viziofilm.Core.csproj", "{1A65A56E-6D1A-467D-865D-8EAD4775AFED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viziofilm.Infrastructure", "Viziofilm.Infrastructure\Viziofilm.Infrastructure.csproj", "{61381583-8415-4C85-A0BA-D70E31AA2139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viziofilm.ConsoleTestApp", "Viziofilm.ConsoleTestApp\Viziofilm.ConsoleTestApp.csproj", "{5187B50A-66EE-4A5A-8FC3-AAEA0264FC2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{0929891E-922E-419B-81DD-D0261D7EB318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0929891E-922E-419B-81DD-D0261D7EB318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0929891E-922E-419B-81DD-D0261D7EB318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8932390A-1571-427C-5D7C-FDAD99BE6962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8932390A-1571-427C-5D7C-FDAD99BE6962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8932390A-1571-427C-5D7C-FDAD99BE6962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8932390A-1571-427C-5D7C-FDAD99BE6962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A65A56E-6D1A-467D-865D-8EAD4775AFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A65A56E-6D1A-467D-865D-8EAD4775AFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A65A56E-6D1A-467D-865D-8EAD4775AFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A65A56E-6D1A-467D-865D-8EAD4775AFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61381583-8415-4C85-A0BA-D70E31AA2139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61381583-8415-4C85-A0BA-D70E31AA2139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61381583-8415-4C85-A0BA-D70E31AA2139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61381583-8415-4C85-A0BA-D70E31AA2139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5187B50A-66EE-4A5A-8FC3-AAEA0264FC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5187B50A-66EE-4A5A-8FC3-AAEA0264FC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5187B50A-66EE-4A5A-8FC3-AAEA0264FC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5187B50A-66EE-4A5A-8FC3-AAEA0264FC2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
