@@ -15,28 +15,28 @@ namespace Viziofilm
 		//var builder = new HostBuilder()
 		//	 .ConfigureServices((hostContext, services) =>
 		//	 {
-		//		 services.AddDbContext<ViziofilmContext>(options => options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=SolutionGestionClientsDB;Trusted_Connection=True;"));
+		//		 services.AddDbContext<ViziofilmContext>(options => options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ViziofilmDB;Trusted_Connection=True;"));
 		//		 services.AddSingleton<ClientForm>();
 		//		 services.AddLogging(configure => configure.AddConsole());
-		//		 services.AddScoped<IClientRepository, ClientRepository>();
-		//		 services.AddScoped<IGestionClientsService, GestionClientsService>();
+		//		 services.AddScoped<IFilmRepository, FilmRepository>();
+		//		 services.AddScoped<IViziofilmService, ViziofilmService>();
 
 		//	 });
 
 		//var host = builder.Build();
 		//using(var serviceScope = host.Services.CreateScope())
-  //          {
-  //              var services = serviceScope.ServiceProvider;
-  //              try
-  //              {
-  //                  var forms = services.GetRequiredService<ClientForm>();
-	 //           Application.Run(forms);
-  //              }
-  //              catch(Exception ex)
-  //              {
-  //                  Console.WriteLine("Error");
-  //              }
-  //          }
+		//          {
+		//              var services = serviceScope.ServiceProvider;
+		//              try
+		//              {
+		//                  var forms = services.GetRequiredService<ClientForm>();
+		//           Application.Run(forms);
+		//              }
+		//              catch(Exception ex)
+		//              {
+		//                  Console.WriteLine("Error");
+		//              }
+		//          }
 
 	}
 
