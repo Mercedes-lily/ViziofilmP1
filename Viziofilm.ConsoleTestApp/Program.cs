@@ -6,6 +6,7 @@ using Viziofilm.Core.Specifications;
 using Viziofilm.Infrastructure;
 using Viziofilm.Infrastructure.Repositories;
 using Viziofilm.SharedKernel.Interfaces;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Viziofilm.ConsoleTestApp
 {
@@ -14,11 +15,64 @@ namespace Viziofilm.ConsoleTestApp
 	{
 		static async Task Main(string[] args)
 		{
-			//Test1();
+			AjouterAbonnement();
+			AjouterCategorie();
 			//await Test2();
 			//await Test3();
-			await Test4();
+			//await Test4();
 		}
+
+		static void AjouterAbonnement()
+		{
+			var context = new ViziofilmContext();
+
+			AbonnementPlan Base = new AbonnementPlan("1", "Base", 5.99f, 1);
+			AbonnementPlan Premium = new AbonnementPlan("2", "Premium", 11.99f, 2);
+			AbonnementPlan Elite = new AbonnementPlan("3", "Elite", 20.99f, 4);
+
+			context.Add(Base);
+			context.Add(Premium);
+			context.Add(Elite);
+
+			context.SaveChanges();
+		}
+
+		static void AjouterCategorie()
+		{
+			// dirty code
+			var context = new ViziofilmContext();
+
+			//ajouter un film
+			Categorie Drame = new Categorie("1", "Drame");
+			Categorie Policier = new Categorie("2", "Policier");
+			Categorie Documentaire = new Categorie("3", "Documentaire");
+			Categorie Comedie = new Categorie("4", "Comedie");
+			Categorie Action = new Categorie("5", "Action");
+
+
+			context.Add(Drame);
+			context.Add(Policier);
+			context.Add(Documentaire);
+			context.Add(Comedie);
+			context.Add(Action);
+
+			context.SaveChanges();
+		}
+
+		//static void AjouterAdministrateur()
+		//{
+		//	// dirty code
+		//	var context = new ViziofilmContext();
+
+		//	//ajouter un film
+		//	Administrateur Jacques = new Administrateur("A1", "Jacques" , "123456789");
+		//	Administrateur Alice = new Administrateur("A2", "Alice", "987654321");
+
+		//	context.Add(Jacques);
+		//	context.Add(Alice);
+
+		//	context.SaveChanges();
+		//}
 		static async Task Test4()
 		{
 			using (ViziofilmContext context = new ViziofilmContext())

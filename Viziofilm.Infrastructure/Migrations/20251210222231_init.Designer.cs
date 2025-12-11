@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Viziofilm.Infrastructure;
 
@@ -10,9 +11,11 @@ using Viziofilm.Infrastructure;
 namespace Viziofilm.Infrastructure.Migrations
 {
     [DbContext(typeof(ViziofilmContext))]
-    partial class ViziofilmContextModelSnapshot : ModelSnapshot
+    [Migration("20251210222231_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,33 +37,6 @@ namespace Viziofilm.Infrastructure.Migrations
                     b.HasIndex("PersonnesId");
 
                     b.ToTable("FilmPersonne");
-                });
-
-            modelBuilder.Entity("Viziofilm.Core.Entities.AbonnementPlan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("limiteAppareils")
-                        .HasColumnType("int");
-
-                    b.Property<string>("nom")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("numero")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("prixMensuel")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Abonnements");
                 });
 
             modelBuilder.Entity("Viziofilm.Core.Entities.Administrateur", b =>
@@ -86,27 +62,6 @@ namespace Viziofilm.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Administrateur");
-                });
-
-            modelBuilder.Entity("Viziofilm.Core.Entities.Categorie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("nom")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("numero")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categorie");
                 });
 
             modelBuilder.Entity("Viziofilm.Core.Entities.Film", b =>

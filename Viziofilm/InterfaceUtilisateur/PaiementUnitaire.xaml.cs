@@ -31,11 +31,11 @@ namespace Viziofilm
 
 		private void RetourFilmButton_Click(object sender, RoutedEventArgs e)
 		{
-			Film nouvelleFenetre = new Film();
+			//Film nouvelleFenetre = new Film();
 
-			nouvelleFenetre.Show();
+			//nouvelleFenetre.Show();
 
-			this.Close();
+			//this.Close();
 		}
 	}
 }

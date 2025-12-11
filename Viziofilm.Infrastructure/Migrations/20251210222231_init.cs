@@ -5,11 +5,26 @@
 namespace Viziofilm.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initialisation : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Administrateur",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    numero = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    nomUsager = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    motDePasse = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administrateur", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Films",
                 columns: table => new
@@ -79,6 +94,9 @@ namespace Viziofilm.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Administrateur");
+
             migrationBuilder.DropTable(
                 name: "FilmPersonne");
 

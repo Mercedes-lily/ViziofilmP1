@@ -11,8 +11,8 @@ using Viziofilm.Infrastructure;
 namespace Viziofilm.Infrastructure.Migrations
 {
     [DbContext(typeof(ViziofilmContext))]
-    [Migration("20251205173714_initialisation")]
-    partial class initialisation
+    [Migration("20251210223923_ajoutAbonnement")]
+    partial class ajoutAbonnement
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,44 @@ namespace Viziofilm.Infrastructure.Migrations
                     b.HasIndex("PersonnesId");
 
                     b.ToTable("FilmPersonne");
+                });
+
+            modelBuilder.Entity("Viziofilm.Core.Entities.AbonnementPlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Abonnements");
+                });
+
+            modelBuilder.Entity("Viziofilm.Core.Entities.Administrateur", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("motDePasse")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nomUsager")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("numero")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Administrateur");
                 });
 
             modelBuilder.Entity("Viziofilm.Core.Entities.Film", b =>

@@ -20,7 +20,8 @@ namespace Viziofilm.Core.Entities
 		public StatutDisponible Statut { get; set; }
 		public string MotsCles { get; set; }
 		public virtual List<Personne> Personnes { get; private set; } = new List<Personne>();
-
+		public virtual List<Categorie> Categories { get; private set; }
+		public virtual List<LanguePiste> LanguePistes { get; private set; }
 		public Film()
 		{
 
@@ -46,6 +47,22 @@ namespace Viziofilm.Core.Entities
 		{
 			Personnes.Remove(personne);
 		}
+		//public void AddCategorie(Categorie categorie)
+		//{
+		//	Categorie.Add(categorie);
+		//}
+		//public void RemoveCategorie(Categorie categorie)
+		//{
+		//	Categorie.Remove(categorie);
+		//}
+		//public void AddLanguePiste(LanguePiste languePiste)
+		//{
+		//	LanguePiste.Add(personne);
+		//}
+		//public void RemoveLanguePiste(LanguePiste languePiste)
+		//{
+		//	LanguePiste.Remove(languePiste);
+		//}
 
 	}
 }
