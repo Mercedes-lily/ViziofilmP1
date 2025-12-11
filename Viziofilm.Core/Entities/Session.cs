@@ -15,6 +15,7 @@ namespace Viziofilm.Core.Entities
 		public DateTime dateDeconnexion { get; set; }
 
 		public Utilisateur UsagerAuthentifie;
+		public ICollection<Cote> Cotes { get; set; }
 		public Session() { }
 		public Session(string numero, DateTime dateConnexion, DateTime dateDeconnexion)
 		{

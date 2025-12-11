@@ -19,7 +19,8 @@ namespace Viziofilm.Core.Entities
 		public string Synopsis { get; set; }
 		public StatutDisponible Statut { get; set; }
 		public string MotsCles { get; set; }
-		public virtual List<Personne> Personnes { get; private set; } = new List<Personne>();
+		public ICollection<Cote> Cotes { get; set; }
+		public ICollection<CreditFilm> Credit { get; set; }
 		public virtual List<Categorie> Categories { get; private set; }
 		public virtual List<LanguePiste> LanguePistes { get; private set; }
 		public Film()

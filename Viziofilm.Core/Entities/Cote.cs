@@ -10,8 +10,14 @@ namespace Viziofilm.Core.Entities
 {
 	public class Cote : BaseEntity
 	{
+		public int FilmId { get; set; }
+		public Film film { get; set; }
+
+		public int SesssionId { get; set; }
+		public Session session { get; set; }
+
 		public int cote { get; set; }
-		public string nom { get; set; }
+		public string commentaire { get; set; }
 		public Cote() { }
 		public Cote(int cote, string nom)
 		{

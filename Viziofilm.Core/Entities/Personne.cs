@@ -15,8 +15,7 @@ namespace Viziofilm.Core.Entities
 		public string nom { get; set; }
 		public string pays { get; set; }
 		public TypePersonne typePersonne { get; set; }
-		public virtual List<Film> Films { get; private set; } = new List<Film>();
-
+		public ICollection<CreditFilm> Credits { get; set; }
 		public Personne()
 		{
 		}

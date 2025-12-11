@@ -10,6 +10,13 @@ namespace Viziofilm.Core.Entities
 {
 	public class CreditFilm : BaseEntity
 	{
+
+		public int PersonneId { get; set; }
+		public Personne personne { get; set; }
+
+		public int FilmId { get; set; }
+		public Film film { get; set; }
+
 		public TypeRole role { get; set; }
 		public CreditFilm() { }
 
