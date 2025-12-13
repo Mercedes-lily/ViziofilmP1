@@ -9,20 +9,34 @@ using Viziofilm.Core.Interfaces;
 
 namespace Viziofilm.Infrastructure.Repositories
 {
-	public class FilmRepository : EfRepository<Film>//, IFilmRepository
+	public class FilmRepository : EfRepository<Film>, IFilmRepository
 	{
 		public FilmRepository(ViziofilmContext viziofilmContext) : base(viziofilmContext)
 		{ }
 
-		//public Task<Film> GetByIdWithPersonnesAsync(int id)
-		//{
-		//	return _ViziofilmContext.Films.Include(t => t.Personnes).FirstOrDefaultAsync(t => t.Id == id);
-		//}
+		public async Task<Film> GetByIdWithDetailsAsync(int id)
+		{
+			return await _ViziofilmContext.Films
+				.Include(f => f.Cotes)
+				.Include(f => f.AnneeSortie)
+				.Include(f => f.Duree)
+				.Include(f => f.Synopsis)
+				.Include(f => f.Cotes)
+				.Include(f => f.Credit)
+				.ThenInclude(cf => cf.personne)
+				.Include(f => f.Credit)
+				.ThenInclude(cf => cf.role)
+				.FirstOrDefaultAsync(f => f.Id == id);
+		}
 
-		//public Film GetByIdWithPersonnes(int id)
-		//{
-		//	return _ViziofilmContext.Films.Include(t => t.Personnes).FirstOrDefault(t => t.Id == id);
-		//}
+		public async Task<IReadOnlyList<Film>> RechercherFilm(string motCle)
+		{
+			string patternMotCle = $"%{motCle.ToLower()}%";
+			return await _ViziofilmContext.Films
+				.Where(f => EF.Functions.Like(f.Titre.ToLower(), patternMotCle) ||
+				EF.Functions.Like(f.MotsCles.ToLower(), patternMotCle) ||
+				f.Categories.Any(c => EF.Functions.Like(c.nom.ToLower(), patternMotCle))).ToListAsync();
+		}
 	}
 
 }
