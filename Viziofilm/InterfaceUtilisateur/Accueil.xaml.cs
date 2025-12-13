@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Viziofilm.Core.Entities;
-using Viziofilm.Core.Services;
+using Viziofilm.Core.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -21,9 +21,13 @@ namespace Viziofilm
 	/// </summary>
 	public partial class Accueil : Window
 	{
-		public Accueil()
+		public Accueil(AccueilViewModel viewModel)
 		{
 			InitializeComponent();
+
+			// Le ViewModel est assigné comme DataContext de la fenêtre
+			// C'est ainsi que la fenêtre WPF sait où trouver ses données.
+			DataContext = viewModel;
 		}
 
 		private void BtnInvite_Click(object sender, RoutedEventArgs e)

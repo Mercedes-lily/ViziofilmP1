@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Viziofilm.Core.Interfaces;
 
 namespace Viziofilm
 {
@@ -19,7 +20,8 @@ namespace Viziofilm
     /// </summary>
     public partial class ProfilMembre : Window
     {
-        public ProfilMembre()
+
+		public ProfilMembre( )
         {
             InitializeComponent();
         }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Viziofilm.Core.Interfaces;
 
 namespace Viziofilm
 {
@@ -19,7 +20,8 @@ namespace Viziofilm
     /// </summary>
     public partial class CatalogueMembre : Window
     {
-        public CatalogueMembre()
+
+		public CatalogueMembre( )
         {
             InitializeComponent();
         }
@@ -53,9 +55,9 @@ namespace Viziofilm
 
 		private void BtnDeconnexion_Click(object sender, RoutedEventArgs e)
 		{
-			Accueil nouvelleFenetre = new Accueil();
+			//Accueil nouvelleFenetre = new Accueil();
 
-			nouvelleFenetre.Show();
+			//nouvelleFenetre.Show();
 
 			this.Close();
 		}
