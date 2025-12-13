@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
         Title="VizioFilm"
+        WindowStartupLocation="CenterScreen"
         Style="{StaticResource ProprieteFenetre}"
     >
 

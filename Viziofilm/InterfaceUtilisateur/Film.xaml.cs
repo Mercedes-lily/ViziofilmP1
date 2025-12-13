@@ -20,18 +20,9 @@ namespace Viziofilm
     /// </summary>
     public partial class Film : Window
     {
-		//ajouter le service dans les fenetre à utiliser
-		private IViziofilmService _viziofilmService;
 
-
-		//Exemple utilisation service si bouton ajouter film:
-		//_viziofilmService.AddFilmAsync(film);
-
-		//ajouter argument service au constructeur
-		public Film(IViziofilmService viziofilmService)
+		public Film()
         {
-			//assigner service à la variable locale
-			_viziofilmService = viziofilmService;
 			InitializeComponent();
         }
 
