@@ -8,7 +8,7 @@ using Viziofilm.SharedKernel.Interfaces;
 
 namespace Viziofilm.Core.Entities
 {
-	public class Administrateur : Utilisateur
+	public class Administrateur : Utilisateur, IAggregateRoot
 	{
 			public string numero { get; set; }
 			public string nomUsager { get; set; }

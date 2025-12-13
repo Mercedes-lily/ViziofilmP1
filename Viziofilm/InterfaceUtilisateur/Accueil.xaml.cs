@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Viziofilm.Core.Entities;
+using Viziofilm.Core.Services;
 
 namespace Viziofilm
 {
@@ -36,6 +38,8 @@ namespace Viziofilm
 
 		private void BtnInscription_Click(object sender, RoutedEventArgs e)
 		{
+			
+
 			Inscription nouvelleFenetre = new Inscription();
 
 			nouvelleFenetre.Show();
@@ -45,6 +49,7 @@ namespace Viziofilm
 
 		private void BtnSAuthentifier_Click(object sender, RoutedEventArgs e)
 		{
+
 			if (InputIdentifiant.Text == "admin" && InputMotDePasse.Password == "admin")
 			{
 				CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();

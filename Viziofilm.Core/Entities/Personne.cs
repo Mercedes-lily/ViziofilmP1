@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Viziofilm.Core.Entities
 {
-	public class Personne : BaseEntity, IAggregateRoot
+	public class Personne : BaseEntity
 	{
 		public string numero { get; set; }
 		public string nom { get; set; }
@@ -28,13 +28,13 @@ namespace Viziofilm.Core.Entities
 			this.typePersonne = typePersonne;
 		}
 
-		public void AddFilm(Film film)
-		{
-			Films.Add(film);
-		}
-		public void RemoveFilm(Film film)
-		{
-			Films.Remove(film);
-		}
+		//public void AddFilm(Film film)
+		//{
+		//	Films.Add(film);
+		//}
+		//public void RemoveFilm(Film film)
+		//{
+		//	films.Remove(film);
+		//}
 	}
 }

@@ -40,14 +40,14 @@ namespace Viziofilm.Core.Entities
 			this.MotsCles = motsCles;
 		}
 
-		public void AddPersonne(Personne personne)
-		{
-			Personnes.Add(personne);
-		}
-		public void RemovePersonne(Personne personne)
-		{
-			Personnes.Remove(personne);
-		}
+		//public void AddPersonne(Personne personne)
+		//{
+		//	Personnes.Add(personne);
+		//}
+		//public void RemovePersonne(Personne personne)
+		//{
+		//	Personnes.Remove(personne);
+		//}
 		//public void AddCategorie(Categorie categorie)
 		//{
 		//	Categorie.Add(categorie);

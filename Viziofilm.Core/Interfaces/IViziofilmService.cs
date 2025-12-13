@@ -14,8 +14,5 @@ namespace Viziofilm.Core.Interfaces
 		Task DeleteFilm(Film film);
 		Task<Film> GetFilmById(int id);
 		Task<IReadOnlyList<Film>> GetAllFilms();
-		Task<Personne> GetPersonne(int Id);
-		Task DeletePersonne(Personne personne);
-		Task UpdatePersonne(Personne personne);
 	}
 }

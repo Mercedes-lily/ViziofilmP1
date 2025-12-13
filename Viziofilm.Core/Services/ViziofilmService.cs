@@ -12,12 +12,12 @@ namespace Viziofilm.Core.Services
 	public class ViziofilmService : IViziofilmService
 	{
 		private readonly IFilmRepository _filmRepository;
-		private readonly IAsyncRepository<Personne> _personneRepository;
+		private readonly IAsyncRepository<Administrateur> _administrateurRepository;
 
-		public ViziofilmService(IFilmRepository filmRepository, IAsyncRepository<Personne> personneRepository)
+		public ViziofilmService(IFilmRepository filmRepository, IAsyncRepository<Administrateur> administrateurRepository)
 		{
 			_filmRepository = filmRepository;
-			_personneRepository = personneRepository;
+			_administrateurRepository = administrateurRepository;
 		}
 
 		public async Task AddFilm(Film film)
@@ -30,11 +30,6 @@ namespace Viziofilm.Core.Services
 			await _filmRepository.DeleteAsync(film);
 		}
 
-		public async Task DeletePersonne(Personne personne)
-		{
-			await _personneRepository.DeleteAsync(personne);
-		}
-
 		public async Task<IReadOnlyList<Film>> GetAllFilms()
 		{
 			return await _filmRepository.ListAllAsync();
@@ -45,9 +40,14 @@ namespace Viziofilm.Core.Services
 			return await _filmRepository.GetByIdAsync(id);
 		}
 
-		public async Task<Personne> GetPersonne(int Id)
+		public async Task<IReadOnlyList<Administrateur>> GetAllAdministrateurs()
 		{
-			return await _personneRepository.GetByIdAsync(Id);
+			return await _administrateurRepository.ListAllAsync();
+		}
+
+		public async Task<Administrateur> GetAdministrateur(int Id)
+		{
+			return await _administrateurRepository.GetByIdAsync(Id);
 		}
 
 		public async Task UpdateFilm(Film film)
@@ -55,9 +55,6 @@ namespace Viziofilm.Core.Services
 			await _filmRepository.UpdateAsync(film);
 		}
 
-		public async Task UpdatePersonne(Personne personne)
-		{
-			await _personneRepository.UpdateAsync(personne);
-		}
+
 	}
 }

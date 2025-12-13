@@ -8,7 +8,7 @@ using Viziofilm.SharedKernel.Interfaces;
 
 namespace Viziofilm.Core.Entities
 {
-	public class LanguePiste : BaseEntity, IAggregateRoot
+	public class LanguePiste : BaseEntity
 	{
 
 		public string code { get; set; }

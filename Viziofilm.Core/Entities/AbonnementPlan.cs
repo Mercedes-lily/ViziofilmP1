@@ -8,7 +8,7 @@ using Viziofilm.SharedKernel.Interfaces;
 
 namespace Viziofilm.Core.Entities
 {
-	public class AbonnementPlan : BaseEntity
+	public class AbonnementPlan : BaseEntity, IAggregateRoot
 	{
 		public string numero { get; set; }
 		public string nom { get; set; }

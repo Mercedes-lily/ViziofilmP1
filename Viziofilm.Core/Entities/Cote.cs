@@ -22,7 +22,7 @@ namespace Viziofilm.Core.Entities
 		public Cote(int cote, string nom)
 		{
 			this.cote = cote;
-			this.nom = nom;
+			this.commentaire = nom;
 		}
 	}
 }
