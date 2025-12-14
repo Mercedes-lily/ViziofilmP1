@@ -12,9 +12,11 @@ namespace Viziofilm.Core.Services
 	public class ViziofilmService : IViziofilmService
 	{
 		private readonly IFilmRepository _filmRepository;
-		private readonly IAsyncRepository<Administrateur> _administrateurRepository;
+		private readonly IAdministrateurRepository _administrateurRepository;
+		private readonly IMembreRepository _membreRepository;
 
-		public ViziofilmService(IFilmRepository filmRepository, IAsyncRepository<Administrateur> administrateurRepository)
+
+		public ViziofilmService(IFilmRepository filmRepository, IAdministrateurRepository administrateurRepository)
 		{
 			_filmRepository = filmRepository;
 			_administrateurRepository = administrateurRepository;
@@ -35,25 +37,23 @@ namespace Viziofilm.Core.Services
 			return await _filmRepository.ListAllAsync();
 		}
 
-		public async Task<Film> GetFilmById(int id)
+		public async Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsager(string nomUsager)
 		{
-			return await _filmRepository.GetByIdAsync(id);
+			return await _administrateurRepository.GetAdministrateurBynomUsager(nomUsager);
 		}
-
-		public async Task<IReadOnlyList<Administrateur>> GetAllAdministrateurs()
+		public async Task<IReadOnlyList<Membre>> GetMembreBynomUsager(string nomUsager)
 		{
-			return await _administrateurRepository.ListAllAsync();
-		}
-
-		public async Task<Administrateur> GetAdministrateur(int Id)
-		{
-			return await _administrateurRepository.GetByIdAsync(Id);
+			return await _membreRepository.GetMembreBynomUsager(nomUsager);
 		}
 
 		public async Task UpdateFilm(Film film)
 		{
 			await _filmRepository.UpdateAsync(film);
 		}
+		public async Task<Film> GetFilmById(int id)
+		{
+			return await _filmRepository.GetByIdAsync(id);
+		}	
 
 
 	}

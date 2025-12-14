@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
-using Viziofilm.Presentation.ViewModels;
+using Viziofilm.Core.Services;
 
 namespace Viziofilm
 {
@@ -21,50 +21,11 @@ namespace Viziofilm
 	/// </summary>
 	public partial class Accueil : Window
 	{
-		public Accueil(AccueilViewModel viewModel)
+		public Accueil()
 		{
 			InitializeComponent();
-
-			// Le ViewModel est assigné comme DataContext de la fenêtre
-			// C'est ainsi que la fenêtre WPF sait où trouver ses données.
-			DataContext = viewModel;
-		}
-
-		private void BtnInvite_Click(object sender, RoutedEventArgs e)
-		{
-			CatalogueInvite nouvelleFenetre = new CatalogueInvite();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-
-		}
-
-		private void BtnInscription_Click(object sender, RoutedEventArgs e)
-		{
-			
-
-			Inscription nouvelleFenetre = new Inscription();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnSAuthentifier_Click(object sender, RoutedEventArgs e)
-		{
-
-			if (InputIdentifiant.Text == "admin" && InputMotDePasse.Password == "admin")
-			{
-				CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
-				nouvelleFenetre.Show();
-			}
-			else
-			{
-				CatalogueMembre nouvelleFenetre = new CatalogueMembre();
-				nouvelleFenetre.Show();
-			}
-			this.Close();
+			// Créez une instance de votre ViewModel et affectez-la au DataContext
+			this.DataContext = new AccueilViewModel();
 		}
 	}
 }

@@ -4,18 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Viziofilm.Core.Entities;
+using Viziofilm.SharedKernel.Interfaces;
 
 namespace Viziofilm.Core.Interfaces
 {
-	public interface IViziofilmService
+	public interface IAdministrateurRepository : IAsyncRepository<Administrateur>, IRepository<Administrateur>
 	{
-		Task AddFilm(Film film);
-		Task UpdateFilm(Film film);
-		Task DeleteFilm(Film film);
-		Task<Film> GetFilmById(int id);
-		Task<IReadOnlyList<Film>> GetAllFilms();
 		Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsager(string nomUsager);
-		Task<IReadOnlyList<Membre>> GetMembreBynomUsager(string nomUsager);
-
 	}
+
 }

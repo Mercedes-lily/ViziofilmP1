@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
         Title="VizioFilm"
         WindowStartupLocation="CenterScreen"
@@ -36,7 +35,8 @@
             Content="S'authentifier" 
             Grid.Row="3" 
             Grid.Column="1" 
-            Style="{StaticResource BoutonJaune}" Click="BtnSAuthentifier_Click"
+            Style="{StaticResource BoutonJaune}"
+            Command="{Binding BoutonConnectionCommande}"
         />
 
         <Button 
@@ -44,7 +44,8 @@
             Content="S'incrire" 
             Grid.Row="4" 
             Grid.Column="1" 
-            Style="{StaticResource BoutonJaune}" Click="BtnInscription_Click"
+            Style="{StaticResource BoutonJaune}"
+            Command="{Binding BoutonInscriptionCommande}"
             
         />
 
@@ -54,7 +55,6 @@
             Grid.Row="4" 
             Grid.Column="2" 
             Style="{StaticResource BoutonBleu}"
-            FontSize="16" Click="BtnInvite_Click"
         />
 
         <Label 
@@ -70,6 +70,7 @@
             Grid.Row="1" 
             Grid.Column="1" 
             Style="{StaticResource TextBox}"
+            Text="{Binding NomUtilisateur}"
         />
 
         <Label 

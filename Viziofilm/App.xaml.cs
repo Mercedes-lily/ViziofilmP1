@@ -7,8 +7,6 @@ using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Services;
 using Viziofilm.Infrastructure;
 using Viziofilm.Infrastructure.Repositories;
-using Viziofilm.Presentation;
-using Viziofilm.Presentation.ViewModels;
 using Viziofilm.SharedKernel.Interfaces;
 
 namespace Viziofilm
@@ -46,6 +44,11 @@ namespace Viziofilm
 			//Repositories
 			services.AddScoped<IFilmRepository, FilmRepository>();
 			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+			services.AddScoped<IAdministrateurRepository, AdministrateurRepository>();
+			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+			services.AddScoped<IMembreRepository, MembreRepository>();
+			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+
 
 		}
 		//ViewModels
