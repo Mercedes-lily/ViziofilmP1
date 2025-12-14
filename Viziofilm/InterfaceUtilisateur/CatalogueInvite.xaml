@@ -45,7 +45,7 @@
                     Content="S'inscrire" 
                     Grid.Column="2"
                     Grid.Row="0"
-                        Style="{StaticResource PetitBoutonJaune}" Click="BtnInscription_Click"
+                        Style="{StaticResource PetitBoutonJaune}"
                     />
                 <Label
                         x:Name="RechercheCatalogue" 

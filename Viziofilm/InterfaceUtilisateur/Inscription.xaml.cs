@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -21,23 +22,9 @@ namespace Viziofilm
 	public partial class Inscription : Window
 	{
 
-		public Inscription()
+		public Inscription(InscriptionViewModel inscription)
 		{
 			InitializeComponent();
-		}
-
-		private void BtnInscription_Click(object sender, RoutedEventArgs e)
-		{
-			return; //Créer un utilisateur
-		}
-
-		private void BtnRetour_Click(object sender, RoutedEventArgs e)
-		{
-			//Accueil nouvelleFenetre = new Accueil();
-
-			//nouvelleFenetre.Show();
-
-			this.Close();
 		}
 
 	}

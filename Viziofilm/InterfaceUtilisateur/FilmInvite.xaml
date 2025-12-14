@@ -238,7 +238,7 @@
                 Content="S'inscrire"
                 Grid.Row="9"
                 Grid.Column="1"
-                                    Style="{StaticResource BoutonJaune}" Click="InscriptionFilmButton_Click"
+                                    Style="{StaticResource BoutonJaune}"
 
             />
         </Grid>

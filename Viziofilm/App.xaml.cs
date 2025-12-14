@@ -8,6 +8,7 @@ using Viziofilm.Core.Services;
 using Viziofilm.Infrastructure;
 using Viziofilm.Infrastructure.Repositories;
 using Viziofilm.SharedKernel.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -55,6 +56,7 @@ namespace Viziofilm
 		private void ConfigurePresentationServices(IServiceCollection services)
 		{
 			services.AddTransient<AccueilViewModel>();
+			services.AddTransient<InscriptionViewModel>();
 		}
 		//Démarrage de l'interface graphique
 		protected override async void OnStartup(StartupEventArgs e)

@@ -16,10 +16,10 @@ namespace Viziofilm.Core.Entities
 		public string nom { get; set; }
 		public string prenom { get; set; }
 		public string addresse { get; set; }
-		public string telephone { get; set; }
+		public string ville { get; set; }
 		public string addresseCourriel { get; set; }
-		public bool aAccepteRecevoirNotification { get; set; }
-		public string languePreferee { get; set; }
+		public string codePostal { get; set; }
+		public string pays { get; set; }
 		public virtual List<Categorie> CategoriePreferees { get; private set; }
 
 
@@ -27,7 +27,7 @@ namespace Viziofilm.Core.Entities
 		{
 		}
 
-		public Membre(string numero, string nomUsager, string motDePasse, string nom, string prenom, string addresse, string telephone, string addresseCourriel, bool aAccepteRecevoirNotification, string languePreferee)
+		public Membre(string numero, string nomUsager, string motDePasse, string nom, string prenom, string addresse, string ville, string addresseCourriel, string pays, string codePostal)
 		{
 			this.numero = numero;
 			this.nomUsager = nomUsager;
@@ -35,10 +35,10 @@ namespace Viziofilm.Core.Entities
 			this.nom = nom;
 			this.prenom = prenom;
 			this.addresse = addresse;
-			this.telephone = telephone;
+			this.ville = ville;
 			this.addresseCourriel = addresseCourriel;
-			this.aAccepteRecevoirNotification = aAccepteRecevoirNotification;
-			this.languePreferee = languePreferee;
+			this.pays = pays;
+			this.codePostal = codePostal;
 		}
 		//public void AddCategorie(Categorie categorie)
 		//{

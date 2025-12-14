@@ -16,6 +16,7 @@ namespace Viziofilm.Core.Interfaces
 		Task<IReadOnlyList<Film>> GetAllFilms();
 		Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsager(string nomUsager);
 		Task<IReadOnlyList<Membre>> GetMembreBynomUsager(string nomUsager);
+		Task AddMembre(Membre membre);
 
 	}
 }

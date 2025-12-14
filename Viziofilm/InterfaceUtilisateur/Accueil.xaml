@@ -92,7 +92,7 @@
 
         <Label
             x:Name="Erreur" 
-            Content="**Mauvaise Combinaison**"
+            Content="{Binding MessageErreur}"
             Grid.Row="1" 
             Grid.Column="2" 
             Style="{StaticResource LabelAlerte}"

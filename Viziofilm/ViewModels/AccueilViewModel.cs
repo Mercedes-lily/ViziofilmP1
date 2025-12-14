@@ -16,6 +16,7 @@ using Viziofilm;
 using Viziofilm.Core.Entities;
 using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Services;
+using Viziofilm.Presentation.ViewModels;
 
 public class AccueilViewModel : INotifyPropertyChanged
 {
@@ -114,14 +115,12 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 	private async void VerifieAdmin()
 	{
-			MessageBox.Show("Vérification administrateur en cours...");
 		var administrateurs = await _viziofilmService.GetAdministrateurBynomUsager(NomUtilisateur);
 
 		if (administrateurs == null || administrateurs.Count == 0)
 		{
 			isAdmin = false;
-			MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.");
-			MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";
+			MessageErreur = "Combinaison incorecte";
 			return;
 		}
 
@@ -144,7 +143,7 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 	public void BoutonInscription()
 	{
-		Inscription inscription = new Inscription();
+		Inscription inscription = new Inscription(new InscriptionViewModel(_viziofilmService));
 		inscription.Show();
 
 

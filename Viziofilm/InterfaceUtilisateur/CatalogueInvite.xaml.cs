@@ -25,14 +25,6 @@ namespace Viziofilm
             InitializeComponent();
         }
 
-		private void BtnInscription_Click(object sender, RoutedEventArgs e)
-		{
-			Inscription nouvelleFenetre = new Inscription();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
 
 		private void BtnRechercheCatalogue_Click(object sender, RoutedEventArgs e)
 		{

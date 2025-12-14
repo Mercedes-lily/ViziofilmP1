@@ -30,6 +30,13 @@ namespace Viziofilm.Core.Services
 			await _filmRepository.AddAsync(film);
 		}
 
+		public async Task AddMembre(Membre membre)
+		{
+			await _membreRepository.AddAsync(membre);
+		}
+
+
+
 		public async Task DeleteFilm(Film film)
 		{
 			await _filmRepository.DeleteAsync(film);
