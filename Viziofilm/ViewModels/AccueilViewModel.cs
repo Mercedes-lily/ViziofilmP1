@@ -78,6 +78,12 @@ public class AccueilViewModel : INotifyPropertyChanged
 			_navigationService.NavigateToCatalogueMembre();
 			_navigationService.FermerFenetre();
 		}
+		//else if(isMembre)
+		//{
+		//	CatalogueMembre inscription = new CatalogueMembre();
+		//		inscription.Show();
+		//	return;
+		//}
 		else
 		{
 			MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";
@@ -116,8 +122,9 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 	private async void VerifieAdmin()
 	{
-
+			MessageBox.Show("Vérification administrateur en cours...");
 		var administrateurs = await _viziofilmService.GetAdministrateurBynomUsager(NomUtilisateur);
+
 		if (administrateurs == null || administrateurs.Count == 0)
 		{
 			isAdmin = false;
@@ -127,10 +134,13 @@ public class AccueilViewModel : INotifyPropertyChanged
 		}
 
 		foreach (var admin in administrateurs)
-		{
+	{
+			MessageBox.Show(admin.nomUsager);
+			MessageBox.Show(MotDePasse);
+
 			if (admin.motDePasse == MotDePasse)
 			{
-				MessageBox.Show("found");
+
 				isAdmin = true;
 				return;
 			}

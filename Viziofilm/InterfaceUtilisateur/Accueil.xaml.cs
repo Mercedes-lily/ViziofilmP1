@@ -24,8 +24,9 @@ namespace Viziofilm
 		public Accueil(AccueilViewModel accueilViewModel)
 		{
 			InitializeComponent();
+
 			// Créez une instance de votre ViewModel et affectez-la au DataContext
-			this.DataContext = accueilViewModel;
+			DataContext = accueilViewModel;
 		}
 	}
 }
