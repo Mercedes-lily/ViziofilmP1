@@ -19,7 +19,7 @@ namespace Viziofilm.Infrastructure.Repositories
 		public async Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsager(string nomUsager)
 		{
 			return await _ViziofilmContext.Administrateur
-				.Where(a => a.nomUsager == nomUsager).Include(nomUsager).ToListAsync();
+				.Where(a => a.nomUsager == nomUsager).ToListAsync();
 		}
 	}
 }

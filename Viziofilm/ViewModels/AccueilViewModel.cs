@@ -1,4 +1,5 @@
 ﻿using GestionFleur.ViewModels;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,12 +17,14 @@ using Viziofilm;
 using Viziofilm.Core.Entities;
 using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Services;
+using Viziofilm.Presentation.Services;
 
 public class AccueilViewModel : INotifyPropertyChanged
 {
 	private bool isAdmin = false;
-	private bool isMembre = true;
+	private bool isMembre = false;
 	private readonly IViziofilmService _viziofilmService;
+	private readonly INavigationService _navigationService;
 	private string _nomUtilisateur;
 	public string NomUtilisateur
 	{
@@ -46,8 +49,10 @@ public class AccueilViewModel : INotifyPropertyChanged
 	}
 	public Action FermerFenetre { get; set; }
 
-	public AccueilViewModel()
+	public AccueilViewModel(IViziofilmService viziofilmService, INavigationService navigationService)
 	{
+		_viziofilmService = viziofilmService;
+		_navigationService = navigationService;
 		BoutonConnectionCommande = new RelayCommand(
 				o => true,
 				o => BoutonConnection()
@@ -62,16 +67,16 @@ public class AccueilViewModel : INotifyPropertyChanged
 	private void BoutonConnection()
 	{
 		VerifieAdmin();
-		VerifieMembre();
+		//VerifieMembre();
 		if (isAdmin)
 		{
-		CatalogueAdministrateur inscription = new CatalogueAdministrateur();
-		inscription.Show();
+			_navigationService.NavigateToCatalogueAdministrateur();
+			_navigationService.FermerFenetre();
 		}
 		if(isMembre)
 		{
-			CatalogueMembre inscription = new CatalogueMembre();
-				inscription.Show();
+			_navigationService.NavigateToCatalogueMembre();
+			_navigationService.FermerFenetre();
 		}
 		else
 		{
@@ -122,9 +127,10 @@ public class AccueilViewModel : INotifyPropertyChanged
 		}
 
 		foreach (var admin in administrateurs)
-	{
+		{
 			if (admin.motDePasse == MotDePasse)
 			{
+				MessageBox.Show("found");
 				isAdmin = true;
 				return;
 			}
@@ -136,8 +142,8 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 	public void BoutonInscription()
 	{
-		Inscription inscription = new Inscription();
-		inscription.Show();
+		_navigationService.NavigateToInscription();
+		_navigationService.FermerFenetre();
 
 
 	}

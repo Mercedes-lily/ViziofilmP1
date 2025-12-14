@@ -22,13 +22,13 @@ namespace Viziofilm.ConsoleTestApp
 
 
 			//Fait//
-			//AjouterFilm();
-			//AjouterLanguePiste
-			//AjouterMembre();
-			//AjouterCategorie();
-			//AjouterAbonnement();
-			//AjouterAdministrateur();
-			//AjouterPersonne();
+			AjouterFilm();
+			AjouterLanguePiste();
+			AjouterMembre();
+			AjouterCategorie();
+			AjouterAbonnement();
+			AjouterAdministrateur();
+			AjouterPersonne();
 		}
 
 		static void AjouterPersonne()

@@ -21,11 +21,11 @@ namespace Viziofilm
 	/// </summary>
 	public partial class Accueil : Window
 	{
-		public Accueil()
+		public Accueil(AccueilViewModel accueilViewModel)
 		{
 			InitializeComponent();
 			// Créez une instance de votre ViewModel et affectez-la au DataContext
-			this.DataContext = new AccueilViewModel();
+			this.DataContext = accueilViewModel;
 		}
 	}
 }
