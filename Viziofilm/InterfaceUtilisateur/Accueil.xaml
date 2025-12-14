@@ -81,11 +81,13 @@
             Style="{StaticResource LabelNormauxDroite}"
         />
 
-        <PasswordBox
+        <TextBox
             x:Name="InputMotDePasse" 
             Grid.Row="2" 
             Grid.Column="1" 
             Style="{StaticResource TextBox}"
+            Text="{Binding MotDePasse}"
+            
     />
 
         <Label

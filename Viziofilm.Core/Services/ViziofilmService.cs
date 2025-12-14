@@ -16,10 +16,13 @@ namespace Viziofilm.Core.Services
 		private readonly IMembreRepository _membreRepository;
 
 
-		public ViziofilmService(IFilmRepository filmRepository, IAdministrateurRepository administrateurRepository)
+		public ViziofilmService(IFilmRepository filmRepository, 
+			IAdministrateurRepository administrateurRepository,
+			IMembreRepository membreRepository)
 		{
 			_filmRepository = filmRepository;
 			_administrateurRepository = administrateurRepository;
+			_membreRepository = membreRepository;
 		}
 
 		public async Task AddFilm(Film film)

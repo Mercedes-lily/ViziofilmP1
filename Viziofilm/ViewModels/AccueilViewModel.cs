@@ -20,7 +20,7 @@ using Viziofilm.Core.Services;
 public class AccueilViewModel : INotifyPropertyChanged
 {
 	private bool isAdmin = false;
-	private bool isMembre = true;
+	private bool isMembre = false;
 	private readonly IViziofilmService _viziofilmService;
 	private string _nomUtilisateur;
 	public string NomUtilisateur
@@ -46,8 +46,9 @@ public class AccueilViewModel : INotifyPropertyChanged
 	}
 	public Action FermerFenetre { get; set; }
 
-	public AccueilViewModel()
+	public AccueilViewModel(IViziofilmService viziofilmService)
 	{
+		_viziofilmService = viziofilmService;
 		BoutonConnectionCommande = new RelayCommand(
 				o => true,
 				o => BoutonConnection()
@@ -62,17 +63,19 @@ public class AccueilViewModel : INotifyPropertyChanged
 	private void BoutonConnection()
 	{
 		VerifieAdmin();
-		VerifieMembre();
+		//VerifieMembre();
 		if (isAdmin)
 		{
-		CatalogueAdministrateur inscription = new CatalogueAdministrateur();
-		inscription.Show();
+			CatalogueAdministrateur inscription = new CatalogueAdministrateur();
+			inscription.Show();
+			return;
 		}
-		if(isMembre)
-		{
-			CatalogueMembre inscription = new CatalogueMembre();
-				inscription.Show();
-		}
+		//else if(isMembre)
+		//{
+		//	CatalogueMembre inscription = new CatalogueMembre();
+		//		inscription.Show();
+		//	return;
+		//}
 		else
 		{
 			MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";
@@ -111,8 +114,9 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 	private async void VerifieAdmin()
 	{
-
+			MessageBox.Show("Vérification administrateur en cours...");
 		var administrateurs = await _viziofilmService.GetAdministrateurBynomUsager(NomUtilisateur);
+
 		if (administrateurs == null || administrateurs.Count == 0)
 		{
 			isAdmin = false;
@@ -123,8 +127,12 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 		foreach (var admin in administrateurs)
 	{
+			MessageBox.Show(admin.nomUsager);
+			MessageBox.Show(MotDePasse);
+
 			if (admin.motDePasse == MotDePasse)
 			{
+
 				isAdmin = true;
 				return;
 			}
