@@ -1,4 +1,5 @@
 ﻿using GestionFleur.ViewModels;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,13 +17,14 @@ using Viziofilm;
 using Viziofilm.Core.Entities;
 using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Services;
-using Viziofilm.Presentation.ViewModels;
+using Viziofilm.Presentation.Services;
 
 public class AccueilViewModel : INotifyPropertyChanged
 {
 	private bool isAdmin = false;
 	private bool isMembre = false;
 	private readonly IViziofilmService _viziofilmService;
+	private readonly INavigationService _navigationService;
 	private string _nomUtilisateur;
 	public string NomUtilisateur
 	{
@@ -47,9 +49,10 @@ public class AccueilViewModel : INotifyPropertyChanged
 	}
 	public Action FermerFenetre { get; set; }
 
-	public AccueilViewModel(IViziofilmService viziofilmService)
+	public AccueilViewModel(IViziofilmService viziofilmService, INavigationService navigationService)
 	{
 		_viziofilmService = viziofilmService;
+		_navigationService = navigationService;
 		BoutonConnectionCommande = new RelayCommand(
 				o => true,
 				o => BoutonConnection()
@@ -67,9 +70,13 @@ public class AccueilViewModel : INotifyPropertyChanged
 		//VerifieMembre();
 		if (isAdmin)
 		{
-			CatalogueAdministrateur inscription = new CatalogueAdministrateur();
-			inscription.Show();
-			return;
+			_navigationService.NavigateToCatalogueAdministrateur();
+			_navigationService.FermerFenetre();
+		}
+		if(isMembre)
+		{
+			_navigationService.NavigateToCatalogueMembre();
+			_navigationService.FermerFenetre();
 		}
 		//else if(isMembre)
 		//{
@@ -143,8 +150,8 @@ public class AccueilViewModel : INotifyPropertyChanged
 
 	public void BoutonInscription()
 	{
-		Inscription inscription = new Inscription(new InscriptionViewModel(_viziofilmService));
-		inscription.Show();
+		_navigationService.NavigateToInscription();
+		_navigationService.FermerFenetre();
 
 
 	}

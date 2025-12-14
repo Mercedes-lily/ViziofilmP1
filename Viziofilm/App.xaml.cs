@@ -8,7 +8,7 @@ using Viziofilm.Core.Services;
 using Viziofilm.Infrastructure;
 using Viziofilm.Infrastructure.Repositories;
 using Viziofilm.SharedKernel.Interfaces;
-using Viziofilm.Presentation.ViewModels;
+using Viziofilm.Presentation.Services;
 
 namespace Viziofilm
 {
@@ -43,20 +43,23 @@ namespace Viziofilm
 			);
 
 			//Repositories
+			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 			services.AddScoped<IFilmRepository, FilmRepository>();
-			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 			services.AddScoped<IAdministrateurRepository, AdministrateurRepository>();
-			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 			services.AddScoped<IMembreRepository, MembreRepository>();
-			services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
 
 		}
 		//ViewModels
 		private void ConfigurePresentationServices(IServiceCollection services)
 		{
+			services.AddSingleton<INavigationService, NavigationService>();
+			services.AddTransient<CatalogueAdministrateur>();
+			services.AddTransient<CatalogueMembre>();
+			services.AddTransient<Inscription>();
 			services.AddTransient<AccueilViewModel>();
 			services.AddTransient<InscriptionViewModel>();
+			services.AddSingleton<Accueil>();
 		}
 		//Démarrage de l'interface graphique
 		protected override async void OnStartup(StartupEventArgs e)
