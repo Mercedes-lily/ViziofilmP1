@@ -217,10 +217,6 @@ namespace Viziofilm.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Prix")
                         .HasColumnType("decimal(18,2)");
 
@@ -268,9 +264,6 @@ namespace Viziofilm.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("aAccepteRecevoirNotification")
-                        .HasColumnType("bit");
-
                     b.Property<string>("addresse")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -279,7 +272,7 @@ namespace Viziofilm.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("languePreferee")
+                    b.Property<string>("codePostal")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -299,11 +292,15 @@ namespace Viziofilm.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("pays")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("prenom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("telephone")
+                    b.Property<string>("ville")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -14,57 +14,71 @@ namespace Viziofilm.Core.Services
 		private readonly IFilmRepository _filmRepository;
 		private readonly IAdministrateurRepository _administrateurRepository;
 		private readonly IMembreRepository _membreRepository;
+		private readonly ILanguePisteRepository _languePisteRepository;
+		private readonly ICategorieRepository _categorieRepository;
 
 
 		public ViziofilmService(IFilmRepository filmRepository, 
 			IAdministrateurRepository administrateurRepository,
-			IMembreRepository membreRepository)
+			IMembreRepository membreRepository, 
+			ILanguePisteRepository languePisteRepository,
+			ICategorieRepository categorieRepository)
 		{
 			_filmRepository = filmRepository;
 			_administrateurRepository = administrateurRepository;
 			_membreRepository = membreRepository;
+			_languePisteRepository = languePisteRepository;
+			_categorieRepository = categorieRepository;
 		}
 
-		public async Task AddFilm(Film film)
+		public async Task AddFilmAsync(Film film)
 		{
 			await _filmRepository.AddAsync(film);
 		}
 
-		public async Task AddMembre(Membre membre)
+		public async Task AddMembreAsync(Membre membre)
 		{
 			await _membreRepository.AddAsync(membre);
 		}
 
 
 
-		public async Task DeleteFilm(Film film)
+		public async Task DeleteFilmAsync(Film film)
 		{
 			await _filmRepository.DeleteAsync(film);
 		}
 
-		public async Task<IReadOnlyList<Film>> GetAllFilms()
+		public async Task<IReadOnlyList<Film>> GetAllFilmsAsync()
 		{
 			return await _filmRepository.ListAllAsync();
 		}
 
-		public async Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsager(string nomUsager)
+		public async Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsagerAsync(string nomUsager)
 		{
 			return await _administrateurRepository.GetAdministrateurBynomUsager(nomUsager);
 		}
-		public async Task<IReadOnlyList<Membre>> GetMembreBynomUsager(string nomUsager)
+		public async Task<IReadOnlyList<Membre>> GetMembreBynomUsagerAsync(string nomUsager)
 		{
 			return await _membreRepository.GetMembreBynomUsager(nomUsager);
 		}
 
-		public async Task UpdateFilm(Film film)
+		public async Task UpdateFilmAsync(Film film)
 		{
 			await _filmRepository.UpdateAsync(film);
 		}
-		public async Task<Film> GetFilmById(int id)
+		public async Task<Film> GetFilmByIdAsync(int id)
 		{
 			return await _filmRepository.GetByIdAsync(id);
-		}	
+		}
 
+		public async Task<IReadOnlyList<LanguePiste>> GetAllLanguesAsync()
+		{
+			return await _languePisteRepository.GetAllLanguesAsync();
+		}
 
+		public async Task<IReadOnlyList<Categorie>> GetAllCategoriesAsync()
+		{
+			return await _categorieRepository.GetAllCategoriesAsync();
+		}
 	}
 }

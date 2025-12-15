@@ -9,6 +9,7 @@ using Viziofilm.Infrastructure;
 using Viziofilm.Infrastructure.Repositories;
 using Viziofilm.SharedKernel.Interfaces;
 using Viziofilm.Presentation.Services;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -47,6 +48,8 @@ namespace Viziofilm
 			services.AddScoped<IFilmRepository, FilmRepository>();
 			services.AddScoped<IAdministrateurRepository, AdministrateurRepository>();
 			services.AddScoped<IMembreRepository, MembreRepository>();
+			services.AddScoped<ILanguePisteRepository, LanguePisteRepository>();
+			services.AddScoped<ICategorieRepository, CategorieRepository>();
 
 
 		}
@@ -55,10 +58,15 @@ namespace Viziofilm
 		{
 			services.AddSingleton<INavigationService, NavigationService>();
 			services.AddTransient<CatalogueAdministrateur>();
+			services.AddTransient<AbonnementAdministrateur>();
+			services.AddTransient<ModificationFilmAdministrateur>();
+			services.AddTransient<StatistiqueAdministrateur>();
 			services.AddTransient<CatalogueMembre>();
 			services.AddTransient<Inscription>();
 			services.AddTransient<AccueilViewModel>();
 			services.AddTransient<InscriptionViewModel>();
+			services.AddTransient<CatalogueAdministrateurViewModel>();
+			services.AddTransient<ModificationFilmAdministrateurViewModel>();
 			services.AddSingleton<Accueil>();
 		}
 		//Démarrage de l'interface graphique

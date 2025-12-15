@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Viziofilm.Core.Entities;
 
-namespace Viziofilm.Core.Specifications
+namespace Viziofilm.Core.Interfaces
 {
-	public class FilmById : BaseSpecification<Film>
+	public interface ILanguePisteRepository
 	{
-		public FilmById(int id) : base(film => film.Id == id)
-		{ }
+		Task<IReadOnlyList<LanguePiste>> GetAllLanguesAsync();
 	}
-
 }

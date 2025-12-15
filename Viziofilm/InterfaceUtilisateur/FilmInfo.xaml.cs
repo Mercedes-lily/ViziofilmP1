@@ -18,10 +18,10 @@ namespace Viziofilm
     /// <summary>
     /// Logique d'interaction pour Film.xaml
     /// </summary>
-    public partial class Film : Window
+    public partial class FilmInfo : Window
     {
 
-		public Film()
+		public FilmInfo()
         {
 			InitializeComponent();
         }

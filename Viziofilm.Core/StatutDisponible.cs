@@ -8,8 +8,8 @@ namespace Viziofilm.Core
 {
 	public enum StatutDisponible
 	{
-		Disponible,
-		Retiré,
-		Prochainement
+		Disponible = 0,
+		Retiré = 1,
+		Prochainement = 2
 	}
 }

@@ -10,12 +10,15 @@ using System.Windows;
 using System.Windows.Input;
 using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Entities;
+using Viziofilm.Presentation.Services;
 
 namespace Viziofilm.Presentation.ViewModels
 {
 	public class InscriptionViewModel : INotifyPropertyChanged
 	{
 		private readonly IViziofilmService _viziofilmService;
+		private readonly INavigationService _navigationService;
+
 		private string _nomUtilisateur;
 		public string NomUtilisateur
 		{
@@ -80,12 +83,14 @@ namespace Viziofilm.Presentation.ViewModels
 			get => _adresseCourriel;
 			set { _adresseCourriel = value; OnPropertyChanged(); }
 		}
+		public Action FermerFenetre { get; set; }
 
 
-		public InscriptionViewModel(IViziofilmService viziofilmService)
+		public InscriptionViewModel(IViziofilmService viziofilmService, INavigationService navigationService)
 		{
 			MessageBox.Show("Bienvenue dans la vue d'inscription !");
 			_viziofilmService = viziofilmService;
+			_navigationService = navigationService;
 			if(viziofilmService == null)
 			{
 				MessageBox.Show("Le service Viziofilm est null.");
@@ -128,7 +133,7 @@ namespace Viziofilm.Presentation.ViewModels
 				ville = Ville,
 				codePostal = CodePostal,
 				pays = Pays,};
-			_viziofilmService.AddMembre(nouveauMembre);
+			_viziofilmService.AddMembreAsync(nouveauMembre);
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -141,8 +146,8 @@ namespace Viziofilm.Presentation.ViewModels
 
 		public void BoutonRetour()
 		{
-			//Accueil accueil = new Accueil();
-			//accueil.Show();
+			_navigationService.NavigateToAccueil();
+			FermerFenetre?.Invoke();
 
 
 		}

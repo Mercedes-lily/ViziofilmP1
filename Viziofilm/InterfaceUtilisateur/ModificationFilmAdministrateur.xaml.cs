@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -21,27 +22,12 @@ namespace Viziofilm
 	public partial class ModificationFilmAdministrateur : Window
 	{
 
-		public ModificationFilmAdministrateur( )
+		public ModificationFilmAdministrateur(ModificationFilmAdministrateurViewModel modificationFilmAdministrateurViewModel)
 		{
 			InitializeComponent();
-		}
-
-		private void BtnEnregristrerFilm_Click(object sender, RoutedEventArgs e)
-		{
-			CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnAnnulerFilm_Click(object sender, RoutedEventArgs e)
-		{
-			CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
+			DataContext = modificationFilmAdministrateurViewModel;
+			if (modificationFilmAdministrateurViewModel.FermerFenetre == null)
+				modificationFilmAdministrateurViewModel.FermerFenetre = new Action(this.Close);
 		}
 	}
 }

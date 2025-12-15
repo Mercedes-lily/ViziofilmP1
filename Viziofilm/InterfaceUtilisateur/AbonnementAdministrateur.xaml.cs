@@ -46,9 +46,9 @@ namespace Viziofilm
 
 		private void BtnGererCatalogue_Click(object sender, RoutedEventArgs e)
 		{
-			CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
+			//CatalogueAdministrateur nouvelleFenetre = new CatalogueAdministrateur();
 
-			nouvelleFenetre.Show();
+			//nouvelleFenetre.Show();
 
 			this.Close();
 		}

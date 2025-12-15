@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -21,41 +22,14 @@ namespace Viziofilm
     public partial class CatalogueAdministrateur : Window
     {
 
-		public CatalogueAdministrateur()
+		public CatalogueAdministrateur(CatalogueAdministrateurViewModel catalogueAdministrateurViewModel)
         {
             InitializeComponent();
+            DataContext = catalogueAdministrateurViewModel;
+            if (catalogueAdministrateurViewModel.FermerFenetre == null)
+            {
+                catalogueAdministrateurViewModel.FermerFenetre = new Action(this.Close);
+            }
         }
-
-		private void BtnGererAbonnement_Click(object sender, RoutedEventArgs e)
-		{
-			AbonnementAdministrateur nouvelleFenetre = new AbonnementAdministrateur();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnStatistiques_Click(object sender, RoutedEventArgs e)
-		{
-			StatistiqueAdministrateur nouvelleFenetre = new StatistiqueAdministrateur();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnDeconexion_Click(object sender, RoutedEventArgs e)
-		{
-			//Accueil nouvelleFenetre = new Accueil();
-
-			//nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void Button_Click(object sender, RoutedEventArgs e)
-		{
-			return;
-		}
 	}
 }

@@ -9,14 +9,15 @@ namespace Viziofilm.Core.Interfaces
 {
 	public interface IViziofilmService
 	{
-		Task AddFilm(Film film);
-		Task UpdateFilm(Film film);
-		Task DeleteFilm(Film film);
-		Task<Film> GetFilmById(int id);
-		Task<IReadOnlyList<Film>> GetAllFilms();
-		Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsager(string nomUsager);
-		Task<IReadOnlyList<Membre>> GetMembreBynomUsager(string nomUsager);
-		Task AddMembre(Membre membre);
-
+		Task AddFilmAsync(Film film);
+		Task UpdateFilmAsync(Film film);
+		Task DeleteFilmAsync(Film film);
+		Task<Film> GetFilmByIdAsync(int id);
+		Task<IReadOnlyList<Film>> GetAllFilmsAsync();
+		Task<IReadOnlyList<Administrateur>> GetAdministrateurBynomUsagerAsync(string nomUsager);
+		Task<IReadOnlyList<Membre>> GetMembreBynomUsagerAsync(string nomUsager);
+		Task AddMembreAsync(Membre membre);
+		Task<IReadOnlyList<LanguePiste>> GetAllLanguesAsync();
+		Task<IReadOnlyList<Categorie>> GetAllCategoriesAsync();
 	}
 }

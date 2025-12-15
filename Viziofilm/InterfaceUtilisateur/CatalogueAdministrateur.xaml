@@ -33,13 +33,15 @@
                 x:Name="BtnStatistiques" 
                 Content="Voir les statistiques" 
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}" Click="BtnStatistiques_Click"
+                Style="{StaticResource HeaderNeutre}"
+                Command="{Binding BoutonStatistiqueCommande}"
 />
         <Button
                 x:Name="BtnGererAbonnement" 
                 Content="Gestion des abonnements" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}" Click="BtnGererAbonnement_Click"
+                Style="{StaticResource HeaderNeutre}" 
+                Command="{Binding BoutonGererAbonnementCommande}"
              />
         <Button
                 x:Name="BtnDeconexion" 
@@ -47,7 +49,8 @@
                 Grid.Column="3"
                 Style="{StaticResource HeaderSelectionnee}"
                 Foreground="#D16F00"
-                Background="#FFD100" Click="BtnDeconexion_Click"
+                Background="#FFD100"
+                Command="{Binding BoutonDeconnexionCommande}"
             />
         <TabControl Grid.ColumnSpan="4" Grid.Row="1">
             <TabItem Header="Gestion des films" Style="{StaticResource Onglet}">
@@ -56,14 +59,14 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
+                    <ListView ItemsSource="{Binding TousLesFilms}" Background="#C6E9F7">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Titre" Width="380">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock 
-                                            Text="{Binding Titre}" 
+                                            Text="{Binding Titre, UpdateSourceTrigger=PropertyChanged}" 
                                             Margin="5"
                                             FontSize="20"
                                             HorizontalAlignment="Stretch"
@@ -75,7 +78,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock 
-                                            Text="{Binding Annee}" 
+                                            Text="{Binding AnneeSortie, UpdateSourceTrigger=PropertyChanged}" 
                                             Margin="5"
                                             FontSize="20"
                                             HorizontalAlignment="Stretch"
@@ -87,7 +90,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock 
-                                            Text="{Binding Disponibilite}" 
+                                            Text="{Binding Statut, UpdateSourceTrigger=PropertyChanged}" 
                                             Margin="5"
                                             FontSize="20"
                                             HorizontalAlignment="Stretch"/>
@@ -100,7 +103,9 @@
                                             <Button 
                                                 Content="✏️" 
                                                 Margin="5"
-                                                FontSize="20"/>
+                                                FontSize="20"
+                                                Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.BoutonModifierFilmCommande}" CommandParameter="{Binding}"
+                                                />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -110,7 +115,9 @@
                                             <Button 
                                                  Content="🗑️" 
                                                  Margin="5"
-                                                 FontSize="20"/>
+                                                 FontSize="20"
+                                                 Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.BoutonSupprimerFilmCommande}" CommandParameter="{Binding}"
+                                            />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -120,7 +127,10 @@
                     <Button 
                         Grid.Row="1"
                         Content="Ajouter"
-                        Style="{StaticResource BoutonJaune}" Click="Button_Click" Grid.ColumnSpan="3" Margin="5,5,5,5"
+                        Style="{StaticResource BoutonJaune}"
+                        Grid.ColumnSpan="3"
+                        Margin="5,5,5,5"
+                        Command="{Binding BoutonAjouterFilmCommande}"
                         />
                 </Grid>
             </TabItem>
@@ -174,7 +184,7 @@
                         x:Name="BtnAjouterCategorie"
                         Grid.Row="1"
                         Content="Ajouter"
-                        Style="{StaticResource BoutonJaune}" Click="Button_Click" Grid.ColumnSpan="3" Margin="5,5,5,5"
+                        Style="{StaticResource BoutonJaune}" Grid.ColumnSpan="3" Margin="5,5,5,5"
                         />
                 </Grid>
             </TabItem>

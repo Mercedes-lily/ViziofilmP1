@@ -11,7 +11,6 @@ namespace Viziofilm.Core.Entities
 {
 	public class Film : BaseEntity, IAggregateRoot
 	{
-		public string Number { get; set; }
 		public string Titre { get; set; }
 		public int AnneeSortie { get; set; }
 		public int Duree { get; set; }
@@ -28,9 +27,8 @@ namespace Viziofilm.Core.Entities
 
 		}
 
-		public Film(string number, string titre, int anneeSortie, int duree, decimal prix, string synopsis, StatutDisponible statut, string motsCles)
+		public Film(string titre, int anneeSortie, int duree, decimal prix, string synopsis, StatutDisponible statut, string motsCles)
 		{
-			this.Number = number;
 			this.Titre = titre;
 			this.AnneeSortie = anneeSortie;
 			this.Duree = duree;

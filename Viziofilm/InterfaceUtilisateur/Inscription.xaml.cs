@@ -16,15 +16,15 @@ using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
-	/// <summary>
-	/// Logique d'interaction pour Inscription.xaml
-	/// </summary>
 	public partial class Inscription : Window
 	{
 
-		public Inscription(InscriptionViewModel inscription)
+		public Inscription(InscriptionViewModel inscriptionViewModel)
 		{
 			InitializeComponent();
+			DataContext = inscriptionViewModel;
+			if (inscriptionViewModel.FermerFenetre == null)
+				inscriptionViewModel.FermerFenetre = new Action(this.Close);
 		}
 
 	}

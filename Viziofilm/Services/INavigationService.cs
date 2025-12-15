@@ -11,6 +11,9 @@ namespace Viziofilm.Presentation.Services
 		void NavigateToCatalogueAdministrateur();
 		void NavigateToCatalogueMembre();
 		void NavigateToInscription();
-		void FermerFenetre();
+		void NavigateToAccueil();
+		void NavigateToStatistiqueAdministrateur();
+		void NavigateToAbonnementAdministrateur();
+		void NavigateToModificationFilmAdministrateur(int FilmId);
 	}
 }

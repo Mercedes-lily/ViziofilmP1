@@ -62,7 +62,6 @@ namespace Viziofilm.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Number = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Titre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AnneeSortie = table.Column<int>(type: "int", nullable: false),
                     Duree = table.Column<int>(type: "int", nullable: false),
@@ -102,10 +101,10 @@ namespace Viziofilm.Infrastructure.Migrations
                     nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     addresse = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    telephone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ville = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     addresseCourriel = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    aAccepteRecevoirNotification = table.Column<bool>(type: "bit", nullable: false),
-                    languePreferee = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    codePostal = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pays = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

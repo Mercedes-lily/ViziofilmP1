@@ -13,20 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Services;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
-	/// <summary>
-	/// Logique d'interaction pour Accueil.xaml
-	/// </summary>
 	public partial class Accueil : Window
 	{
 		public Accueil(AccueilViewModel accueilViewModel)
 		{
 			InitializeComponent();
-
-			// Créez une instance de votre ViewModel et affectez-la au DataContext
 			DataContext = accueilViewModel;
+			if (accueilViewModel.FermerFenetre == null)
+				accueilViewModel.FermerFenetre = new Action(this.Hide);
 		}
 	}
 }

@@ -139,7 +139,6 @@ namespace Viziofilm.ConsoleTestApp
 			Film[] films = new Film[] 
 			{
 				new Film(
-					"F001",
 					"Le Voyage de Chihiro",
 					2001,
 					125,
@@ -149,7 +148,6 @@ namespace Viziofilm.ConsoleTestApp
 					"animation, aventure, fantastique, Japon, studio Ghibli"
 				),
 				new Film(
-					"F002",
 					"Inception",
 					2010,
 					148,
@@ -159,7 +157,6 @@ namespace Viziofilm.ConsoleTestApp
 					"science-fiction, thriller, rêves, Leonardo DiCaprio, Christopher Nolan"
 				),
 				new Film(
-					"F003",
 					"Parasite",
 					2019,
 					132,
@@ -169,7 +166,6 @@ namespace Viziofilm.ConsoleTestApp
 					"thriller, drame, Corée du Sud, Oscar, Bong Joon-ho"
 				),
 				new Film(
-					"F004",
 					"The Dark Knight",
 					2008,
 					152,
@@ -179,7 +175,6 @@ namespace Viziofilm.ConsoleTestApp
 					"super-héros, action, thriller, Joker, Christian Bale"
 				),
 				new Film(
-					"F005",
 					"La La Land",
 					2016,
 					128,
@@ -189,7 +184,6 @@ namespace Viziofilm.ConsoleTestApp
 					"comédie musicale, romance, Ryan Gosling, Emma Stone, Oscars"
 				),
 				new Film(
-					"F006",
 					"Interstellar",
 					2014,
 					169,
@@ -199,7 +193,6 @@ namespace Viziofilm.ConsoleTestApp
 					"science-fiction, aventure, espace, Matthew McConaughey, Christopher Nolan"
 				),
 				new Film(
-					"F007",
 					"Pulp Fiction",
 					1994,
 					154,
@@ -209,7 +202,6 @@ namespace Viziofilm.ConsoleTestApp
 					"crime, thriller, Quentin Tarantino, Samuel L. Jackson, John Travolta"
 				),
 				new Film(
-					"F008",
 					"The Shawshank Redemption",
 					1994,
 					142,
@@ -219,7 +211,6 @@ namespace Viziofilm.ConsoleTestApp
 					"drame, prison, espoir, Tim Robbins, Morgan Freeman"
 				),
 				new Film(
-					"F009",
 					"Get Out",
 					2017,
 					104,
@@ -229,7 +220,6 @@ namespace Viziofilm.ConsoleTestApp
 					"horreur, thriller, Jordan Peele, satire sociale, Oscar"
 				),
 				new Film(
-					"F010",
 					"The Grand Budapest Hotel",
 					2014,
 					99,
@@ -239,7 +229,6 @@ namespace Viziofilm.ConsoleTestApp
 					"comédie, Wes Anderson, Ralph Fiennes, esthétique visuelle"
 				),
 				new Film(
-					"F011",
 					"Mad Max: Fury Road",
 					2015,
 					120,
@@ -249,7 +238,6 @@ namespace Viziofilm.ConsoleTestApp
 					"action, post-apocalyptique, Charlize Theron, Tom Hardy, courses-poursuites"
 				),
 				new Film(
-					"F012",
 					"Whiplash",
 					2014,
 					106,
@@ -272,18 +260,18 @@ namespace Viziofilm.ConsoleTestApp
 		{
 			var context = new ViziofilmContext();
 
-			Membre m1 = new Membre("M127", "EmmaD", "EmmaMdp123!", "Dubois", "Emma", "1234 boulevard Saint-Martin, Laval", "514-555-1234", "emma.dubois@email.com", true, "fr");
-			Membre m2 = new Membre("M128", "ThomasP", "ThomasP@ss99", "Petit", "Thomas", "5678 avenue Papineau, Montréal", "514-777-5678", "thomas.petit@email.com", false, "en");
-			Membre m3 = new Membre("M129", "SophieL", "Sophie!2025", "Lefèvre", "Sophie", "9101 rue Saint-Jean, Québec", "418-111-9101", "sophie.lefevre@email.com", true, "fr");
-			Membre m4 = new Membre("M130", "LiamR", "LiamPass99!", "Roy", "Liam", "3456 chemin d'Aylmer, Gatineau", "819-222-3456", "liam.roy@email.com", false, "en");
-			Membre m5 = new Membre("M131", "ChloéB", "ChloéSecur3#", "Bouchard", "Chloé", "7890 rue King Ouest, Sherbrooke", "819-333-7890", "chloe.bouchard@email.com", true, "fr");
-			Membre m6 = new Membre("M132", "NoahG", "Noah2024@Mdp", "Gagnon", "Noah", "2345 boulevard des Forges, Trois-Rivières", "819-444-2345", "noah.gagnon@email.com", false, "fr");
-			Membre m7 = new Membre("M133", "AliceM", "AliceMdp456*", "Morin", "Alice", "6789 rue Begin, Lévis", "418-555-6789", "alice.morin@email.com", true, "fr");
-			Membre m8 = new Membre("M134", "JacobC", "JacobSafe789!", "Côté", "Jacob", "1011 boulevard Roland-Therrien, Longueuil", "450-666-1011", "jacob.cote@email.com", false, "en");
-			Membre m9 = new Membre("M135", "LéaP", "LéaMdp2025#", "Pelletier", "Léa", "4567 rue Racine, Saguenay", "418-777-4567", "lea.pelletier@email.com", true, "fr");
-			Membre m10 = new Membre("M136", "NathanL", "NathanPass123!", "Lapointe", "Nathan", "8901 avenue de la Cathédrale, Rimouski", "418-888-8901", "nathan.lapointe@email.com", false, "fr");
-			Membre m11 = new Membre("M137", "CamilleB", "Camille!2024*", "Bergeron", "Camille", "3456 rue Hériot, Drummondville", "819-999-3456", "camille.bergeron@email.com", true, "fr");
-			Membre m12 = new Membre("M138", "EthanD", "EthanSecure99#", "Dufour", "Ethan", "7890 rue Principale, Granby", "450-111-7890", "ethan.dufour@email.com", false, "en");
+			Membre m1 = new Membre("M127", "EmmaD", "EmmaMdp123!", "Dubois", "Emma", "1234 boulevard Saint-Martin, Laval", "514-555-1234", "emma.dubois@email.com", "G1B2G2", "Canada");
+			Membre m2 = new Membre("M128", "ThomasP", "ThomasP@ss99", "Petit", "Thomas", "5678 avenue Papineau, Montréal", "514-777-5678", "thomas.petit@email.com", "A4B7K9", "Canada");
+			Membre m3 = new Membre("M129", "SophieL", "Sophie!2025", "Lefèvre", "Sophie", "9101 rue Saint-Jean, Québec", "418-111-9101", "sophie.lefevre@email.com", "H1H2G5", "Canada");
+			Membre m4 = new Membre("M130", "LiamR", "LiamPass99!", "Roy", "Liam", "3456 chemin d'Aylmer, Gatineau", "819-222-3456", "liam.roy@email.com", "H0H0H0", "Canada");
+			Membre m5 = new Membre("M131", "ChloéB", "ChloéSecur3#", "Bouchard", "Chloé", "7890 rue King Ouest, Sherbrooke", "819-333-7890", "chloe.bouchard@email.com", "L9U6J5", "Canada");
+			Membre m6 = new Membre("M132", "NoahG", "Noah2024@Mdp", "Gagnon", "Noah", "2345 boulevard des Forges, Trois-Rivières", "819-444-2345", "noah.gagnon@email.com", "75001", "France");
+			Membre m7 = new Membre("M133", "AliceM", "AliceMdp456*", "Morin", "Alice", "6789 rue Begin, Lévis", "418-555-6789", "alice.morin@email.com", "97410", "La Reunion");
+			Membre m8 = new Membre("M134", "JacobC", "JacobSafe789!", "Côté", "Jacob", "1011 boulevard Roland-Therrien, Longueuil", "450-666-1011", "jacob.cote@email.com", "02876", "Perou");
+			Membre m9 = new Membre("M135", "LéaP", "LéaMdp2025#", "Pelletier", "Léa", "4567 rue Racine, Saguenay", "418-777-4567", "lea.pelletier@email.com", "N4A0A9", "Canada");
+			Membre m10 = new Membre("M136", "NathanL", "NathanPass123!", "Lapointe", "Nathan", "8901 avenue de la Cathédrale, Rimouski", "418-888-8901", "nathan.lapointe@email.com", "K5G3D5", "Canada");
+			Membre m11 = new Membre("M137", "CamilleB", "Camille!2024*", "Bergeron", "Camille", "3456 rue Hériot, Drummondville", "819-999-3456", "camille.bergeron@email.com", "1234567", "Etats-Unis");
+			Membre m12 = new Membre("M138", "EthanD", "EthanSecure99#", "Dufour", "Ethan", "7890 rue Principale, Granby", "450-111-7890", "ethan.dufour@email.com", "3004", "Australie");
 			
 			context.Add(m1);
 			context.Add(m2);
@@ -352,6 +340,9 @@ namespace Viziofilm.ConsoleTestApp
 
 			context.SaveChanges();
 		}
+
+
+		//CODE DE TEST DU GUIDE VIDEO DU PROF
 		//static async Task Test4()
 		//{
 		//	using (ViziofilmContext context = new ViziofilmContext())

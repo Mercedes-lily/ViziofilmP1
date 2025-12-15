@@ -19,141 +19,132 @@ using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Services;
 using Viziofilm.Presentation.Services;
 
-public class AccueilViewModel : INotifyPropertyChanged
+namespace Viziofilm.Presentation.ViewModels
 {
-	private bool isAdmin = false;
-	private bool isMembre = false;
-	private readonly IViziofilmService _viziofilmService;
-	private readonly INavigationService _navigationService;
-	private string _nomUtilisateur;
-	public string NomUtilisateur
+	public class AccueilViewModel : INotifyPropertyChanged
 	{
-		get => _nomUtilisateur;
-		set { _nomUtilisateur = value; OnPropertyChanged(); }
-	}
+		private readonly IViziofilmService _viziofilmService;
+		private readonly INavigationService _navigationService;
 
-	private string _motDePasse;
-	public string MotDePasse
-	{
-		get => _motDePasse;
-		set { _motDePasse = value; OnPropertyChanged(); }
-	}
-	public ICommand BoutonConnectionCommande { get; private set; }
-	public ICommand BoutonInscriptionCommande { get; private set; }
+		private bool isAdmin = false;
+		private bool isMembre = false;
+		private string _nomUtilisateur;
+		public string NomUtilisateur
+		{
+			get => _nomUtilisateur;
+			set { _nomUtilisateur = value; OnPropertyChanged(); }
+		}
 
-	private string _messageErreur;
-	public string MessageErreur
-	{
-		get => _messageErreur;
-		set { _messageErreur = value; OnPropertyChanged(); }
-	}
-	public Action FermerFenetre { get; set; }
+		private string _motDePasse;
+		public string MotDePasse
+		{
+			get => _motDePasse;
+			set { _motDePasse = value; OnPropertyChanged(); }
+		}
+		public ICommand BoutonConnectionCommande { get; private set; }
+		public ICommand BoutonInscriptionCommande { get; private set; }
 
-	public AccueilViewModel(IViziofilmService viziofilmService, INavigationService navigationService)
-	{
-		_viziofilmService = viziofilmService;
-		_navigationService = navigationService;
-		BoutonConnectionCommande = new RelayCommand(
-				o => true,
-				o => BoutonConnection()
-			);
-		BoutonInscriptionCommande = new RelayCommand(
-				o => true,
-				o => BoutonInscription()
+		private string _messageErreur;
+		public string MessageErreur
+		{
+			get => _messageErreur;
+			set { _messageErreur = value; OnPropertyChanged(); }
+		}
+		public Action FermerFenetre { get; set; }
+
+		public AccueilViewModel(IViziofilmService viziofilmService, INavigationService navigationService)
+		{
+			_viziofilmService = viziofilmService;
+			_navigationService = navigationService;
+			BoutonConnectionCommande = new RelayCommand(
+					o => true,
+					async o => await BoutonConnectionAsync()
 				);
+			BoutonInscriptionCommande = new RelayCommand(
+					o => true,
+					o => BoutonInscription()
+					);
 
-	}
+		}
 
-	private void BoutonConnection()
-	{
-		VerifieAdmin();
-		//VerifieMembre();
-		if (isAdmin)
+		private async Task BoutonConnectionAsync()
 		{
-			_navigationService.NavigateToCatalogueAdministrateur();
-			_navigationService.FermerFenetre();
-		}
-		if(isMembre)
-		{
-			_navigationService.NavigateToCatalogueMembre();
-			_navigationService.FermerFenetre();
-		}
-		//else if(isMembre)
-		//{
-		//	CatalogueMembre inscription = new CatalogueMembre();
-		//		inscription.Show();
-		//	return;
-		//}
-		else
-		{
+			await VerifieAdminAsync();
+			if (isAdmin)
+			{
+				_navigationService.NavigateToCatalogueAdministrateur();
+				FermerFenetre?.Invoke();
+			}
+			await VerifieMembreAsync();
+			if (isMembre)
+			{
+				_navigationService.NavigateToCatalogueMembre();
+				FermerFenetre?.Invoke();
+			}
 			MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";
+			
 		}
-	}
 
-	public event PropertyChangedEventHandler PropertyChanged;
-	protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-	{
-		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-	}
-
-	private async void VerifieMembre()
-	{
-
-		var Membre = await _viziofilmService.GetMembreBynomUsager(NomUtilisateur);
-		if (Membre == null || Membre.Count == 0)
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		private async Task VerifieMembreAsync()
+		{
+
+			var Membre = await _viziofilmService.GetMembreBynomUsagerAsync(NomUtilisateur);
+			if (Membre == null || Membre.Count == 0)
+			{
+				isMembre = false;
+				MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";
+				return;
+			}
+
+			foreach (var membre in Membre)
+			{
+				if (membre.motDePasse == MotDePasse)
+				{
+					isMembre = true;
+					return;
+				}
+			}
 			isMembre = false;
-			MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.");
-			MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";
 			return;
 		}
 
-		foreach (var membre in Membre)
+		private async Task VerifieAdminAsync()
 		{
-			if (membre.motDePasse == MotDePasse)
+			var administrateurs = await _viziofilmService.GetAdministrateurBynomUsagerAsync(NomUtilisateur);
+
+			if (administrateurs == null || administrateurs.Count == 0)
 			{
-				isMembre = true;
+				isAdmin = false;
+				MessageErreur = "Combinaison incorecte";
 				return;
 			}
-		}
-		isMembre = false;
-		return;
-	}
 
-	private async void VerifieAdmin()
-	{
-		var administrateurs = await _viziofilmService.GetAdministrateurBynomUsager(NomUtilisateur);
+			foreach (var admin in administrateurs)
+			{
+				if (admin.motDePasse == MotDePasse)
+				{
 
-		if (administrateurs == null || administrateurs.Count == 0)
-		{
+					isAdmin = true;
+					return;
+				}
+			}
 			isAdmin = false;
-			MessageErreur = "Combinaison incorecte";
 			return;
 		}
 
-		foreach (var admin in administrateurs)
-	{
-			MessageBox.Show(admin.nomUsager);
-			MessageBox.Show(MotDePasse);
 
-			if (admin.motDePasse == MotDePasse)
-			{
+		public void BoutonInscription()
+		{
+			_navigationService.NavigateToInscription();
+			FermerFenetre?.Invoke();
 
-				isAdmin = true;
-				return;
-			}
+
 		}
-		isAdmin = false;
-		return;
-	}
-
-
-	public void BoutonInscription()
-	{
-		_navigationService.NavigateToInscription();
-		_navigationService.FermerFenetre();
-
-
 	}
 }
-

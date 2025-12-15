@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="VizioFilmAdministrateur"
         WindowStartupLocation="CenterScreen"
-        Style="{StaticResource ProprieteFenetre}">
+        Style="{StaticResource ProprieteFenetre}"
+        Height="1000">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="#C6E9F7">
             <Grid.ColumnDefinitions>
@@ -71,7 +72,7 @@
                 HorizontalScrollBarVisibility="Visible">
                 <TextBlock 
                     x:Name="TitreOutput"
-                    Text="Le silence des Agneaux"
+                    Text="{Binding Titre, Mode=OneWay}"
                     TextWrapping="Wrap"
                     Margin="5"
                     FontFamily="Footlight MT Light"
@@ -83,6 +84,7 @@
                     Grid.Row="3"
                     Grid.Column="3"
                     Style="{StaticResource TextBox}"
+                    Text="{Binding Titre}"
                     />
             <Label 
                 x:Name="Duree"
@@ -93,18 +95,19 @@
             />
             <Label 
                 x:Name="DureeFilmOutput"
-                Content="118 min" 
+                Content="{Binding Duree}" 
                 Grid.Row="4" 
                 Grid.Column="2"
-                 Style="{StaticResource LabelNormauxGauche}"
-HorizontalAlignment="Center"
+                Style="{StaticResource LabelNormauxGauche}"
+                HorizontalAlignment="Center"
             />
             <TextBox 
                     x:Name="InputDureeFilm"
                     Grid.Row="4"
                     Grid.Column="3"
                     Style="{StaticResource TextBox}"
-                    />
+                    Text="{Binding Duree}"
+                />
 
             <Label 
                 x:Name="AnneeFilmAbonnement"
@@ -115,30 +118,19 @@ HorizontalAlignment="Center"
             />
             <Label 
                 x:Name="AnneeFilmOutput"
-                Content="1991" 
+                Content="{Binding AnneeSortie}" 
                 Grid.Row="5" 
                 Grid.Column="2"
                 Style="{StaticResource LabelNormauxGauche}"
                 HorizontalAlignment="Center"
                 />
-            <ComboBox
+                <TextBox
                     x:Name="AnneeFilmInput" 
                     Grid.Row="5" 
                     Grid.Column="3" 
                     Style="{StaticResource Liste}"
-                       >
-                <ComboBoxItem Content="1991"/>
-                <ComboBoxItem Content="1992"/>
-                <ComboBoxItem Content="1993"/>
-                <ComboBoxItem Content="1994"/>
-                <ComboBoxItem Content="1995"/>
-                <ComboBoxItem Content="1996"/>
-                <ComboBoxItem Content="1997"/>
-                <ComboBoxItem Content="1998"/>
-                <ComboBoxItem Content="1999"/>
-                <ComboBoxItem Content="2000"/>
-                <ComboBoxItem Content="2001"/>
-            </ComboBox>
+                    Text="{Binding AnneeSortie}"
+                />
             <Label 
     x:Name="PrixFilmAbonnement"
     Content="Prix : " 
@@ -148,22 +140,21 @@ HorizontalAlignment="Center"
 />
             <Label 
     x:Name="PrixFilmOutput"
-    Content="3.99" 
+    Content="{Binding Prix}" 
     Grid.Row="6" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
     HorizontalAlignment="Center"
     />
-            <ComboBox
+            <TextBox
         x:Name="PrixFilmInput" 
         Grid.Row="6" 
         Grid.Column="3" 
         Style="{StaticResource Liste}"
-           >
-                <ComboBoxItem Content="2.99"/>
-                <ComboBoxItem Content="3.99"/>
-                <ComboBoxItem Content="4.99"/>
-            </ComboBox>
+                Text="{Binding Prix}"
+           />
+
+
             <Label 
                 x:Name="SynopsisFilmAbonnement"
                 Content="Synopsis : " 
@@ -181,6 +172,7 @@ HorizontalAlignment="Center"
                 Grid.Column="3"
                 VerticalScrollBarVisibility="Auto"
                 Style="{StaticResource TextBox}"
+                Text="{Binding Synopsis}"
                 />
             <ScrollViewer
                 Grid.Row="7"
@@ -190,7 +182,7 @@ HorizontalAlignment="Center"
                 HorizontalScrollBarVisibility="Disabled">
                 <TextBlock 
                     x:Name="SynopsisFilmOutput"
-                    Text="Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
+                    Text="{Binding Synopsis}"
                     TextWrapping="Wrap"
                     Margin="5"
                     FontFamily="Footlight MT Light"
@@ -206,7 +198,7 @@ HorizontalAlignment="Center"
             />
             <Label 
     x:Name="StatusFilmOutput"
-    Content="Disponible" 
+    Content="{Binding Statut}" 
     Grid.Row="14" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
@@ -214,15 +206,13 @@ HorizontalAlignment="Center"
     
     />
             <ComboBox
-x:Name="StatusFilmInput" 
-Grid.Row="14" 
-Grid.Column="3" 
-Style="{StaticResource Liste}"
-   >
-                <ComboBoxItem Content="Disponible"/>
-                <ComboBoxItem Content="Indisponible"/>
-
-            </ComboBox>
+                x:Name="StatusFilmInput" 
+                Grid.Row="14" 
+                Grid.Column="3" 
+                Style="{StaticResource Liste}"
+                ItemsSource="{Binding StatusDisponibles}"
+                SelectedItem="{Binding Statut, Mode=TwoWay}"
+                />
             <Label 
     x:Name="MotCleFilmAbonnement"
     Content="Mot-Clé : " 
@@ -237,7 +227,7 @@ Style="{StaticResource Liste}"
     HorizontalScrollBarVisibility="Visible">
                 <TextBlock 
         x:Name="MotCleFilmOutput"
-        Text="Tueur en série, Enquête"
+        Text="{Binding MotsCles}"
         TextWrapping="Wrap"
         Margin="5"
         FontFamily="Footlight MT Light"
@@ -249,6 +239,7 @@ Style="{StaticResource Liste}"
         Grid.Row="8"
         Grid.Column="3"
         Style="{StaticResource TextBox}"
+                Text="{Binding MotsCles}"
         />
             <Label 
     x:Name="DistributionFilmAbonnement"
@@ -265,7 +256,7 @@ Style="{StaticResource Liste}"
                 HorizontalScrollBarVisibility="Disabled">
                 <TextBlock 
                     x:Name="DistributionFilmOutput"
-                    Text="Anthony Hopkins, Jodie Foster, Jack Crawford, Ted Levine, Anthony Heald"
+                    Text=""
                     TextWrapping="Wrap"
                     Margin="5"
                     FontFamily="Footlight MT Light"
@@ -296,7 +287,7 @@ Style="{StaticResource Liste}"
                 HorizontalScrollBarVisibility="Auto">
                 <TextBlock 
                     x:Name="BandeAnnonceFilmOutput"
-                    Text="LeSilenceDesAgneauxBandeAnnonce.mp4"
+                    Text=""
                     TextWrapping="Wrap"
                     Margin="5"
                     HorizontalAlignment="Center"
@@ -324,7 +315,7 @@ Style="{StaticResource Liste}"
     HorizontalScrollBarVisibility="Disabled">
                 <TextBlock 
         x:Name="CategorieFilmOutput"
-        Text="Suspense, Horreur, Policier"
+        Text="{Binding CategorieSelectionnee}"
         TextWrapping="Wrap"
         Margin="5"
         HorizontalAlignment="Center"
@@ -332,12 +323,16 @@ Style="{StaticResource Liste}"
         FontSize="20"
         Foreground="#219EBC"/>
             </ScrollViewer>
-            <TextBox 
+            <ComboBox 
             x:Name="InputCategorie"
             Grid.Row="10"
             Grid.Column="3"
+                ItemsSource="{Binding ToutesLesCategories}"
+                SelectedItem="{Binding CategorieSelectionnee, Mode=TwoWay}"
+                DisplayMemberPath="Nom"
             Style="{StaticResource TextBox}"
-            />
+            >
+            </ComboBox>
             <Label 
     x:Name="LangueFilm"
     Content="Langue : " 
@@ -347,19 +342,24 @@ Style="{StaticResource Liste}"
 />
             <Label 
     x:Name="LangueFilmOutput"
-    Content="Français" 
+    Content="{Binding LanguePisteSelectionnee}" 
     Grid.Row="11" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
     HorizontalAlignment="Center"
     
     />
-            <TextBox 
+            <ComboBox 
         x:Name="InputLangue"
         Grid.Row="11"
         Grid.Column="3"
+                ItemsSource="{Binding ToutesLesLangues}"
+                SelectedItem="{Binding LangueSelectionnee, Mode=TwoWay}"
+                DisplayMemberPath="Code"
         Style="{StaticResource TextBox}"
-        />
+        >
+                
+            </ComboBox>
             <Label 
     x:Name="AfficheFilm"
     Content="Affiche : " 
@@ -374,7 +374,7 @@ Style="{StaticResource Liste}"
                 HorizontalScrollBarVisibility="Auto">
                 <TextBlock 
                     x:Name="AfficheFilmOutput"
-                    Text="LeSilenceDesAgneauxAffiche.png"
+                    Text=""
                     TextWrapping="Wrap"
                     Margin="5"
                     HorizontalAlignment="Center"
@@ -390,17 +390,18 @@ Style="{StaticResource Liste}"
     />
             <Label
          x:Name="Alerte"
-         Content="**Message d'alerte**"
+         Content="{Binding MessageErreur}"
          Grid.Row="3"
          Grid.Column="4"
          Style="{StaticResource LabelAlerte}"/>
 
             <Button 
-     x:Name="BtnAnnulerFilm" 
-     Content="Annuler" 
-     Grid.Row="15" 
-     Grid.Column="4" 
-     Style="{StaticResource BoutonBleu}" Click="BtnAnnulerFilm_Click"/>
+                 x:Name="BtnAnnulerFilm" 
+                 Content="Annuler" 
+                 Grid.Row="15" 
+                 Grid.Column="4" 
+                 Style="{StaticResource BoutonBleu}" 
+                 Command="{Binding BoutonAnnulerFilmCommande}"/>
 
 
             <Button 
@@ -408,7 +409,8 @@ Style="{StaticResource Liste}"
                 Content="Enregistrer" 
                 Grid.Row="15" 
                 Grid.Column="3" 
-                Style="{StaticResource BoutonJaune}" Click="BtnEnregristrerFilm_Click"/>
+                Style="{StaticResource BoutonJaune}" 
+                Command="{Binding BoutonEnregistrerFilmCommande}"/>
         </Grid>
     </ScrollViewer>
 </Window>
