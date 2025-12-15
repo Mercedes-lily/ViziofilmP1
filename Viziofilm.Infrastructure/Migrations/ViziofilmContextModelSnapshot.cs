@@ -288,10 +288,6 @@ namespace Viziofilm.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("numero")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("pays")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

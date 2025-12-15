@@ -31,12 +31,6 @@ namespace Viziofilm.Presentation.ViewModels
 			get => _tousLesFilms;
 			set { _tousLesFilms = value; OnPropertyChanged(); }
 		}
-		private Film _filmSelectionne;
-		public Film FilmSelectionne
-		{
-			get => _filmSelectionne;
-			set { _filmSelectionne = value; OnPropertyChanged(); }
-		}
 		public Action FermerFenetre {  get; set; }
 		public ICommand BoutonGererAbonnementCommande { get; private set; }
 		public ICommand BoutonStatistiqueCommande { get; private set; }

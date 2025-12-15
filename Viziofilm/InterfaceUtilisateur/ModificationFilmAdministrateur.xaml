@@ -197,7 +197,7 @@
             />
             <Label 
     x:Name="StatusFilmOutput"
-    Content="{Binding Statut}" 
+    Content="{Binding StatutSelectionne}" 
     Grid.Row="14" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
@@ -353,7 +353,7 @@
         Grid.Row="11"
         Grid.Column="3"
                 ItemsSource="{Binding ToutesLesLangues}"
-                SelectedItem="{Binding LangueSelectionnee, Mode=TwoWay}"
+                SelectedItem="{Binding LanguePisteSelectionnee, Mode=TwoWay}"
                 DisplayMemberPath="code"
         Style="{StaticResource TextBox}"
         >

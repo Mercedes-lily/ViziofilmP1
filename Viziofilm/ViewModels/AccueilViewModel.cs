@@ -73,12 +73,16 @@ namespace Viziofilm.Presentation.ViewModels
 			if (isAdmin)
 			{
 				_navigationService.NavigateToCatalogueAdministrateur();
+				NomUtilisateur = "";
+				MotDePasse = "";
 				FermerFenetre?.Invoke();
 			}
 			await VerifieMembreAsync();
 			if (isMembre)
 			{
 				_navigationService.NavigateToCatalogueMembre();
+				NomUtilisateur = "";
+				MotDePasse = "";
 				FermerFenetre?.Invoke();
 			}
 			MessageErreur = "Nom d'utilisateur ou mot de passe incorrect.";

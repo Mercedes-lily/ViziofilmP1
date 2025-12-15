@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Viziofilm.Core;
 using Viziofilm.Core.Entities;
@@ -25,7 +26,6 @@ namespace Viziofilm.Presentation.ViewModels
 		private int _duree;
 		private decimal _prix;
 		private string _synopsis;
-		private StatutDisponible _statut;
 		private string _motsCles;
 		private ObservableCollection<Categorie> _toutesLesCategories;
 		private ObservableCollection<LanguePiste> _toutesLesLangues;
@@ -82,11 +82,6 @@ namespace Viziofilm.Presentation.ViewModels
 			get => _synopsis;
 			set { _synopsis = value; OnPropertyChanged(); }
 		}
-		public StatutDisponible Statut
-		{
-			get => _statut;
-			set { _statut = value; OnPropertyChanged(); }
-		}
 		public string MotsCles
 		{
 			get => _motsCles;
@@ -122,7 +117,7 @@ namespace Viziofilm.Presentation.ViewModels
 			_navigationService = navigationService;
 			BoutonEnregistrerFilmCommande = new RelayCommand(
 					o => true,
-					o => BoutonEnregirstrerFilm()
+					o => BoutonEnregistrerFilm()
 				);
 			BoutonAnnulerFilmCommande = new RelayCommand(
 					o => true,
@@ -136,10 +131,55 @@ namespace Viziofilm.Presentation.ViewModels
 			FermerFenetre?.Invoke();
 		}
 
-		private void BoutonEnregirstrerFilm()
+		private async void BoutonEnregistrerFilm()
 		{
-			///////THINGS TO SAVE AS A NEW FILM OR MODIFICATION
-			FermerFenetre?.Invoke();
+			bool estNouveau = FilmSelectionne == null;
+			Film filmAEnregistrer;
+			if (Titre == null || AnneeSortie == 0 || Duree == 0 || Synopsis == null || MotsCles == null || CategorieSelectionnee == null || LanguePisteSelectionnee == null)
+			{
+				MessageErreur = "Veuillez Remplir tous les champs.";
+				return;
+			}
+			if (estNouveau)
+			{
+				filmAEnregistrer = new Film();
+			}
+			else
+			{
+				filmAEnregistrer = FilmSelectionne;
+			}
+			filmAEnregistrer.Statut = StatutSelectionne;
+			filmAEnregistrer.Titre = Titre;
+			filmAEnregistrer.AnneeSortie = AnneeSortie;
+			filmAEnregistrer.Duree = Duree;
+			filmAEnregistrer.Prix = Prix;
+			filmAEnregistrer.Synopsis = Synopsis;
+			filmAEnregistrer.MotsCles = MotsCles;
+			//Problème d'implémentation de Many-to-Many à régler si temps. Ne s'effectue pas comme ça mais plutôt avec la table CategorieFilm
+			//filmAEnregistrer.Categories.Clear();
+			//filmAEnregistrer.Categories.Add(CategorieSelectionnee);
+			//filmAEnregistrer.LanguePistes.Clear();
+			//filmAEnregistrer.LanguePistes.Add(LanguePisteSelectionnee);
+			try
+			{
+				if (estNouveau)
+				{
+					await _viziofilmService.AddFilmAsync(filmAEnregistrer);
+					MessageBox.Show("Le film a été ajouté avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+				}
+				else
+				{
+					await _viziofilmService.UpdateFilmAsync(filmAEnregistrer);
+					MessageBox.Show("Le film a été mis à jour avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+				}
+				_navigationService.NavigateToCatalogueAdministrateur();
+				FermerFenetre?.Invoke();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Erreur d'enregistrement : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageErreur = $"Erreur : {ex.Message}";
+			}
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -152,7 +192,12 @@ namespace Viziofilm.Presentation.ViewModels
 			if (filmId != -1)
 			{
 				var film = await _viziofilmService.GetFilmByIdAsync(filmId);
+				FilmSelectionne = film;
 				InitFilm(film);
+			}
+			else
+			{
+				FilmSelectionne = null;
 			}
 		}
 		public void InitFilm(Film film)
@@ -162,10 +207,10 @@ namespace Viziofilm.Presentation.ViewModels
 			Duree = film.Duree;
 			Prix = film.Prix;
 			Synopsis = film.Synopsis;
-			Statut = film.Statut;
+			StatutSelectionne = film.Statut;
 			MotsCles = film.MotsCles;
-			CategorieSelectionnee = film.Categories.First(); //Utiliser le premier, manque de temps pour CheckBox...
-			LanguePisteSelectionnee = film.LanguePistes.First(); //Utiliser le premier, manque de temps pour CheckBox...
+			CategorieSelectionnee = film.Categories.First(); //Utiliser le premier, manque de temps pour CheckBox et many-to-many...
+			LanguePisteSelectionnee = film.LanguePistes.First(); //Utiliser le premier, manque de temps pour CheckBox et many-to-many...
 
 		}
 		public async Task LoadAvailableData()

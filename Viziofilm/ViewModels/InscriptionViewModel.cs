@@ -11,6 +11,7 @@ using System.Windows.Input;
 using Viziofilm.Core.Interfaces;
 using Viziofilm.Core.Entities;
 using Viziofilm.Presentation.Services;
+using System.Windows.Controls;
 
 namespace Viziofilm.Presentation.ViewModels
 {
@@ -18,6 +19,10 @@ namespace Viziofilm.Presentation.ViewModels
 	{
 		private readonly IViziofilmService _viziofilmService;
 		private readonly INavigationService _navigationService;
+		public List<string> TousLesPaysDisponibles { get; } = new List<string>
+		{
+			"Canada", "Etats-Unis", "France", "Australie", "La Reunion", "Perou"
+		};
 
 		private string _nomUtilisateur;
 		public string NomUtilisateur
@@ -88,13 +93,8 @@ namespace Viziofilm.Presentation.ViewModels
 
 		public InscriptionViewModel(IViziofilmService viziofilmService, INavigationService navigationService)
 		{
-			MessageBox.Show("Bienvenue dans la vue d'inscription !");
 			_viziofilmService = viziofilmService;
 			_navigationService = navigationService;
-			if(viziofilmService == null)
-			{
-				MessageBox.Show("Le service Viziofilm est null.");
-			}
 			BoutonSoumettreCommande = new RelayCommand(
 					o => true,
 					o => BoutonSoumettre()
@@ -106,9 +106,8 @@ namespace Viziofilm.Presentation.ViewModels
 
 		}
 
-		private void BoutonSoumettre()
+		private async void BoutonSoumettre()
 		{
-			MessageBox.Show("Inscription réussie !");
 			if (NomUtilisateur == null ||
 				MotDePasse == null ||
 				Nom == null ||
@@ -133,7 +132,18 @@ namespace Viziofilm.Presentation.ViewModels
 				ville = Ville,
 				codePostal = CodePostal,
 				pays = Pays,};
-			_viziofilmService.AddMembreAsync(nouveauMembre);
+			try
+			{
+				await _viziofilmService.AddMembreAsync(nouveauMembre);
+				MessageBox.Show("Inscription réussie!", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+				_navigationService.NavigateToAccueil();
+				FermerFenetre?.Invoke();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Erreur d'inscription : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageErreur = $"Erreur : {ex.Message}";
+			}
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

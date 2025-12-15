@@ -70,7 +70,7 @@
             Grid.Row="1" 
             Grid.Column="1" 
             Style="{StaticResource TextBox}"
-            Text ="{Binding Identifiant}"
+            Text ="{Binding NomUtilisateur}"
         />
 
             <Label 
@@ -166,14 +166,10 @@
             Grid.Row="7" 
             Grid.Column="1" 
             Style="{StaticResource Liste}"
-                SelectedValue="{Binding Pays}"
->
-                <ComboBoxItem Content="Canada"/>
-                <ComboBoxItem Content="États-Unis"/>
-                <ComboBoxItem Content="France"/>
-                <ComboBoxItem Content="Royaume-Uni"/>
-                <ComboBoxItem Content="Allemagne"/>
-            </ComboBox>
+                ItemsSource="{Binding TousLesPaysDisponibles}"
+            SelectedItem="{Binding Pays, Mode=TwoWay}"
+            />
+
 
 
             <Label 

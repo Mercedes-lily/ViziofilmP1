@@ -10,7 +10,6 @@ namespace Viziofilm.Core.Entities
 {
 	public class Membre : Utilisateur
 	{
-		public string numero { get; set; }
 		public string nomUsager { get; set; }
 		public string motDePasse { get; set; }
 		public string nom { get; set; }
@@ -27,9 +26,8 @@ namespace Viziofilm.Core.Entities
 		{
 		}
 
-		public Membre(string numero, string nomUsager, string motDePasse, string nom, string prenom, string addresse, string ville, string addresseCourriel, string pays, string codePostal)
+		public Membre(string nomUsager, string motDePasse, string nom, string prenom, string addresse, string ville, string addresseCourriel, string pays, string codePostal)
 		{
-			this.numero = numero;
 			this.nomUsager = nomUsager;
 			this.motDePasse = motDePasse;
 			this.nom = nom;

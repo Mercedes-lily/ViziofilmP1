@@ -95,7 +95,6 @@ namespace Viziofilm.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    numero = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     nomUsager = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     motDePasse = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     nom = table.Column<string>(type: "nvarchar(max)", nullable: false),

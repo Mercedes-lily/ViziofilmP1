@@ -260,18 +260,18 @@ namespace Viziofilm.ConsoleTestApp
 		{
 			var context = new ViziofilmContext();
 
-			Membre m1 = new Membre("M127", "EmmaD", "EmmaMdp123!", "Dubois", "Emma", "1234 boulevard Saint-Martin, Laval", "514-555-1234", "emma.dubois@email.com", "G1B2G2", "Canada");
-			Membre m2 = new Membre("M128", "ThomasP", "ThomasP@ss99", "Petit", "Thomas", "5678 avenue Papineau, Montréal", "514-777-5678", "thomas.petit@email.com", "A4B7K9", "Canada");
-			Membre m3 = new Membre("M129", "SophieL", "Sophie!2025", "Lefèvre", "Sophie", "9101 rue Saint-Jean, Québec", "418-111-9101", "sophie.lefevre@email.com", "H1H2G5", "Canada");
-			Membre m4 = new Membre("M130", "LiamR", "LiamPass99!", "Roy", "Liam", "3456 chemin d'Aylmer, Gatineau", "819-222-3456", "liam.roy@email.com", "H0H0H0", "Canada");
-			Membre m5 = new Membre("M131", "ChloéB", "ChloéSecur3#", "Bouchard", "Chloé", "7890 rue King Ouest, Sherbrooke", "819-333-7890", "chloe.bouchard@email.com", "L9U6J5", "Canada");
-			Membre m6 = new Membre("M132", "NoahG", "Noah2024@Mdp", "Gagnon", "Noah", "2345 boulevard des Forges, Trois-Rivières", "819-444-2345", "noah.gagnon@email.com", "75001", "France");
-			Membre m7 = new Membre("M133", "AliceM", "AliceMdp456*", "Morin", "Alice", "6789 rue Begin, Lévis", "418-555-6789", "alice.morin@email.com", "97410", "La Reunion");
-			Membre m8 = new Membre("M134", "JacobC", "JacobSafe789!", "Côté", "Jacob", "1011 boulevard Roland-Therrien, Longueuil", "450-666-1011", "jacob.cote@email.com", "02876", "Perou");
-			Membre m9 = new Membre("M135", "LéaP", "LéaMdp2025#", "Pelletier", "Léa", "4567 rue Racine, Saguenay", "418-777-4567", "lea.pelletier@email.com", "N4A0A9", "Canada");
-			Membre m10 = new Membre("M136", "NathanL", "NathanPass123!", "Lapointe", "Nathan", "8901 avenue de la Cathédrale, Rimouski", "418-888-8901", "nathan.lapointe@email.com", "K5G3D5", "Canada");
-			Membre m11 = new Membre("M137", "CamilleB", "Camille!2024*", "Bergeron", "Camille", "3456 rue Hériot, Drummondville", "819-999-3456", "camille.bergeron@email.com", "1234567", "Etats-Unis");
-			Membre m12 = new Membre("M138", "EthanD", "EthanSecure99#", "Dufour", "Ethan", "7890 rue Principale, Granby", "450-111-7890", "ethan.dufour@email.com", "3004", "Australie");
+			Membre m1 = new Membre("EmmaD", "EmmaMdp123!", "Dubois", "Emma", "1234 boulevard Saint-Martin, Laval", "514-555-1234", "emma.dubois@email.com", "G1B2G2", "Canada");
+			Membre m2 = new Membre("ThomasP", "ThomasP@ss99", "Petit", "Thomas", "5678 avenue Papineau, Montréal", "514-777-5678", "thomas.petit@email.com", "A4B7K9", "Canada");
+			Membre m3 = new Membre("SophieL", "Sophie!2025", "Lefèvre", "Sophie", "9101 rue Saint-Jean, Québec", "418-111-9101", "sophie.lefevre@email.com", "H1H2G5", "Canada");
+			Membre m4 = new Membre("LiamR", "LiamPass99!", "Roy", "Liam", "3456 chemin d'Aylmer, Gatineau", "819-222-3456", "liam.roy@email.com", "H0H0H0", "Canada");
+			Membre m5 = new Membre("ChloéB", "ChloéSecur3#", "Bouchard", "Chloé", "7890 rue King Ouest, Sherbrooke", "819-333-7890", "chloe.bouchard@email.com", "L9U6J5", "Canada");
+			Membre m6 = new Membre("NoahG", "Noah2024@Mdp", "Gagnon", "Noah", "2345 boulevard des Forges, Trois-Rivières", "819-444-2345", "noah.gagnon@email.com", "75001", "France");
+			Membre m7 = new Membre("AliceM", "AliceMdp456*", "Morin", "Alice", "6789 rue Begin, Lévis", "418-555-6789", "alice.morin@email.com", "97410", "La Reunion");
+			Membre m8 = new Membre("JacobC", "JacobSafe789!", "Côté", "Jacob", "1011 boulevard Roland-Therrien, Longueuil", "450-666-1011", "jacob.cote@email.com", "02876", "Perou");
+			Membre m9 = new Membre("LéaP", "LéaMdp2025#", "Pelletier", "Léa", "4567 rue Racine, Saguenay", "418-777-4567", "lea.pelletier@email.com", "N4A0A9", "Canada");
+			Membre m10 = new Membre( "NathanL", "NathanPass123!", "Lapointe", "Nathan", "8901 avenue de la Cathédrale, Rimouski", "418-888-8901", "nathan.lapointe@email.com", "K5G3D5", "Canada");
+			Membre m11 = new Membre("CamilleB", "Camille!2024*", "Bergeron", "Camille", "3456 rue Hériot, Drummondville", "819-999-3456", "camille.bergeron@email.com", "1234567", "Etats-Unis");
+			Membre m12 = new Membre("EthanD", "EthanSecure99#", "Dufour", "Ethan", "7890 rue Principale, Granby", "450-111-7890", "ethan.dufour@email.com", "3004", "Australie");
 			
 			context.Add(m1);
 			context.Add(m2);

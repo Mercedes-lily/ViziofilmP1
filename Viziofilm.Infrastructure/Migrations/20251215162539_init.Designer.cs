@@ -12,7 +12,7 @@ using Viziofilm.Infrastructure;
 namespace Viziofilm.Infrastructure.Migrations
 {
     [DbContext(typeof(ViziofilmContext))]
-    [Migration("20251215052730_init")]
+    [Migration("20251215162539_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -288,10 +288,6 @@ namespace Viziofilm.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nomUsager")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("numero")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
