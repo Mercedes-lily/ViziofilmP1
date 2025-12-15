@@ -32,11 +32,24 @@ namespace Viziofilm.Presentation.ViewModels
 		private Categorie _categorieSelectionnee;
 		private LanguePiste _languePisteSelectionnee;
 		private Film _filmSelectionne;
+		private StatutDisponible _statutSelectionne;
 		public IEnumerable<StatutDisponible> StatutsDisponibles { get; } = Enum.GetValues(typeof(StatutDisponible)).Cast<StatutDisponible>();
 		public ObservableCollection<Categorie> ToutesLesCategories
 		{
 			get => _toutesLesCategories;
 			set { _toutesLesCategories = value; OnPropertyChanged(); }
+		}
+		public IEnumerable<StatutDisponible> TousLesStatuts
+		{
+			get
+			{
+				return Enum.GetValues(typeof(StatutDisponible)).Cast<StatutDisponible>();
+			}
+		}
+		public StatutDisponible StatutSelectionne
+		{
+			get => _statutSelectionne;
+			set { _statutSelectionne = value; OnPropertyChanged(); }
 		}
 		public ObservableCollection<LanguePiste> ToutesLesLangues
 		{
@@ -151,8 +164,8 @@ namespace Viziofilm.Presentation.ViewModels
 			Synopsis = film.Synopsis;
 			Statut = film.Statut;
 			MotsCles = film.MotsCles;
-			CategorieSelectionnee = film.Categories[0]; //Utiliser le premier, manque de temps pour CheckBox...
-			LanguePisteSelectionnee = film.LanguePistes[0]; //Utiliser le premier, manque de temps pour CheckBox...
+			CategorieSelectionnee = film.Categories.First(); //Utiliser le premier, manque de temps pour CheckBox...
+			LanguePisteSelectionnee = film.LanguePistes.First(); //Utiliser le premier, manque de temps pour CheckBox...
 
 		}
 		public async Task LoadAvailableData()

@@ -20,6 +20,8 @@ namespace Viziofilm.Infrastructure.Repositories
 				.Include(f => f.Cotes)
 				.Include(f => f.AnneeSortie)
 				.Include(f => f.Duree)
+				.Include(f => f.Categories)
+				.Include(f => f.LanguePistes)
 				.Include(f => f.Synopsis)
 				.Include(f => f.Cotes)
 				.Include(f => f.Credit)

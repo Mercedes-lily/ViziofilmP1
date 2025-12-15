@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="VizioFilmAdministrateur"
         WindowStartupLocation="CenterScreen"
-        Style="{StaticResource ProprieteFenetre}"
-        Height="1000">
+        Style="{StaticResource ProprieteFenetre}">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="#C6E9F7">
             <Grid.ColumnDefinitions>
@@ -191,7 +190,7 @@
                 </ScrollViewer>
                 <Label 
                 x:Name="StatusFilmAbonnement"
-                Content="Status : " 
+                Content="Statut : " 
                 Grid.Row="14" 
                 Grid.Column="1"
                 Style="{StaticResource LabelNormauxDroite}"
@@ -210,8 +209,8 @@
                 Grid.Row="14" 
                 Grid.Column="3" 
                 Style="{StaticResource Liste}"
-                ItemsSource="{Binding StatusDisponibles}"
-                SelectedItem="{Binding Statut, Mode=TwoWay}"
+                ItemsSource="{Binding TousLesStatuts}"
+                SelectedItem="{Binding StatutSelectionne, Mode=TwoWay}"
                 />
             <Label 
     x:Name="MotCleFilmAbonnement"
@@ -315,7 +314,7 @@
     HorizontalScrollBarVisibility="Disabled">
                 <TextBlock 
         x:Name="CategorieFilmOutput"
-        Text="{Binding CategorieSelectionnee}"
+        Text="{Binding CategorieSelectionnee.Nom}"
         TextWrapping="Wrap"
         Margin="5"
         HorizontalAlignment="Center"
@@ -329,7 +328,7 @@
             Grid.Column="3"
                 ItemsSource="{Binding ToutesLesCategories}"
                 SelectedItem="{Binding CategorieSelectionnee, Mode=TwoWay}"
-                DisplayMemberPath="Nom"
+                DisplayMemberPath="nom"
             Style="{StaticResource TextBox}"
             >
             </ComboBox>
@@ -342,7 +341,7 @@
 />
             <Label 
     x:Name="LangueFilmOutput"
-    Content="{Binding LanguePisteSelectionnee}" 
+    Content="{Binding LanguePisteSelectionnee.code}" 
     Grid.Row="11" 
     Grid.Column="2"
     Style="{StaticResource LabelNormauxGauche}"
@@ -355,7 +354,7 @@
         Grid.Column="3"
                 ItemsSource="{Binding ToutesLesLangues}"
                 SelectedItem="{Binding LangueSelectionnee, Mode=TwoWay}"
-                DisplayMemberPath="Code"
+                DisplayMemberPath="code"
         Style="{StaticResource TextBox}"
         >
                 

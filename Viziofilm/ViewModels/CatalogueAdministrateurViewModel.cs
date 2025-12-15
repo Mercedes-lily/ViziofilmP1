@@ -20,6 +20,12 @@ namespace Viziofilm.Presentation.ViewModels
 		private readonly IViziofilmService _viziofilmService;
 		private readonly INavigationService _navigationService;
 		private ObservableCollection<Film> _tousLesFilms;
+		private ObservableCollection<Categorie> _toutesLesCategories;
+		public ObservableCollection<Categorie> ToutesLesCategories
+		{
+			get => _toutesLesCategories;
+			set { _toutesLesCategories = value; OnPropertyChanged(); }
+		}
 		public ObservableCollection<Film> TousLesFilms
 		{
 			get => _tousLesFilms;
@@ -60,11 +66,11 @@ namespace Viziofilm.Presentation.ViewModels
 					o =>  AjouterFilm()
 				);
 			BoutonModifierFilmCommande = new RelayCommand(
-					o => FilmSelectionne != null,
+					o => true,
 					o => ModifierFilm(o)
 				);
 			BoutonSupprimerFilmCommande = new RelayCommand(
-				o => FilmSelectionne != null,
+				o => true,
 				o => SupprimerFilmAsync(o)
 				);
 		}
@@ -131,6 +137,8 @@ namespace Viziofilm.Presentation.ViewModels
 		{
 			var films = await _viziofilmService.GetAllFilmsAsync();
 			TousLesFilms = new ObservableCollection<Film>(films);
+			var categories = await _viziofilmService.GetAllCategoriesAsync();
+			ToutesLesCategories = new ObservableCollection<Categorie>(categories);
 		}
 	}
 }

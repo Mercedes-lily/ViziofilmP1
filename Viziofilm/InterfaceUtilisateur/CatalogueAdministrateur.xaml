@@ -101,7 +101,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button 
-                                                Content="✏️" 
+                                                Content="Modifier" 
                                                 Margin="5"
                                                 FontSize="20"
                                                 Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.BoutonModifierFilmCommande}" CommandParameter="{Binding}"
@@ -113,7 +113,7 @@
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button 
-                                                 Content="🗑️" 
+                                                 Content="Supprimer" 
                                                  Margin="5"
                                                  FontSize="20"
                                                  Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.BoutonSupprimerFilmCommande}" CommandParameter="{Binding}"
@@ -140,14 +140,14 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <ListView ItemsSource="{Binding Abonnement}" Background="#C6E9F7">
+                    <ListView ItemsSource="{Binding ToutesLesCategories}" Background="#C6E9F7">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Nom" Width="200">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock 
-                                        Text="{Binding Nom}" 
+                                        Text="{Binding Nom, UpdateSourceTrigger=PropertyChanged}" 
                                         Margin="5"
                                         FontSize="20"
                                         HorizontalAlignment="Stretch"
@@ -169,8 +169,8 @@
                                 <GridViewColumn Header="Supprimer" Width="300">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock 
-                                                Text="{Binding Supprimer}" 
+                                            <Button 
+                                                Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListView}}, Path=DataContext.BoutonSupprimerCategorieCommande}" CommandParameter="{Binding}" 
                                                 Margin="5"
                                                 FontSize="20"
                                                 HorizontalAlignment="Stretch"/>
