@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
         Title="VizioFilm"
-        Height="1000"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource ProprieteFenetre}">
     <Grid>
@@ -210,7 +209,7 @@
             />
                 <Label 
                 x:Name="CategorieFilmOutput"
-                Content="{Binding CategorieSelectionnee.Nom}"
+                Content="{Binding CategorieSelectionnee.nom}"
                 Grid.Row="5"
                 Grid.Column="1"
                 HorizontalAlignment="Left"
