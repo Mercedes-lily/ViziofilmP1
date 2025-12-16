@@ -31,19 +31,19 @@
                 x:Name="BtnProfil" 
                 Content="Profil" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}" Click="BtnProfil_Click"
+                Style="{StaticResource HeaderNeutre}" Command="{Binding BoutonProfilCommande}"
 />
         <Button
                 x:Name="BtnPorteFeuille" 
                 Content="PorteFeuille" 
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}" Click="BtnPorteFeuille_Click"
+                Style="{StaticResource HeaderNeutre}" Command="{Binding BoutonPortefeuilleCommande}"
 />
             <Button
                 x:Name="BtnAbonnement" 
                 Content="Abonnement" 
                 Grid.Column="3"
-                Style="{StaticResource HeaderNeutre}" Click="BtnAbonnement_Click"
+                Style="{StaticResource HeaderNeutre}" Command="{Binding GererAbonnementCommande}"
              />
 
 
@@ -69,20 +69,13 @@
                 Grid.ColumnSpan="3"
                 Style="{StaticResource LabelTitre}"
                 />
-            <Label 
-                x:Name="PrenomCatalogue" 
-                Content="Bienvenue Vincent" 
-                Grid.Column="0"
-                Grid.Row="0"
-                Style="{StaticResource LabelNormauxGauche}"
-                VerticalAlignment="Top"
-                />
+
             <Button 
                 x:Name="BtnDeconnexion" 
                 Content="Déconnexion" 
                 Grid.Column="2"
                 Grid.Row="0"
-                Style="{StaticResource PetitBoutonJaune}" Click="BtnDeconnexion_Click"
+                Style="{StaticResource PetitBoutonJaune}" Command="{Binding BoutonDeconnexionCommande}"
     />
             <Label
                 x:Name="RechercheCatalogue" 
@@ -95,23 +88,24 @@
                 x:Name="InputRechercheCatalogue" 
                 Grid.Column="1"
                 Grid.Row="1"
-                Style="{StaticResource TextBox}"/>
+                Style="{StaticResource TextBox}"
+                Text="{Binding Recherche}"/>
             <Button
                 x:Name="BtnRechercheCatalogue" 
                 Content="Rechercher" 
                 Grid.Column="2"
                 Grid.Row="1"
-                Style="{StaticResource BoutonJaune}" Click="BtnRechercheCatalogue_Click"
+                Style="{StaticResource BoutonJaune}" Command="{Binding BoutonRechercherFilmCommande}"
             />
             <Button
                 x:Name="BtnRechercheAvanceeCatalogue" 
                 Content="Recherche Avancée" 
                 Grid.Column="1"
                 Grid.Row="2"
-                Style="{StaticResource BoutonJaune}" Click="BtnRechercheAvanceeCatalogue_Click"
+                Style="{StaticResource BoutonJaune}" Command="{Binding BoutonRechercheAvanceeCommande}"
              />
             <ItemsControl 
-                ItemsSource="{Binding ListeFilms}"
+                ItemsSource="{Binding FilmTrouve}"
                 Grid.Column="0"
                 Grid.Row="3"
                 Grid.ColumnSpan="3">
@@ -122,20 +116,27 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="5">
-                            <Image Source="{Binding Affiche}"
-                                Width="150"
-                                Height="200"
-                                Stretch="UniformToFill"
-                            />
-                            <TextBlock Text="{Binding Titre}"
-                                HorizontalAlignment="Center"
-                                TextAlignment="Center"
-                                FontWeight="Bold"
-                                TextWrapping="Wrap"
-                            />
-                        </StackPanel>
-                    </DataTemplate>
+                            <Button
+                                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=DataContext.BoutonInfoFilmCommande}"
+                                CommandParameter="{Binding}"
+                                Style="{StaticResource ItemCatalogueButtonStyle}">
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="{Binding Titre}"
+                                        HorizontalAlignment="Center"
+                                        TextAlignment="Center"
+                                        FontWeight="Bold"
+                                        TextWrapping="Wrap"
+                                    />
+                                    <TextBlock Text="{Binding AnneeSortie}"
+                                            HorizontalAlignment="Center"
+                                            TextAlignment="Center"
+                                            FontWeight="Bold"
+                                            TextWrapping="Wrap"
+                                        />
+                                    <Border Height="1" Background="#AAAAAA" Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>

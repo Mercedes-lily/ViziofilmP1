@@ -80,5 +80,10 @@ namespace Viziofilm.Core.Services
 		{
 			return await _categorieRepository.GetAllCategoriesAsync();
 		}
+
+		public async Task<IReadOnlyList<Film>> GetFilmByMotCleAsync(string terme)
+		{
+			return await _filmRepository.GetFilmByMotCleAsync(terme);
+		}
 	}
 }

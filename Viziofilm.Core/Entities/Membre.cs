@@ -38,13 +38,5 @@ namespace Viziofilm.Core.Entities
 			this.pays = pays;
 			this.codePostal = codePostal;
 		}
-		//public void AddCategorie(Categorie categorie)
-		//{
-		//	Categorie.Add(categorie);
-		//}
-		//public void RemoveCategorie(Categorie categorie)
-		//{
-		//	Categorie.Remove(categorie);
-		//}
 	}
 }

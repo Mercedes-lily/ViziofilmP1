@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -21,45 +22,14 @@ namespace Viziofilm
     public partial class FilmInfo : Window
     {
 
-		public FilmInfo()
+		public FilmInfo(FilmInfoViewModel filmInfoViewModel)
         {
 			InitializeComponent();
-        }
-
-		private void BtnProfil_Click(object sender, RoutedEventArgs e)
-		{
-			ProfilMembre nouvelleFenetre = new ProfilMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnPorteFeuille_Click(object sender, RoutedEventArgs e)
-		{
-			PortefeuilleMembre nouvelleFenetre = new PortefeuilleMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnAbonnement_Click(object sender, RoutedEventArgs e)
-		{
-			AbonnementMembre nouvelleFenetre = new AbonnementMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void AbonnementVisionner_Click(object sender, RoutedEventArgs e)
-		{
-			PaiementUnitaire nouvelleFenetre = new PaiementUnitaire();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
+			DataContext = filmInfoViewModel;
+			if (filmInfoViewModel.FermerFenetre == null)
+			{
+				filmInfoViewModel.FermerFenetre = new Action(this.Close);
+			}
 		}
 	}
 }

@@ -37,31 +37,5 @@ namespace Viziofilm.Core.Entities
 			this.Statut = statut;
 			this.MotsCles = motsCles;
 		}
-
-		//public void AddPersonne(Personne personne)
-		//{
-		//	Personnes.Add(personne);
-		//}
-		//public void RemovePersonne(Personne personne)
-		//{
-		//	Personnes.Remove(personne);
-		//}
-		//public void AddCategorie(Categorie categorie)
-		//{
-		//	Categorie.Add(categorie);
-		//}
-		//public void RemoveCategorie(Categorie categorie)
-		//{
-		//	Categorie.Remove(categorie);
-		//}
-		//public void AddLanguePiste(LanguePiste languePiste)
-		//{
-		//	LanguePiste.Add(personne);
-		//}
-		//public void RemoveLanguePiste(LanguePiste languePiste)
-		//{
-		//	LanguePiste.Remove(languePiste);
-		//}
-
 	}
 }

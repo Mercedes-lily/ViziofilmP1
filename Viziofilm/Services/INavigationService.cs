@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Viziofilm.Presentation.Services
 {
@@ -15,5 +16,10 @@ namespace Viziofilm.Presentation.Services
 		void NavigateToStatistiqueAdministrateur();
 		void NavigateToAbonnementAdministrateur();
 		void NavigateToModificationFilmAdministrateur(int FilmId);
+		void NavigateToAbonnementMembre();
+		void NavigateToProfilMembre();
+		void NavigateToFilmInfo(int FilmId);
+		void NavigateToRechercheAvancee();
+		void NavigateToPortefeuilleMembre();
 	}
 }

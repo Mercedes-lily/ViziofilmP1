@@ -19,5 +19,6 @@ namespace Viziofilm.Core.Interfaces
 		Task AddMembreAsync(Membre membre);
 		Task<IReadOnlyList<LanguePiste>> GetAllLanguesAsync();
 		Task<IReadOnlyList<Categorie>> GetAllCategoriesAsync();
+		Task<IReadOnlyList<Film>> GetFilmByMotCleAsync(string terme);
 	}
 }

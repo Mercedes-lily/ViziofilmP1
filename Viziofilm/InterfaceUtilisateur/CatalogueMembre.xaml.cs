@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Viziofilm.Core.Interfaces;
+using Viziofilm.Presentation.ViewModels;
 
 namespace Viziofilm
 {
@@ -21,63 +22,14 @@ namespace Viziofilm
     public partial class CatalogueMembre : Window
     {
 
-		public CatalogueMembre( )
+		public CatalogueMembre(CatalogueMembreViewModel catalogueMembreViewModel)
         {
             InitializeComponent();
-        }
-
-		private void BtnProfil_Click(object sender, RoutedEventArgs e)
-		{
-			ProfilMembre nouvelleFenetre = new ProfilMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnPorteFeuille_Click(object sender, RoutedEventArgs e)
-		{
-			PortefeuilleMembre nouvelleFenetre = new PortefeuilleMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnAbonnement_Click(object sender, RoutedEventArgs e)
-		{
-			AbonnementMembre nouvelleFenetre = new AbonnementMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnDeconnexion_Click(object sender, RoutedEventArgs e)
-		{
-			//Accueil nouvelleFenetre = new Accueil();
-
-			//nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnRechercheCatalogue_Click(object sender, RoutedEventArgs e)
-		{
-			CatalogueMembre nouvelleFenetre = new CatalogueMembre();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
-		}
-
-		private void BtnRechercheAvanceeCatalogue_Click(object sender, RoutedEventArgs e)
-		{
-			RechercheAvancee nouvelleFenetre = new RechercheAvancee();
-
-			nouvelleFenetre.Show();
-
-			this.Close();
+			DataContext = catalogueMembreViewModel;
+			if (catalogueMembreViewModel.FermerFenetre == null)
+			{
+				catalogueMembreViewModel.FermerFenetre = new Action(this.Close);
+			}
 		}
 	}
 }

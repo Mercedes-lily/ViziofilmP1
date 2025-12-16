@@ -31,13 +31,13 @@ namespace Viziofilm.Infrastructure.Repositories
 				.FirstOrDefaultAsync(f => f.Id == id);
 		}
 
-		public async Task<IReadOnlyList<Film>> RechercherFilm(string motCle)
+		public async Task<IReadOnlyList<Film>> GetFilmByMotCleAsync(string motCle)
 		{
-			string patternMotCle = $"%{motCle.ToLower()}%";
+			string patternMotCle = motCle.ToLower();
 			return await _ViziofilmContext.Films
-				.Where(f => EF.Functions.Like(f.Titre.ToLower(), patternMotCle) ||
-				EF.Functions.Like(f.MotsCles.ToLower(), patternMotCle) ||
-				f.Categories.Any(c => EF.Functions.Like(c.nom.ToLower(), patternMotCle))).ToListAsync();
+				.Where(f => f.Titre.ToLower().Contains(patternMotCle) ||
+				f.MotsCles.ToLower().Contains(patternMotCle) ||
+				f.Synopsis.ToLower().Contains(patternMotCle)).ToListAsync();
 		}
 	}
 

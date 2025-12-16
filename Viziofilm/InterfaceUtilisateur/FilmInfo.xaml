@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Viziofilm"
         mc:Ignorable="d"
         Title="VizioFilm"
+        Height="1000"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource ProprieteFenetre}">
     <Grid>
@@ -24,6 +25,7 @@
         <Button
                 x:Name="BtnCatalogue" 
                 Content="Catalogue" 
+            Command="{Binding BoutonCatalogueFilmCommande}"
                 Style="{StaticResource HeaderSelectionnee}"
              />
 
@@ -31,19 +33,22 @@
                 x:Name="BtnProfil" 
                 Content="Profil" 
                 Grid.Column="1"
-                Style="{StaticResource HeaderNeutre}" Click="BtnProfil_Click"
+            Command="{Binding BoutonProfilCommande}"
+                Style="{StaticResource HeaderNeutre}"
 />
         <Button
                 x:Name="BtnPorteFeuille" 
-                Content="PorteFeuille" 
+                Content="PorteFeuille"
+            Command="{Binding BoutonPortefeuilleCommande}"
                 Grid.Column="2"
-                Style="{StaticResource HeaderNeutre}" Click="BtnPorteFeuille_Click"
+                Style="{StaticResource HeaderNeutre}"
 />
         <Button
                 x:Name="BtnAbonnement" 
-                Content="Abonnement" 
+                Content="Abonnement"
+            Command="{Binding BoutonGererAbonnementCommande}"
                 Grid.Column="3"
-                Style="{StaticResource HeaderNeutre}" Click="BtnAbonnement_Click"
+                Style="{StaticResource HeaderNeutre}"
              />
 
         <ScrollViewer Grid.ColumnSpan="4" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
@@ -69,7 +74,7 @@
                 </Grid.RowDefinitions>
                 <Label 
                 x:Name="TitreFilm" 
-                Content="Le silence des agneaux" 
+                Content="{Binding Titre}" 
                 Grid.Row="0" 
                 Grid.Column="0"
                 Style="{StaticResource LabelTitre}"
@@ -111,13 +116,13 @@
             >
                     <Label 
                     x:Name="DureeFilm"
-                    Content="Durée : "
+                    Content="Durée (min): "
                     Style="{StaticResource LabelNormauxDroite}"
 
                 />
                     <Label 
                     x:Name="DureeFilmOutput"
-                    Content="118 min"
+                    Content="{Binding Duree}"
                     Style="{StaticResource LabelNormauxGauche}"
 
                 />
@@ -129,7 +134,7 @@
                 />
                     <Label 
                     x:Name="AnneeFilmOutput"
-                    Content="1991"
+                    Content="{Binding AnneeSortie}"
                     Style="{StaticResource LabelNormauxGauche}"
 
                 />
@@ -141,7 +146,7 @@
                 />
                     <Label 
                     x:Name="CoteFilmOutput"
-                    Content="9.2"
+                    Content=""
                     Style="{StaticResource LabelNormauxGauche}"
 
                 />
@@ -161,7 +166,7 @@
             />
                     <Label 
                 x:Name="PrixFilmOutput"
-                Content="3.99"
+                Content="{Binding Prix}"
                 Style="{StaticResource LabelNormauxGauche}"
 
             />
@@ -173,7 +178,7 @@
             />
                     <Label 
                 x:Name="DisponibiliteFilmOutput"
-                Content="Disponible"
+                Content="{Binding StatutSelectionne}"
                 Style="{StaticResource LabelNormauxGauche}"
 
             />
@@ -187,7 +192,7 @@
             />
                 <TextBlock 
                 x:Name="SynopsisFilmOutput"
-                Text="Un psychopathe connu sous le nom de Buffalo Bill sème la terreur dans le Middle West en kidnappant et en assassinant de jeunes femmes. Clarice Starling, une jeune agent du FBI, est chargée d'interroger l'ex-psychiatre Hannibal Lecter. Psychopathe redoutablement intelligent et porté sur le cannibalisme, Lecter est capable de lui fournir des informations concernant Buffalo Bill ainsi que son portrait psychologique. Mais il n'accepte de l'aider qu'en échange d'informations sur la vie privée de la jeune femme. Entre eux s'établit un lien de fascination et de répulsion."
+                Text="{Binding Synopsis}"
                 Grid.Row="4"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
@@ -205,7 +210,7 @@
             />
                 <Label 
                 x:Name="CategorieFilmOutput"
-                Content="Suspense, Horreur, Policier"
+                Content="{Binding CategorieSelectionnee.Nom}"
                 Grid.Row="5"
                 Grid.Column="1"
                 HorizontalAlignment="Left"
@@ -222,7 +227,7 @@
                 />
                 <TextBlock
                 x:Name="LangueFilmOutput"
-                Text="Anglais, Français"
+                Text="{Binding LanguePisteSelectionnee.code}"
                 Grid.Row="6"
                 Grid.Column="1"
                 HorizontalAlignment="Left"
@@ -241,7 +246,7 @@
                 />
                 <TextBlock
                 x:Name="PersonnaliteFilmOutput"
-                Text="Anthony Hopkins, Jodie Foster, Jack Crawford, Ted Levine, Anthony Heald"
+                Text=""
                 Grid.Row="7"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
@@ -256,9 +261,10 @@
                 <Button 
                 x:Name="AbonnementVisionner"
                 Content="Visionner"
+                    Command="{Binding BoutonVisionnerFilmCommande}"
                 Grid.Row="9"
                 Grid.Column="1"
-                Style="{StaticResource BoutonJaune}" Click="AbonnementVisionner_Click"
+                Style="{StaticResource BoutonJaune}"
             />
             </Grid>
         </ScrollViewer>

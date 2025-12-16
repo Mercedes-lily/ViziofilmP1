@@ -53,20 +53,38 @@ namespace Viziofilm
 
 
 		}
-		//ViewModels
+		//Views et ViewModels
 		private void ConfigurePresentationServices(IServiceCollection services)
 		{
+			//Service de navigation
 			services.AddSingleton<INavigationService, NavigationService>();
-			services.AddTransient<CatalogueAdministrateur>();
+
+			//Views
 			services.AddTransient<AbonnementAdministrateur>();
-			services.AddTransient<ModificationFilmAdministrateur>();
-			services.AddTransient<StatistiqueAdministrateur>();
+			services.AddTransient<AbonnementMembre>();
+			services.AddTransient<CatalogueAdministrateur>();
+			services.AddTransient<CatalogueInvite>(); //Not implemented
 			services.AddTransient<CatalogueMembre>();
+			services.AddTransient<FilmInfo>();
+			services.AddTransient<FilmInvite>(); //Not implemented
 			services.AddTransient<Inscription>();
+			services.AddTransient<ModificationAbonnementAdministrateur>(); //Not implemented
+			services.AddTransient<ModificationFilmAdministrateur>();
+			services.AddTransient<PaiementUnitaire>(); //Not implemented
+			services.AddTransient<PortefeuilleMembre>();
+			services.AddTransient<ProfilMembre>();
+			services.AddTransient<RechercheAvancee>();
+			services.AddTransient<StatistiqueAdministrateur>();
+
+			//ViewModels
 			services.AddTransient<AccueilViewModel>();
-			services.AddTransient<InscriptionViewModel>();
 			services.AddTransient<CatalogueAdministrateurViewModel>();
+			services.AddTransient<CatalogueMembreViewModel>();
+			services.AddTransient<FilmInfoViewModel>();
+			services.AddTransient<InscriptionViewModel>();
 			services.AddTransient<ModificationFilmAdministrateurViewModel>();
+
+			//Page de démarrage
 			services.AddSingleton<Accueil>();
 		}
 		//Démarrage de l'interface graphique

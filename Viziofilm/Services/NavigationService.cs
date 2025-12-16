@@ -62,5 +62,39 @@ namespace Viziofilm.Presentation.Services
 			}
 			modificationFilmFenetre.Show();
 		}
+
+		public void NavigateToAbonnementMembre()
+		{
+			var abonnementMembreFenetre = _serviceProvider.GetRequiredService<AbonnementMembre>();
+			abonnementMembreFenetre.Show();
+		}
+
+		public void NavigateToProfilMembre()
+		{
+			var profilMembreFenetre = _serviceProvider.GetRequiredService<ProfilMembre>();
+			profilMembreFenetre.Show();
+		}
+
+		public void NavigateToFilmInfo(int FilmId)
+		{
+			var filmInfoFenetre = _serviceProvider.GetRequiredService<FilmInfo>();
+			if (filmInfoFenetre.DataContext is FilmInfoViewModel viewModel)
+			{
+				viewModel.ChargerFilm(FilmId);
+			}
+			filmInfoFenetre.Show();
+		}
+
+		public void NavigateToRechercheAvancee()
+		{
+			var rechercheAvanceeFenetre = _serviceProvider.GetRequiredService<RechercheAvancee>();
+			rechercheAvanceeFenetre.Show();
+		}
+
+		public void NavigateToPortefeuilleMembre()
+		{
+			var portefeuilleMembreFenetre = _serviceProvider.GetRequiredService<PortefeuilleMembre>();
+			portefeuilleMembreFenetre.Show();
+		}
 	}
 }

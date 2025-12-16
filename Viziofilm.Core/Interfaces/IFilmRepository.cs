@@ -11,7 +11,8 @@ namespace Viziofilm.Core.Interfaces
 	public interface IFilmRepository : IAsyncRepository<Film>, IRepository<Film>
 	{
 		Task<Film> GetByIdWithDetailsAsync(int id);
-		Task<IReadOnlyList<Film>> RechercherFilm(string motCle);
+		Task<IReadOnlyList<Film>> GetFilmByMotCleAsync(string motCle);
+
 	}
 
 }
